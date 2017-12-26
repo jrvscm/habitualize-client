@@ -1,0 +1,14 @@
+div.info-item {
+	background-color: #d3d3d3;
+	height: 100%;
+}
+
+h4 {
+	padding-bottom: 20px;
+}
+
+p {
+	font-size: 13px;
+  	margin: 0 auto;
+  	max-width: 450px;
+}

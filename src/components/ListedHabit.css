@@ -1,0 +1,14 @@
+section.listed-habit {
+	text-align: center;
+}
+
+h3 {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+p {
+	font-size: 13px;
+  	margin: 0 auto;
+  	max-width: 450px;
+}

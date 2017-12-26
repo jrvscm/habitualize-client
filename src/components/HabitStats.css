@@ -1,0 +1,33 @@
+* {
+	padding:0;
+	margin:0;
+	box-sizing: border-box;
+}
+
+.container-fluid {
+	padding:0;
+}
+
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
+div.habit-stats-container {
+	text-align: center;
+	width: 100%;
+}
+
+section.circle-charts {
+	background-color: #d3d3d3;
+}
+
+.statistics {
+	height: 150px;
+	width: 150px;
+	display: inline-block;
+	border: 1px solid black;
+	padding-top: 50px;
+	border-radius: 50%;
+	margin: 15px;
+}
