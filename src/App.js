@@ -5,8 +5,6 @@ import {
     Redirect,
     Switch
 } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 import LandingPage from './components/LandingPage';
 import LoginPage from './components/LoginPage';
 import UserDashboard from './components/UserDashboard';

@@ -26,16 +26,15 @@ section.calendar-section {
 }
 
 ul.habit-streak-ul li {
-	width: 10px;
-	height:10px;
+	width: 6px;
+	height:6px;
 	list-style-type: none;
 	display:inline-block;
 	border: 1px solid black;
-	margin: 2px;
+	margin: .5px;
 }
 
 ul.habit-streak-ul li:hover {
-	cursor:pointer;
 	background-color: rgba(0,0,0,.5);
 }
 
