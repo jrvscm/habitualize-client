@@ -1,6 +1,8 @@
 const initialState = {
 	averageSubmit: '',
-	percentSuccess: '',
+	percentSuccess: 0,
+	longestStreak: '',
+	donutDataArr: [],
 	currentHabit: {
 				name: 'Learn Javascript',
 				date: '12.25.2017',
@@ -42,6 +44,17 @@ const HabitStatsReducer = (state = initialState, action) => {
 			averageSubmit: action.averageSubmit
 		}
 		
+		case 'SET_DONUT_DATA':
+		return {
+			...state,
+			donutDataArr: action.donutDataArr
+		}
+
+		case 'SET_LONGEST_STREAK':
+		return {
+			...state,
+			longestStreak: action.longestStreak
+		}
 		default:
 			return state
 	}

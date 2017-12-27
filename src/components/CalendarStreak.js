@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setPercentSuccess, SET_PERCENT_SUCCESS, setAverageSubmit, SET_AVERAGE_SUBMIT } from '../actions';
+import {Grid, Row, Col } from 'react-flexbox-grid';
 import { Tooltip } from 'react-lightweight-tooltip';
 import './CalendarStreak.css';
 
@@ -22,13 +23,15 @@ class CalendarStreak extends Component {
 
 		let percentSuccess =   posDigitsArr.length / impressionsArrTotal.length;
 			percentSuccess = (percentSuccess * 100).toFixed(2);
-				this.props.dispatch(setPercentSuccess(`${percentSuccess}`));
+			percentSuccess = Number(percentSuccess);
+				this.props.dispatch(setPercentSuccess(percentSuccess));
 
 		const sumTotalImpressionsArr = impressionsArrTotal.reduce(function(a , b) {
 			return a + b;
 		}, 0);
 
-		const averageSubmit = sumTotalImpressionsArr / impressionsArrTotal.length;
+		let averageSubmit = sumTotalImpressionsArr / impressionsArrTotal.length;
+			  averageSubmit = Number(averageSubmit);
 				this.props.dispatch(setAverageSubmit(averageSubmit.toFixed(2)))
 }
 	render() {

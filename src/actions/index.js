@@ -15,3 +15,15 @@ export const setAverageSubmit = (averageSubmit) => ({
 	type: 'SET_AVERAGE_SUBMIT',
 	averageSubmit
 })
+
+const SET_DONUT_DATA = 'SET_DONUT_DATA'
+export const setDonutData = (donutDataArr) => ({
+	type: 'SET_DONUT_DATA',
+	donutDataArr
+})
+
+const SET_LONGEST_STREAK = 'SET_LONGEST_STREAK'
+export const setLongestStreak = (longestStreak) => ({
+	type: 'SET_LONGEST_STREAK',
+	longestStreak
+})
