@@ -18,10 +18,22 @@ section.bar-chart-section {
 	background: #bbb;
 }
 
-#root > div > main > div > div > div:nth-child(5) > div > section > div > div > svg {
-width: 100%;
+svg.recharts-surface {
+	width: 100%;
+	height: 100%;
 }
 
-label {
-	padding: 5px;
+.recharts-wrapper {
+	width: 100% !important;
+	height: 100% !important;
 }
+
+.legend-item-0 {
+	height:15px;
+	width: 20px;
+}
+
+.recharts-legend-item-text {
+	font-size: 10px;
+}
+
