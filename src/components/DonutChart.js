@@ -9,12 +9,16 @@ class DonutChart extends Component {
 	componentDidMount() {
 			const donutDataArr = [];
 
-			this.props.donutChartData.map((recording, index) =>
+			this.props.donutChartData.map((recording, index) => {
+				if(recording.impressions > 0) {
 
-				donutDataArr.push({
+					donutDataArr.push({
 								value: recording.impressions,
 								key: recording.impressions,
-							})
+						})
+					}
+				}
+				
 			);
 
 			this.props.dispatch(setDonutData(donutDataArr));
