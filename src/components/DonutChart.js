@@ -7,35 +7,32 @@ import './DonutChart.css';
 class DonutChart extends Component {
 	
 	componentDidMount() {
-			const donutDataArr = [];
+		const donutDataArr = [];
 
-			this.props.donutChartData.map((recording, index) => {
-				if(recording.impressions > 0) {
-
-					donutDataArr.push({
-								value: recording.impressions,
-								key: recording.impressions,
-						})
-					}
+		this.props.donutChartData.map((recording, index) => {
+			if(recording.impressions > 0) {
+				donutDataArr.push({
+							value: recording.impressions,
+							key: recording.impressions,
+					})
 				}
-				
-			);
-
-			this.props.dispatch(setDonutData(donutDataArr));
+			}				
+		);
+		this.props.dispatch(setDonutData(donutDataArr));
 	}
 
 	render() {
 		return (	
 			<div className="donut-chart statistics">
-					<span className={'average-submit'}>
-						<h3>{this.props.averageSubmit} / Day</h3>
-						<PieChart
-							labels
-  							data={this.props.donutDataArr}
-							size={150}
-							innerHoleSize={100}
-						/>
-					</span>
+				<span className={'average-submit'}>
+					<h3>{this.props.averageSubmit} / Day</h3>
+					<PieChart
+						labels
+  						data={this.props.donutDataArr}
+						size={150}
+						innerHoleSize={100}
+					/>
+				</span>
 			</div>
 		);
 	}
