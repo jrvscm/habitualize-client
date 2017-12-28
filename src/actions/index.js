@@ -27,3 +27,9 @@ export const setLongestStreak = (longestStreak) => ({
 	type: 'SET_LONGEST_STREAK',
 	longestStreak
 })
+
+const SET_BAR_CHART_DATA = 'SET_BAR_CHART_DATA'
+export const setBarChartData = (barDataArr) => ({
+	type: 'SET_BAR_CHART_DATA',
+	barDataArr
+})

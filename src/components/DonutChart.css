@@ -12,6 +12,9 @@ span h3 {
 }
 
 svg {
-	height:150px;
-	width: 150px;
+	height:150px
+}
+
+.pie-chart-label  {
+	fill: white !important;
 }

@@ -24,7 +24,7 @@ class BestStreak extends Component {
 	render() {
 		let streakColor;
 		
-		if(this.props.longestStreak > 1) {
+		if(this.props.longestStreak >= 1) {
 			streakColor = 'green';
 		} else {
 			streakColor = 'red';

@@ -5,7 +5,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import HeroArea from './HeroArea';
 import CalendarStreak from './CalendarStreak';
-import LineChart from './LineChart';
+import BarGraph from './BarGraph';
 import DonutChart from './DonutChart';
 import BestStreak from './BestStreak';
 import PercentSuccess from './PercentSuccess';
@@ -57,7 +57,7 @@ class HabitStats extends Component {
 					</section>
 			<Row>
 				<Col xs={12}>
-					<LineChart />
+					<BarGraph />
 				</Col>
 			</Row>
 

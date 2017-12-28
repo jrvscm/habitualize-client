@@ -4,18 +4,24 @@
 	box-sizing: border-box;
 }
 
-div.line-chart {
-	height:100px;
-	max-width: 450px;
+div.bar-chart {
 	margin-left: auto;
 	margin-right: auto;
-	padding-top: 5%;
+	padding-top: 1%;
 	text-align: center;
 	background-color: #d3d3d3;
 	border: 1px solid black;
 }
 
-section.line-chart-section {
+section.bar-chart-section {
 	text-align: center;
 	background: #bbb;
+}
+
+#root > div > main > div > div > div:nth-child(5) > div > section > div > div > svg {
+width: 100%;
+}
+
+label {
+	padding: 5px;
 }
