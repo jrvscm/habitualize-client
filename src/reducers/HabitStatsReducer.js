@@ -1,3 +1,4 @@
+
 const initialState = {
 	averageSubmit: '',
 	percentSuccess: 0,

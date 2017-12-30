@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import {Grid, Row, Col } from 'react-flexbox-grid';
+import { connect } from 'react-redux';
+import { Grid, Row, Col } from 'react-flexbox-grid';
+import { Link, Redirect } from 'react-router-dom';
 import Navbar from './Navbar';
 import HeroArea from './HeroArea';
 import InfoItem from './InfoItem';
@@ -9,6 +11,13 @@ import './LandingPage.css';
 
 class LandingPage extends Component {
   render() {
+
+    // If we are logged in (which happens automatically when registration
+    // is successful) redirect to the user's dashboard
+    if (this.props.loggedIn) {
+        return <Redirect to="/dashboard" />;
+    }
+
     return (
     
     <Grid fluid> 
@@ -44,7 +53,7 @@ class LandingPage extends Component {
         
       </Row>
 
-          <SignUpForm title={'Start tracking now'} />
+          <SignUpForm />
 
           <Footer title={'Footer Stuff'} />
       </div>
@@ -53,4 +62,8 @@ class LandingPage extends Component {
   }
 }
 
-export default LandingPage;
+const mapStateToProps = state => ({
+    loggedIn: state.auth.currentUser !== null
+});
+
+export default connect(mapStateToProps)(LandingPage);
