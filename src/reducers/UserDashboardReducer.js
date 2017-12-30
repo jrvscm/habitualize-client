@@ -1,5 +1,5 @@
 const initialState = {
-	setShow: false,
+	show: false,
 	habits: [{
 				name: 'Floss Teeth',
 				date: '12.20.2017',
@@ -63,7 +63,13 @@ const UserDashboardReducer = (state = initialState, action) => {
 		case 'SET_MODAL_SHOW':
 		return {
 			...state,
-			setShow: action.setShow
+			show: action.show
+		}
+
+		case 'SET_CLOSE_MODAL':
+		return {
+			...state,
+			show: action.show
 		}
 
 		default:

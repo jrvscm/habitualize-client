@@ -35,7 +35,13 @@ export const setBarChartData = (barDataArr) => ({
 })
 
 const SET_MODAL_SHOW = 'SET_MODAL_SHOW'
-export const setModalShow = (setShow) => ({
+export const setModalShow = () => ({
 	type: 'SET_MODAL_SHOW',
-	setShow
+	show: true
+})
+
+const SET_CLOSE_MODAL = 'SET_CLOSE_MODAL'
+export const setCloseModal = () => ({
+	type: 'SET_CLOSE_MODAL',
+	show: false
 })

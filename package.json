@@ -19,6 +19,7 @@
     "redux": "^3.7.2",
     "redux-form": "^7.2.0",
     "redux-thunk": "^2.2.0",
+    "simple-react-modal": "^0.5.1",
     "whatwg-fetch": "^2.0.3"
   },
   "scripts": {
