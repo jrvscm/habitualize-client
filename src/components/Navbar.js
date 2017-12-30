@@ -25,7 +25,6 @@ class Navbar extends Component {
 				<div className="navbar-container">
 					<nav>
 						<NavLink address={'/dashboard'} title={'Home'} />
-						<NavLink address={'/stats'} title={'Stats'} />
 						{logOutButton}
 					</nav>
 				</div>

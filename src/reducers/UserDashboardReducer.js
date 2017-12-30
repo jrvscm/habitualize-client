@@ -1,4 +1,5 @@
 const initialState = {
+	setShow: false,
 	habits: [{
 				name: 'Floss Teeth',
 				date: '12.20.2017',
@@ -58,6 +59,12 @@ const initialState = {
 
 const UserDashboardReducer = (state = initialState, action) => {
 	switch(action.type) {
+
+		case 'SET_MODAL_SHOW':
+		return {
+			...state,
+			setShow: action.setShow
+		}
 
 		default:
 			return state

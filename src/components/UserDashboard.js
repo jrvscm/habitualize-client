@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import Footer from  './Footer';
 import ListedHabit from './ListedHabit';
 import HeroArea from './HeroArea';
+import Modal from './Modal';
 import {Grid, Row, Col } from 'react-flexbox-grid';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -60,7 +61,6 @@ class UserDashboard extends Component {
 					<ul className='user-habit-list'>
 						{UserHabits}
 					</ul>
-					
 				</Col>
 			</Row>
 
