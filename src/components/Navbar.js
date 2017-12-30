@@ -1,21 +1,37 @@
 import React, { Component } from 'react';
 import { clearAuth, CLEAR_AUTH } from '../actions/auth';
 import { clearAuthToken } from '../local-storage';
+import { connect } from 'react-redux';
 import NavLink from './NavLink';
 import './Navbar.css';
 
 class Navbar extends Component {
 
-	logOut(e) {
-		this.props.dispatch(clearAuth());
+	logOut() {
+		this.props.dispatch(clearAuth);
 		clearAuthToken();
+		window.location.href = '/home';
 	}
 
 	render() {
-
-		if(window.location.href.indexOf('/home') > -1 ||
-			window.location.href.indexOf('/login') > -1 ) {
+		//Only renders the button if were logged in.
+		let logOutButton;
+        if (this.props.loggedIn) {
+            logOutButton = (
+                <button onClick={() => this.logOut()}>Log out</button>
+            );
 		
+		return(
+				<div className="navbar-container">
+					<nav>
+						<NavLink address={'/dashboard'} title={'Home'} />
+						<NavLink address={'/stats'} title={'Stats'} />
+						{logOutButton}
+					</nav>
+				</div>
+			);
+		} else {
+
 		return(
 				<div className="navbar-container">
 					<nav>
@@ -24,18 +40,12 @@ class Navbar extends Component {
 					</nav>
 				</div>
 			);
-	} else {
-		return(
-				<div className="navbar-container">
-					<nav>
-						<NavLink address={'/dashboard'} title={'Home'} />
-						<NavLink address={'/stats'} title={'Stats'} />
-						<NavLink address={'/home'} onClick={(e) => this.props.logOut(e)} title={'Log Out'} />
-					</nav>
-				</div>
-			);
 		}
 	}
 }
 
-export default Navbar;
+const mapStateToProps = (state) => ({
+    loggedIn: state.auth.currentUser !== null
+});
+
+export default connect(mapStateToProps) (Navbar);

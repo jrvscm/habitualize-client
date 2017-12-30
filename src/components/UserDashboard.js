@@ -4,7 +4,7 @@ import Footer from  './Footer';
 import ListedHabit from './ListedHabit';
 import HeroArea from './HeroArea';
 import {Grid, Row, Col } from 'react-flexbox-grid';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setCurrentHabit, SET_CURRENT_HABIT } from '../actions';
 import './Footer.css';
@@ -19,6 +19,10 @@ class UserDashboard extends Component {
 	}
 
 	render() {
+
+		if(this.props.loggedOut) {
+			return <Redirect to="/home" />;
+		}
 
 		const UserHabits = this.props.habits.map((habit, index) =>
 			<li key={index} index={index}
@@ -76,7 +80,8 @@ class UserDashboard extends Component {
 }
 
 const mapStateToProps = (state) => ({
-	habits: state.UserDashboardReducer.habits
+	habits: state.UserDashboardReducer.habits,
+	loggedOut: state.auth.currentUser == null
 })
 
 export default connect(mapStateToProps) (UserDashboard);

@@ -9,10 +9,16 @@ import BarGraph from './BarGraph';
 import DonutChart from './DonutChart';
 import BestStreak from './BestStreak';
 import PercentSuccess from './PercentSuccess';
+import { Redirect } from 'react-router-dom';
 import './HabitStats.css';
 
 class HabitStats extends Component {
 	render() {
+
+		if(this.props.loggedOut) {
+			return <Redirect to="/home" />;
+		}
+
 		return (
 	<Grid fluid>
 		<div className={'habit-stats-container'}>
@@ -77,7 +83,8 @@ const mapStateToProps = (state) => ({
 	currentHabit: state.HabitStatsReducer.currentHabit,
 	habitName: state.HabitStatsReducer.currentHabit.name,
 	streak: state.HabitStatsReducer.currentHabit.streak,
-	startDate: state.HabitStatsReducer.currentHabit.date
+	startDate: state.HabitStatsReducer.currentHabit.date,
+	loggedOut: state.auth.currentUser == null
 })
 
 export default connect(mapStateToProps)(HabitStats);
