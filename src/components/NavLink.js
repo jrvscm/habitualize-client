@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { clearAuth, CLEAR_AUTH } from '../actions/auth';
-import { clearAuthToken } from '../local-storage';
 import { Link } from 'react-router-dom';
 import './NavLink.css';
 
