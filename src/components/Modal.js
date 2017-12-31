@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Modal, {closeStyle} from 'simple-react-modal';
 import { connect } from 'react-redux';
 import { setModalShow, setCloseModal } from '../actions/index';
+import HabitForm from './HabitForm';
 import './Modal.css';
 
 class SimpleModal extends Component {
@@ -25,7 +26,10 @@ class SimpleModal extends Component {
       					closeOnOuterClick={false}
       					show={this.props.show}
       					onClose={this.close.bind(this)}>
-      						<div className={'modal-content'}>	<a className={'closeLink'} onClick={this.close.bind(this)}>X</a>hey</div>
+      						
+      						<div className={'modal-content'}>	<a className={'closeLink'} onClick={this.close.bind(this)}>X</a>
+      							<HabitForm />
+      						</div>
       				</Modal>
       		</div>
 		);

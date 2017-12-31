@@ -11,15 +11,17 @@ div.modal {
 	right:0;
 	left:0;
 	bottom:0;
-	overflow:hidden;
 }
 
 div.modal-content {
 	background-color: #d3d3d3;
-	margin-top: 15%;
+	margin-top: 5%;
 	margin-left: auto;
 	margin-right: auto;
-	height: 300px;
 	width: 300px;
-	border-radius: 15px;
+	border-radius: 5px;
+	padding: 5px;
+	-webkit-box-shadow: 10px 10px 19px -5px rgba(0,0,0,0.80);
+	-moz-box-shadow: 10px 10px 19px -5px rgba(0,0,0,0.80);
+	box-shadow: 10px 10px 19px -5px rgba(0,0,0,0.80);
 }

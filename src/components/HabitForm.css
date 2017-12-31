@@ -1,0 +1,23 @@
+li.rw-list-option {
+	list-style-type: none;
+	text-align: center;
+	cursor: pointer;
+}
+
+input, textarea {
+  width: 100%;
+  max-width: 500px;
+}
+
+input[type="radio"] {
+	width:auto;
+}
+
+label {
+  display: block;
+}
+
+label#good-habit-label {
+	float:left;
+	margin-right: 20%;
+}
