@@ -9,7 +9,6 @@ import './SignUpForm.css';
 class SignUpForm extends Component {
     
     onSubmit(values) {
-        console.log(values)
         const {username, password, firstName, lastName} = values;
         const user = {username, password, firstName, lastName};
         return this.props

@@ -1,3 +1,5 @@
+import { API_BASE_URL } from '../config';
+
 const SET_CURRENT_HABIT = 'SET_CURRENT_HABIT'
 export const setCurrentHabit = (habit) => ({
 	type: 'SET_CURRENT_HABIT',
@@ -45,3 +47,48 @@ export const setCloseModal = () => ({
 	type: 'SET_CLOSE_MODAL',
 	show: false
 })
+
+const CLEAR_USER_HABITS = 'CLEAR_USER_HABITS'
+export const clearUserHabits = () => ({
+	type: 'CLEAR_USER_HABITS'
+})
+
+const ASSIGN_USER_HABITS = 'ASSIGN_USER_HABITS'
+export const assignUserHabits = (habit) => ({
+	type: 'ASSIGN_USER_HABITS',
+	habit
+})
+
+
+const formatUserHabit = (habit) => {
+	return (dispatch) => {
+		let newHabit = {
+			name: `${habit.habitTitle}`,
+			date: `${habit.startDate}`,
+			streak: [
+				{submitted: '12.14.2017', impressions: 1},
+				{submitted: '11.1.2017', impressions: 0},
+				{submitted: '10.12.2017', impressions: 1}
+			],
+			goodorbad: `${habit.goodOrBad}`,
+			goal: `${habit.goal}`,
+			loginterval: `${habit.logInterval}`
+		}
+
+		dispatch(assignUserHabits(newHabit))
+	}
+}
+
+export const getUserHabits = (currentUser, authToken) => {
+	return (dispatch) => {
+		fetch(`${API_BASE_URL}/habits/${currentUser.userId}`, {
+			headers: {
+          	//provide the authToken from our store
+            Authorization: `Bearer ${authToken}`
+        	}
+		})
+		.then(response => response.json())
+		.then(json => json.map(habit => dispatch(formatUserHabit(habit))))
+		.catch((ex) => console.log('parsing failed', ex))
+	}
+}

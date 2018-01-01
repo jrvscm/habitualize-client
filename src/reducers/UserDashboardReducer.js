@@ -1,6 +1,7 @@
 const initialState = {
 	show: false,
-	habits: [{
+	userHabits: [],
+	sampleHabits: [{
 				name: 'Floss Teeth',
 				date: '12.20.2017',
 				streak: [
@@ -70,6 +71,18 @@ const UserDashboardReducer = (state = initialState, action) => {
 		return {
 			...state,
 			show: action.show
+		}
+
+		case 'ASSIGN_USER_HABITS':
+		return {
+			...state,
+			userHabits: [...state.userHabits, action.habit]
+		}
+
+		case 'CLEAR_USER_HABITS':
+		return {
+			...state,
+			userHabits: []
 		}
 
 		default:

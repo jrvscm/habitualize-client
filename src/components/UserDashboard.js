@@ -7,16 +7,28 @@ import SimpleModal from './Modal';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { setCurrentHabit, SET_CURRENT_HABIT } from '../actions';
+import { 
+	clearUserHabits, CLEAR_USER_HABITS,
+	setCurrentHabit, SET_CURRENT_HABIT, 
+	getUserHabits, GET_USER_HABITS 
+} from '../actions';
 import './Footer.css';
 import './Navbar.css';
 import './ListedHabit.css';
 import './UserDashboard.css';
 
 class UserDashboard extends Component {
+	componentDidMount() {
+	if(this.props.currentUser == null) {
+		return true;
+	} else {
+		this.props.dispatch(clearUserHabits());
+		this.props.dispatch(getUserHabits(this.props.currentUser, this.props.authToken));
+	}
+}
 
 	liClick(e, habit) {
-		this.props.dispatch(setCurrentHabit(habit))
+		this.props.dispatch(setCurrentHabit(habit));
 	}
 
 	render() {
@@ -25,7 +37,9 @@ class UserDashboard extends Component {
 			return <Redirect to="/home" />;
 		}
 
-		const UserHabits = this.props.habits.map((habit, index) =>
+		let userHabits;
+		if(this.props.userHabits.length < 1) {
+			userHabits = this.props.sampleHabits.map((habit, index) =>
 			<li key={index} index={index}
 					{...habit}	className="listed-habit" onClick={(e) => this.liClick(e, habit)}>
 				
@@ -36,9 +50,23 @@ class UserDashboard extends Component {
 					/>
 				</Link>
 			</li>
-		);
-		
-		return (
+			);
+		} else {
+			userHabits = this.props.userHabits.map((habit, index) =>
+			<li key={index} index={index}
+					{...habit}	className="listed-habit" onClick={(e) => this.liClick(e, habit)}>
+				
+				<Link to="/stats">
+					<ListedHabit 
+					name={habit.name}
+					date={habit.date}
+					/>
+				</Link>
+			</li>
+			);
+		}
+
+return (
 
 	<Grid fluid>
 
@@ -52,6 +80,7 @@ class UserDashboard extends Component {
 			<Row>
 				<Col xs>
 					<HeroArea title={'My Habits'} />
+					<p>These are just sample habits. When you create some of your own, this is how they will appear.</p>
 					<SimpleModal />
 				</Col>
 			</Row>
@@ -60,7 +89,7 @@ class UserDashboard extends Component {
 			<Row>
 				<Col xs>
 					<ul className='user-habit-list'>
-						{UserHabits}
+						{userHabits}
 					</ul>
 				</Col>
 			</Row>
@@ -81,7 +110,10 @@ class UserDashboard extends Component {
 }
 
 const mapStateToProps = (state) => ({
-	habits: state.UserDashboardReducer.habits,
+	sampleHabits: state.UserDashboardReducer.sampleHabits,
+	userHabits: state.UserDashboardReducer.userHabits,
+	currentUser: state.auth.currentUser,
+	authToken: state.auth.authToken,
 	loggedOut: state.auth.currentUser == null
 })
 
