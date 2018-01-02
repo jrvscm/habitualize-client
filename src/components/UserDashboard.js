@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
 import Footer from  './Footer';
+import moment from 'moment';
 import ListedHabit from './ListedHabit';
 import HeroArea from './HeroArea';
 import SimpleModal from './Modal';
@@ -59,7 +60,7 @@ class UserDashboard extends Component {
 				<Link to="/stats">
 					<ListedHabit 
 					name={habit.name}
-					date={habit.date}
+					date={moment(habit.date).format('MM-DD-YYYY')}
 					/>
 				</Link>
 			</li>

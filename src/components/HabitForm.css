@@ -17,7 +17,7 @@ label {
   display: block;
 }
 
-label#good-habit-label {
+label#goodHabitRadioLabel {
 	float:left;
 	margin-right: 20%;
 }

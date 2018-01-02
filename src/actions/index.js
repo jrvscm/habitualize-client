@@ -1,4 +1,5 @@
 import { API_BASE_URL } from '../config';
+import moment from 'moment';
 
 const SET_CURRENT_HABIT = 'SET_CURRENT_HABIT'
 export const setCurrentHabit = (habit) => ({
@@ -63,25 +64,20 @@ export const assignUserHabits = (habit) => ({
 const formatUserHabit = (habit) => {
 	return (dispatch) => {
 		let newHabit = {
-			name: `${habit.habitTitle}`,
-			date: `${habit.startDate}`,
-			streak: [
-				{submitted: '12.14.2017', impressions: 1},
-				{submitted: '11.1.2017', impressions: 0},
-				{submitted: '10.12.2017', impressions: 1}
-			],
-			goodorbad: `${habit.goodOrBad}`,
-			goal: `${habit.goal}`,
-			loginterval: `${habit.logInterval}`
+			name: habit.habitTitle,
+			date: habit.startDate,
+			streak: habit.streak,
+			goodorbad: habit.goodOrBad,
+			goal: habit.goal,
+			loginterval: habit.logInterval
 		}
 
 		dispatch(assignUserHabits(newHabit))
 	}
 }
 
-export const getUserHabits = (currentUser, authToken) => {
-	return (dispatch) => {
-		fetch(`${API_BASE_URL}/habits/${currentUser.userId}`, {
+export const getUserHabits = (currentUser, authToken) => (dispatch) => {
+		return fetch(`${API_BASE_URL}/habits/${currentUser.userId}`, {
 			headers: {
           	//provide the authToken from our store
             Authorization: `Bearer ${authToken}`
@@ -91,4 +87,29 @@ export const getUserHabits = (currentUser, authToken) => {
 		.then(json => json.map(habit => dispatch(formatUserHabit(habit))))
 		.catch((ex) => console.log('parsing failed', ex))
 	}
+
+
+
+
+export const createNewHabitRequest = (values, authToken, currentUser) => (dispatch) => {
+		const firstLog = moment().format('MM/DD/YYYY');
+		return fetch(`${API_BASE_URL}/habits/`, {
+			method: 'POST',
+			headers: {
+          	//provide the authToken from our store
+            Authorization: `Bearer ${authToken}`,
+            "Content-Type": "application/json"
+        	},
+        	body: JSON.stringify({
+        		habitTitle: values.habitTitle,
+        		streak: [{submitted: firstLog, impressions: 1}],
+        		userRef: currentUser.userId,
+        		goodOrBad: values.goodOrBadRadio,
+        		goal: values.habitGoalDropdown,
+        		logInterval: values.habitLogDropdown
+        	})
+		})
+		.then(response => response.json())
+		.then(json => dispatch(formatUserHabit(json)))
+		.catch((ex) => console.log('parsing failed', ex)) 
 }

@@ -28,7 +28,7 @@ class SimpleModal extends Component {
       					onClose={this.close.bind(this)}>
       						
       						<div className={'modal-content'}>	<a className={'closeLink'} onClick={this.close.bind(this)}>X</a>
-      							<HabitForm />
+      							<HabitForm authToken={this.props.authToken} currentUser={this.props.currentUser} />
       						</div>
       				</Modal>
       		</div>
@@ -37,7 +37,9 @@ class SimpleModal extends Component {
 }
 
 const mapStateToProps = (state) => ({
-	show: state.UserDashboardReducer.show
+	show: state.UserDashboardReducer.show,
+	authToken: state.auth.authToken,
+	currentUser: state.auth.currentUser
 })
 
 export default connect(mapStateToProps)(SimpleModal)

@@ -1,7 +1,10 @@
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import { DropdownList } from 'react-widgets';
-import { setCloseModal } from '../actions/index';
+import { 
+	setCloseModal, SET_CLOSE_MODAL,
+	createNewHabitRequest		
+	} from '../actions/index';
 import Input from './input';
 import moment from 'moment';
 import momentLocalizer from 'react-widgets-moment';
@@ -12,8 +15,8 @@ import 'react-widgets/dist/css/react-widgets.css';
 
 export class HabitForm extends React.Component {
     onSubmit(values) {
-       console.log(values)
-       this.props.dispatch(setCloseModal());
+    	this.props.dispatch(createNewHabitRequest(values, this.props.authToken, this.props.currentUser));
+    	this.props.dispatch(setCloseModal());
     }
 
     render() {
@@ -30,7 +33,7 @@ export class HabitForm extends React.Component {
 
     	const renderDropdownList = ({ input, data, valueField, textField }) =>
   			<DropdownList {...input}
-  			//dropUp
+  			dropUp
     		data={data}
     		valueField={valueField}
     		textField={textField}
@@ -58,51 +61,53 @@ export class HabitForm extends React.Component {
                     this.onSubmit(values)
                 )}>
                 {error}
-                <label htmlFor="HabitTitle">Habit Title</label>
+                <label htmlFor="habitTitle">Habit Title</label>
                 <Field
                     component={Input}
                     type="text"
-                    name="HabitTitle"
-                    id="HabitTitle"
+                    name="habitTitle"
+                    id="habitTitle"
                     validate={[required, nonEmpty]}
                 />
 
-                <label htmlFor="habit-start-date">Start Date</label>
+                <label htmlFor="habitStartDate">Start Date</label>
           			  <Field
-          				name="habit-start-date"
+          				name="habitStartDate"
           				showTime={false}
           				component={renderDateTimePicker}
         		/>
-                <label id="good-habit-label" htmlFor="good-habit-radio">Good
+                <label id="goodHabitRadioLabel" htmlFor="goodHabitRadio">Good
                 <Field
                     component={Input}
                     type="radio"
-                    name="good-habit-radio"
-                    id="good-habit-radio"
+                    name="goodOrBadRadio"
+                    id="goodHabitRadio"
                     value="good"
                 />
                 </label>
-                <label id="bad-habit-label" htmlFor="bad-habit-radio">Bad
+                <label id="badHabitRadioLabel" htmlFor="badHabitRadio">Bad
                 <Field
                     component={Input}
                     type="radio"
-                    name="good-habit-radio"
-                    id="bad-habit-radio"
+                    name="goodOrBadRadio"
+                    id="badHabitRadio"
                     value="bad"
                 />
                 </label>
-                <label htmlFor="habit-goal-dropdown">Goal</label>
+                <label htmlFor="habitGoalDropdown">Goal</label>
 			        <Field
-          				name="habit-goal-dropdown"
+          				name="habitGoalDropdown"
+          				id="habigGoalDropdown"
           				component={renderDropdownList}
           				data={numbers}
           				valueField="value"
           				textField="goal"
           		/>
 
-          		<label htmlFor="habit-log">When to log</label>
+          		<label htmlFor="habigLogDropdown">When to log</label>
 			        <Field
-          				name="habit-log-dropdown"
+          				name="habitLogDropdown"
+          				id="habitLogDropdown"
           				component={renderDropdownList}
           				data={logData}
           				valueField="value"
@@ -119,5 +124,5 @@ export class HabitForm extends React.Component {
 
 export default reduxForm({
     form: 'HabitForm',
-    onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
+    onSubmitFail: (errors, dispatch) => dispatch(focus('HabitForm', 'habit-start-date'))
 })(HabitForm);
