@@ -56,7 +56,7 @@ class BestStreak extends Component {
 }
 
 const mapStateToProps = (state) => ({
-	streak: state.HabitStatsReducer.currentHabit.streak,
+	streak: state.HabitStatsReducer.currentHabitArray,
 	longestStreak: state.HabitStatsReducer.longestStreak
 })
 

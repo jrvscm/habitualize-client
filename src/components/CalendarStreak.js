@@ -62,4 +62,8 @@ class CalendarStreak extends Component {
 	}
 }
 
-export default connect() (CalendarStreak);
+const mapPropsToState = (state) => ({
+	streak: state.HabitStatsReducer.currentHabitArray
+})
+
+export default connect(mapPropsToState) (CalendarStreak);

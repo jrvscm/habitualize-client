@@ -3,10 +3,10 @@ const initialState = {
 	averageSubmit: '',
 	percentSuccess: 0,
 	longestStreak: '',
-	currentHabitStreak: [],
 	donutDataArr: [],
 	barDataArr: [],
-	currentHabit: {}
+	currentHabit: {},
+	currentHabitArray: []
 }
 
 
@@ -16,6 +16,12 @@ const HabitStatsReducer = (state = initialState, action) => {
 		return {
 			...state,
 			currentHabit: action.habit
+		}
+
+		case 'SET_CURRENT_HABIT_ARRAY':
+		return {
+			...state,
+			currentHabitArray: action.array
 		}
 
 		case 'SET_PERCENT_SUCCESS':
@@ -46,12 +52,6 @@ const HabitStatsReducer = (state = initialState, action) => {
 		return {
 			...state,
 			barDataArr: action.barDataArr
-		}
-
-		case 'SET_CURRENT_HABIT_STREAK':
-		return {
-			...state,
-			currentHabitStreak: [...state.currentHabitStreak, action.newLog]
 		}
 
 		default:

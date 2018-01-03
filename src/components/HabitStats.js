@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Grid, Row, Col } from 'react-flexbox-grid';
 import { connect } from 'react-redux';
-import { sameDayLogged, setCurrentHabit } from '../actions';
+import { setCurrentHabitArray } from '../actions';
 import moment from 'moment';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -18,14 +18,6 @@ import Modal, {closeStyle} from 'simple-react-modal';
 import './HabitStats.css';
 
 class HabitStats extends Component {
-	handler() {
-		const today = moment().format('MM-DD-YYYY');
-		let yesterday = moment().add(-1, 'days');
-			yesterday = moment(yesterday).format('MM-DD-YYYY');
-		let newLog = {submitted: today, impressions: 1};
-		this.props.dispatch(sameDayLogged(newLog, this.props.authToken, this.props.currentHabit));
-	}
-
 	render() {
 
 		if(this.props.loggedOut) {
@@ -45,7 +37,7 @@ class HabitStats extends Component {
 			<Row>
 				<Col xs={12}>
 					<HeroArea title={'Habit Stats'}/>
-					<LogHabit callback={this.handler.bind(this)}/>
+					<LogHabit />
 				</Col>
 			</Row>
 
@@ -53,7 +45,6 @@ class HabitStats extends Component {
 				<Col xs={12}>
 					<CalendarStreak 
 					habitName={this.props.habitName}
-					streak={this.props.streak}
 					startDate={moment(this.props.startDate).format('MM-DD-YYYY')}
 					/>
 				</Col>
@@ -96,10 +87,11 @@ class HabitStats extends Component {
 const mapStateToProps = (state) => ({
 	currentHabit: state.HabitStatsReducer.currentHabit,
 	habitName: state.HabitStatsReducer.currentHabit.name,
-	streak: state.HabitStatsReducer.currentHabit.streak,
+	streak: state.HabitStatsReducer.currentHabitArray,
 	startDate: state.HabitStatsReducer.currentHabit.date,
 	currentUser: state.auth.currentUser,
 	authToken: state.auth.authToken,
+	loggedEntry: state.HabitStatsReducer.loggedEntry,
 	loggedOut: state.auth.currentUser == null
 })
 

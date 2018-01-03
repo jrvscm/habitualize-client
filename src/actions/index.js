@@ -7,6 +7,21 @@ export const setCurrentHabit = (habit) => ({
 	habit
 })
 
+const SET_CURRENT_HABIT_ARRAY = 'SET_CURRENT_HABIT_ARRAY'
+export const setCurrentHabitArray = (array) => ({
+	type: 'SET_CURRENT_HABIT_ARRAY',
+	array
+})
+
+const SEND_CURRENT_HABIT = 'SEND_CURRENT_HABIT'
+export const sendCurrentHabit = (habit) => {
+	return (dispatch) => {
+		dispatch(setCurrentHabitArray(habit.streak));
+		dispatch(setCurrentHabit(habit));
+	}
+}
+
+
 const SET_PERCENT_SUCCESS = 'SET_PERCENT_SUCCESS'
 export const setPercentSuccess = (percentSuccess) => ({
 	type: 'SET_PERCENT_SUCCESS',
@@ -59,7 +74,6 @@ export const assignUserHabits = (habit) => ({
 	type: 'ASSIGN_USER_HABITS',
 	habit
 })
-
 
 const formatUserHabit = (habit) => {
 	return (dispatch) => {
@@ -116,20 +130,3 @@ export const createNewHabitRequest = (values, authToken, currentUser) => (dispat
 		.catch((ex) => console.log('parsing failed', ex)) 
 }
 
-export const sameDayLogged = (newLog, authToken, currentHabit) => (dispatch) => {
-	console.log(authToken)
-			return fetch(`${API_BASE_URL}/habits/${currentHabit.id}`, {
-			method: 'PUT',
-			headers: {
-          	//provide the authToken from our store
-            Authorization: `Bearer ${authToken}`,
-            "Content-Type": "application/json"
-        	},
-        	body: JSON.stringify({
-        		streak: newLog
-        	})
-		})
-		.then(response => response.json())
-		.then(json => dispatch(formatUserHabit(json)))
-		.catch((ex) => console.log('parsing failed', ex)) 
-}

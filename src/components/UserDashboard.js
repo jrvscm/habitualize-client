@@ -10,7 +10,8 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { 
 	clearUserHabits, CLEAR_USER_HABITS,
-	setCurrentHabit, SET_CURRENT_HABIT, 
+	sendCurrentHabit, SEND_CURRENT_HABIT,
+	setCurrentHabitArray, SET_CURRENT_HABIT_ARRAY, 
 	getUserHabits, GET_USER_HABITS
 } from '../actions';
 import './Footer.css';
@@ -29,7 +30,7 @@ class UserDashboard extends Component {
 }
 
 	liClick(e, habit) {
-		this.props.dispatch(setCurrentHabit(habit));
+		this.props.dispatch(sendCurrentHabit(habit));
 	}
 
 	render() {
@@ -115,7 +116,7 @@ const mapStateToProps = (state) => ({
 	userHabits: state.UserDashboardReducer.userHabits,
 	currentUser: state.auth.currentUser,
 	authToken: state.auth.authToken,
-	streak: state.HabitStatsReducer.currentHabit.streak,
+	streak: state.HabitStatsReducer.currentHabitArray,
 	loggedOut: state.auth.currentUser == null
 })
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import { BarChart } from 'react-easy-chart';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { setBarChartData, SET_BAR_CHART_DATA} from '../actions';
@@ -7,10 +8,11 @@ import './BarGraph.css';
 
 class BarGraph extends Component {
 
-	componentDidMount() {
+	componentWillMount() {
 		const barDataArr = [];
+		
 		this.props.streak.map((streakIteration, index) =>
-			barDataArr.push({name: streakIteration.submitted, Submission: streakIteration.impressions})
+		barDataArr.push({name: streakIteration.submitted, Submission: streakIteration.impressions})
 		);
 		
 		this.props.dispatch(setBarChartData(barDataArr))
@@ -40,7 +42,7 @@ class BarGraph extends Component {
 }
 
 const mapStateToProps = (state) => ({
-	streak: state.HabitStatsReducer.currentHabit.streak,
+	streak: state.HabitStatsReducer.currentHabitArray,
 	barDataArr: state.HabitStatsReducer.barDataArr
 })
 
