@@ -6,7 +6,7 @@ const initialState = {
 	currentHabitStreak: [],
 	donutDataArr: [],
 	barDataArr: [],
-	currentHabit: {},
+	currentHabit: {}
 }
 
 
@@ -46,6 +46,12 @@ const HabitStatsReducer = (state = initialState, action) => {
 		return {
 			...state,
 			barDataArr: action.barDataArr
+		}
+
+		case 'SET_CURRENT_HABIT_STREAK':
+		return {
+			...state,
+			currentHabitStreak: [...state.currentHabitStreak, action.newLog]
 		}
 
 		default:

@@ -1,32 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
-import { sameDayLogged } from '../actions/index';
+import { 
+	sameDayLogged
+} from '../actions/index';
 import './LogHabit.css';
 
 class LogHabit extends Component {
 
 	onClick() {
-		const newStreak = [];
-		const streak = this.props.currentHabit.streak;
 		const today = moment().format('MM-DD-YYYY');
 		let yesterday = moment().add(-1, 'days');
 			yesterday = moment(yesterday).format('MM-DD-YYYY');
 		let newLog = {submitted: today, impressions: 1};
-		let logOfSameDay;
-		for(let i=0; i<streak.length; i++) {
-			if(streak[i].submitted === newLog.submitted) {
-				logOfSameDay = {submitted: newLog.submitted, impressions: streak[i].impressions + 1}
-				newStreak.push(logOfSameDay);
-			}
-		} 
-	this.props.dispatch(sameDayLogged(newStreak, this.props.authToken, this.props.currentHabit))
+		this.props.dispatch(sameDayLogged(newLog, this.props.authToken, this.props.currentHabit))
 	}
 
 	render() {
 		return(
-			<div className="log-habit-container">
-				<button className="log-habit-button" onClick={this.onClick.bind(this)}>Log++</button>
+			<div className="log-habit-container" onClick={this.onClick.bind(this)}>
+				<button className="log-habit-button" onClick={this.props.callback}>Log++</button>
 			</div>
 		);
 	}
@@ -34,8 +27,9 @@ class LogHabit extends Component {
 
 const mapPropsToState = (state) => ({
 	currentHabit: state.HabitStatsReducer.currentHabit,
+	streak: state.HabitStatsReducer.currentHabit.streak,
 	currentUser: state.auth.currentUser,
-	authToken: state.auth.authToken,
+	authToken: state.auth.authToken
 })
 
 export default connect(mapPropsToState)(LogHabit);

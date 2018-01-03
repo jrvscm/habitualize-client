@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Grid, Row, Col } from 'react-flexbox-grid';
 import { connect } from 'react-redux';
+import { setCurrentHabit } from '../actions';
 import moment from 'moment';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -17,6 +18,11 @@ import Modal, {closeStyle} from 'simple-react-modal';
 import './HabitStats.css';
 
 class HabitStats extends Component {
+
+	handler() {
+		this.props.dispatch(setCurrentHabit(this.props.currentHabit))
+	}
+
 	render() {
 
 		if(this.props.loggedOut) {
@@ -36,7 +42,7 @@ class HabitStats extends Component {
 			<Row>
 				<Col xs={12}>
 					<HeroArea title={'Habit Stats'}/>
-					<LogHabit />
+					<LogHabit callback={this.handler.bind(this)}/>
 				</Col>
 			</Row>
 

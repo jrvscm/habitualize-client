@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import { 
 	clearUserHabits, CLEAR_USER_HABITS,
 	setCurrentHabit, SET_CURRENT_HABIT, 
-	getUserHabits, GET_USER_HABITS 
+	getUserHabits, GET_USER_HABITS
 } from '../actions';
 import './Footer.css';
 import './Navbar.css';
@@ -115,6 +115,7 @@ const mapStateToProps = (state) => ({
 	userHabits: state.UserDashboardReducer.userHabits,
 	currentUser: state.auth.currentUser,
 	authToken: state.auth.authToken,
+	streak: state.HabitStatsReducer.currentHabit.streak,
 	loggedOut: state.auth.currentUser == null
 })
 
