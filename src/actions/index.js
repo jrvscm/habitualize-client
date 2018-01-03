@@ -69,7 +69,9 @@ const formatUserHabit = (habit) => {
 			streak: habit.streak,
 			goodorbad: habit.goodOrBad,
 			goal: habit.goal,
-			loginterval: habit.logInterval
+			loginterval: habit.logInterval,
+			id: habit._id,
+			userref: habit.userRef
 		}
 
 		dispatch(assignUserHabits(newHabit))
@@ -92,7 +94,7 @@ export const getUserHabits = (currentUser, authToken) => (dispatch) => {
 
 
 export const createNewHabitRequest = (values, authToken, currentUser) => (dispatch) => {
-		const firstLog = moment().format('MM/DD/YYYY');
+		const firstLog = moment().format('MM-DD-YYYY');
 		return fetch(`${API_BASE_URL}/habits/`, {
 			method: 'POST',
 			headers: {
@@ -111,5 +113,23 @@ export const createNewHabitRequest = (values, authToken, currentUser) => (dispat
 		})
 		.then(response => response.json())
 		.then(json => dispatch(formatUserHabit(json)))
+		.catch((ex) => console.log('parsing failed', ex)) 
+}
+
+
+export const sameDayLogged = (newStreak, authToken, currentHabit) => (dispatch) => {
+			return fetch(`${API_BASE_URL}/habits/${currentHabit.id}`, {
+			method: 'PUT',
+			headers: {
+          	//provide the authToken from our store
+            Authorization: `Bearer ${authToken}`,
+            "Content-Type": "application/json"
+        	},
+        	body: JSON.stringify({
+        		streak: newStreak,
+        	})
+		})
+		.then(response => response.json())
+		.then(json => console.log(json))
 		.catch((ex) => console.log('parsing failed', ex)) 
 }

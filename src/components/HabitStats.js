@@ -5,6 +5,7 @@ import moment from 'moment';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import HeroArea from './HeroArea';
+import LogHabit from './LogHabit';
 import CalendarStreak from './CalendarStreak';
 import BarGraph from './BarGraph';
 import DonutChart from './DonutChart';
@@ -35,6 +36,7 @@ class HabitStats extends Component {
 			<Row>
 				<Col xs={12}>
 					<HeroArea title={'Habit Stats'}/>
+					<LogHabit />
 				</Col>
 			</Row>
 
