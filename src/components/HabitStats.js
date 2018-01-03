@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Grid, Row, Col } from 'react-flexbox-grid';
 import { connect } from 'react-redux';
-import { setCurrentHabit } from '../actions';
+import { sameDayLogged, setCurrentHabit } from '../actions';
 import moment from 'moment';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -18,9 +18,12 @@ import Modal, {closeStyle} from 'simple-react-modal';
 import './HabitStats.css';
 
 class HabitStats extends Component {
-
 	handler() {
-		this.props.dispatch(setCurrentHabit(this.props.currentHabit))
+		const today = moment().format('MM-DD-YYYY');
+		let yesterday = moment().add(-1, 'days');
+			yesterday = moment(yesterday).format('MM-DD-YYYY');
+		let newLog = {submitted: today, impressions: 1};
+		this.props.dispatch(sameDayLogged(newLog, this.props.authToken, this.props.currentHabit));
 	}
 
 	render() {
@@ -95,6 +98,8 @@ const mapStateToProps = (state) => ({
 	habitName: state.HabitStatsReducer.currentHabit.name,
 	streak: state.HabitStatsReducer.currentHabit.streak,
 	startDate: state.HabitStatsReducer.currentHabit.date,
+	currentUser: state.auth.currentUser,
+	authToken: state.auth.authToken,
 	loggedOut: state.auth.currentUser == null
 })
 

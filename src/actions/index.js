@@ -75,7 +75,6 @@ const formatUserHabit = (habit) => {
 		}
 
 		dispatch(assignUserHabits(newHabit));
-		dispatch(setCurrentHabit(newHabit));
 	}
 }
 
@@ -118,6 +117,7 @@ export const createNewHabitRequest = (values, authToken, currentUser) => (dispat
 }
 
 export const sameDayLogged = (newLog, authToken, currentHabit) => (dispatch) => {
+	console.log(authToken)
 			return fetch(`${API_BASE_URL}/habits/${currentHabit.id}`, {
 			method: 'PUT',
 			headers: {
