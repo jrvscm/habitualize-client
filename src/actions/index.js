@@ -77,6 +77,7 @@ export const assignUserHabits = (habit) => ({
 
 const formatUserHabit = (habit) => {
 	return (dispatch) => {
+		console.log(habit)
 		let newHabit = {
 			name: habit.habitTitle,
 			date: habit.startDate,
@@ -118,7 +119,7 @@ export const createNewHabitRequest = (values, authToken, currentUser) => (dispat
         	},
         	body: JSON.stringify({
         		habitTitle: values.habitTitle,
-        		streak: [{submitted: firstLog, impressions: 1}],
+        		streak: [{submitted: moment(values.habitStartDate).format('MM-DD-YYYY'), impressions: 1}],
         		userRef: currentUser.userId,
         		goodOrBad: values.goodOrBadRadio,
         		goal: values.habitGoalDropdown,

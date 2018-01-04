@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setPercentSuccess, SET_PERCENT_SUCCESS, setAverageSubmit, SET_AVERAGE_SUBMIT } from '../actions';
 import { Tooltip } from 'react-lightweight-tooltip';
 import './CalendarStreak.css';
 

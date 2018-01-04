@@ -15,14 +15,28 @@ import './LogHabit.css';
 class LogHabit extends Component {
 
 	onClick() {
-		/* updating the current streak and current habit to include the new streak*/
+		/*updating the current streak and current habit to include the new streak*/
 		
 		const today = moment().format('MM-DD-YYYY');
 		const yesterday = moment().add(-1, 'days');
-		const newLog = {submitted: today, impressions: 1};
-
+		let newLog = {submitted: today, impressions: 1};
 		let newArray = this.props.streak.slice();
-    	newArray.splice(-1, 0, newLog);
+		let submissionArray = [];
+
+		for(let i=0; i<newArray.length; i++) {
+			if(newArray[i].submitted == today) {
+				newArray[i] = {submitted: today, impressions: newArray[i].impressions + 1};
+			} else {
+				submissionArray.push(1);
+			} 
+		} 
+
+		if(submissionArray.length === newArray.length) {
+			newArray.push(newLog);
+			submissionArray = [];
+		}
+
+		console.log(newArray)
 
 		let newCurrentHabit = {
 			name: this.props.currentHabit.name,
