@@ -16,7 +16,8 @@ class LogHabit extends Component {
 
 	onClick() {
 		/*updating the current streak and current habit to include the new streak*/
-		
+		//add actions for all of these calculations, so they can be dispatched from anywhere the 
+		//streak is accessible.
 		const today = moment().format('MM-DD-YYYY');
 		const yesterday = moment().add(-1, 'days');
 		let newLog = {submitted: today, impressions: 1};
