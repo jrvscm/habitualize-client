@@ -5,21 +5,6 @@ import { setDonutData, SET_DONUT_DATA } from '../actions';
 import './DonutChart.css';
 
 class DonutChart extends Component {
-	
-	componentDidMount() {
-		const donutDataArr = [];
-
-		this.props.donutChartData.map((recording, index) => {
-			if(recording.impressions > 0) {
-				donutDataArr.push({
-							value: recording.impressions,
-							key: recording.impressions,
-					})
-				}
-			}				
-		);
-		this.props.dispatch(setDonutData(donutDataArr));
-	}
 
 	render() {
 		return (	
@@ -39,7 +24,7 @@ class DonutChart extends Component {
 }
 
 const mapPropsToState = (state) => ({
-	donutChartData: state.HabitStatsReducer.currentHabit.streak,
+	donutChartData: state.HabitStatsReducer.currentHabitArray,
 	donutDataArr: state.HabitStatsReducer.donutDataArr,
 	averageSubmit: state.HabitStatsReducer.averageSubmit
 })

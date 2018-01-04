@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Grid, Row, Col } from 'react-flexbox-grid';
 import { connect } from 'react-redux';
-import { setCurrentHabitArray } from '../actions';
+import { setCurrentHabitArray, setBarChartData } from '../actions';
 import moment from 'moment';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -18,6 +18,7 @@ import Modal, {closeStyle} from 'simple-react-modal';
 import './HabitStats.css';
 
 class HabitStats extends Component {
+
 	render() {
 
 		if(this.props.loggedOut) {
@@ -88,6 +89,7 @@ const mapStateToProps = (state) => ({
 	currentHabit: state.HabitStatsReducer.currentHabit,
 	habitName: state.HabitStatsReducer.currentHabit.name,
 	streak: state.HabitStatsReducer.currentHabitArray,
+	barDataArr: state.HabitStatsReducer.barDataArr,
 	startDate: state.HabitStatsReducer.currentHabit.date,
 	currentUser: state.auth.currentUser,
 	authToken: state.auth.authToken,

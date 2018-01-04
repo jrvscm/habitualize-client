@@ -7,19 +7,7 @@ import { setBarChartData, SET_BAR_CHART_DATA} from '../actions';
 import './BarGraph.css';
 
 class BarGraph extends Component {
-
-	componentWillMount() {
-		const barDataArr = [];
-		
-		this.props.streak.map((streakIteration, index) =>
-		barDataArr.push({name: streakIteration.submitted, Submission: streakIteration.impressions})
-		);
-		
-		this.props.dispatch(setBarChartData(barDataArr))
-	}
-
 	render() {
-
 		return (
 		<section className={'bar-chart-section'}>	
 			<div className={'bar-chart'}>
@@ -42,8 +30,8 @@ class BarGraph extends Component {
 }
 
 const mapStateToProps = (state) => ({
-	streak: state.HabitStatsReducer.currentHabitArray,
-	barDataArr: state.HabitStatsReducer.barDataArr
+	barDataArr: state.HabitStatsReducer.barDataArr,
+	streak: state.HabitStatsReducer.currentHabitArray
 })
 
-export default connect(mapStateToProps) (BarGraph);
+export default connect(mapStateToProps) (BarGraph)

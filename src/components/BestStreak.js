@@ -5,22 +5,6 @@ import { setLongestStreak, SET_LONGEST_STREAK } from '../actions';
 import './BestStreak.css';
 
 class BestStreak extends Component {
-
-	componentDidMount() {
-		const streakCheckArr = [];
-		this.props.streak.map((streakIteration, index) =>
-			streakCheckArr.push(streakIteration.impressions)
-		);
-
-		let streaks = streakCheckArr.reduce((res, n) => 
-  		(n ? res[res.length-1]++ : res.push(0), res)
-		, [0]);
-
-		const longestStreak = Math.max(...streaks);
-
-		this.props.dispatch(setLongestStreak(longestStreak));
-	}
-
 	render() {
 		let streakColor;
 		
