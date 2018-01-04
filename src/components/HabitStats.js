@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Grid, Row, Col } from 'react-flexbox-grid';
 import { connect } from 'react-redux';
-import { setCurrentHabitArray, setBarChartData } from '../actions';
+import { setGraphInfo } from '../actions';
 import moment from 'moment';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -18,6 +18,12 @@ import Modal, {closeStyle} from 'simple-react-modal';
 import './HabitStats.css';
 
 class HabitStats extends Component {
+
+	componentWillMount() {
+		let streak = this.props.streak;
+		let habit = this.props.currentHabit;
+		this.props.dispatch(setGraphInfo(habit, streak));
+	}
 
 	render() {
 

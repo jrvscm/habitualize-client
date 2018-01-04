@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import { BarChart } from 'react-easy-chart';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import { setBarChartData, SET_BAR_CHART_DATA} from '../actions';
+import { 
+	setBarChartData
+} from '../actions';
 import './BarGraph.css';
 
 class BarGraph extends Component {

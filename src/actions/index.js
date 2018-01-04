@@ -131,3 +131,146 @@ export const createNewHabitRequest = (values, authToken, currentUser) => (dispat
 		.catch((ex) => console.log('parsing failed', ex)) 
 }
 
+export const logSubmission = (currentHabit, streak) => {
+	return  (dispatch) => {
+		const today = moment().format('MM-DD-YYYY');
+		const yesterday = moment(today).add(-1, 'days').format('MM-DD-YYYY');
+		let newLog = {submitted: today, impressions: 1};
+		let missedDayLog = {submitted: today, impressions: 0};
+
+		const newArray = [];
+
+		for(let i=0; i<streak.length; i++) {
+			newArray.push(streak[i]);
+		}
+
+		const last = newArray.length -1;
+
+
+		if(moment(newArray[last].submitted).isSame(today) == true) {
+			newArray[last] = {submitted: today, impressions: newArray[last].impressions + 1};
+				} else if(moment(newArray[last].submitted).isSame(yesterday) == true) {
+					newArray.push(newLog);
+					} 
+
+		dispatch(setGraphInfo(currentHabit, newArray));
+	}
+}
+
+export const setGraphInfo = (currentHabit, newArray) => {
+	return  (dispatch) => {
+
+		////////////////FIGURE OUT HOW TO SET STREAK COMPARING MOMENTS////////////
+		const today = moment().format('MM-DD-YYYY');
+		const yesterday = moment(today).add(-1, 'days').format('MM-DD-YYYY');
+		let missedDayLog = {submitted: today, impressions: 0};
+
+		let last = newArray.length -1;
+
+		if(moment(newArray[last].submitted).isSame(today) == false || moment(newArray[last].submitted).isSame(yesterday) == false) {
+ 			newArray = [missedDayLog, ...newArray];
+		}
+
+		console.log(newArray)
+
+		let newCurrentHabit = {
+			name: currentHabit.name,
+			date: currentHabit.date,
+			streak: newArray,
+			goal: currentHabit.goal,
+			goodorbad: currentHabit.goodorbad,
+			id: currentHabit.id,
+			userref: currentHabit.userref
+		}
+
+		dispatch(formatNewHabit(newCurrentHabit, newArray));
+	}
+}
+
+export const formatNewHabit = (newCurrentHabit, newArray, streak) => {
+	return (dispatch) => {
+		dispatch(sendCurrentHabit(newCurrentHabit, newArray))
+		/* setting new barchart data */
+		const newBarDataArray = [];
+			newArray.map((streakIteration, index) =>
+				newBarDataArray.push({name: streakIteration.submitted, Submission: streakIteration.impressions})
+			);
+		dispatch(setBarChartData(newBarDataArray))
+		dispatch(setupDonutData(newArray))
+	}
+}
+		
+export const setupDonutData = (newArray) => {
+	return (dispatch) => {
+		/*setting new donutChartData*/
+		const newDonutDataArr = [];
+
+		newArray.map((recording, index) => {
+			if(recording.impressions > 0) {
+				newDonutDataArr.push({
+							value: recording.impressions,
+							key: recording.impressions,
+					})
+				}
+			}				
+		);
+		dispatch(setDonutData(newDonutDataArr))
+		dispatch(setUpStreakChecker(newArray))
+	}
+}
+
+export const setUpStreakChecker = (newArray) => {
+	return (dispatch) => {
+		/*setting the best streak */
+		const streakCheckArr = [];
+		newArray.map((streakIteration, index) =>
+			streakCheckArr.push(streakIteration.impressions)
+		);
+
+		let streaks = streakCheckArr.reduce((res, n) => 
+  		(n ? res[res.length-1]++ : res.push(0), res)
+		, [0]);
+
+		const longestStreak = Math.max(...streaks);
+
+		dispatch(setLongestStreak(longestStreak));
+		dispatch(setUpPercentSuccess(newArray));
+	}
+}
+
+export const setUpPercentSuccess = (newArray) => {
+	return (dispatch) => {
+		/*setting percent success */
+		const impressionsArrTotal=[];
+		const posDigitsArr=[];
+
+		newArray.map((recording, index) =>
+			impressionsArrTotal.push(recording.impressions)
+		);
+
+		for(let i=0; i<impressionsArrTotal.length; i++) {
+			if(impressionsArrTotal[i] > 0) {
+				posDigitsArr.push(impressionsArrTotal[i])
+			}
+		}
+
+		let percentSuccess =   posDigitsArr.length / impressionsArrTotal.length;
+			percentSuccess = (percentSuccess * 100).toFixed(2);
+			percentSuccess = Number(percentSuccess);
+				dispatch(setPercentSuccess(percentSuccess));
+				dispatch(setUpAveSubmit(impressionsArrTotal));
+	}
+}
+
+export const setUpAveSubmit = (impressionsArrTotal) => {
+	return (dispatch) => {
+		const sumTotalImpressionsArr = impressionsArrTotal.reduce(function(a , b) {
+			return a + b;
+		}, 0);
+
+		let averageSubmit = sumTotalImpressionsArr / impressionsArrTotal.length;
+			averageSubmit = Number(averageSubmit);
+				dispatch(setAverageSubmit(averageSubmit.toFixed(2)))
+	}
+}
+

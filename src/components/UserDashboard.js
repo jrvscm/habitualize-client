@@ -12,7 +12,8 @@ import {
 	clearUserHabits, CLEAR_USER_HABITS,
 	sendCurrentHabit, SEND_CURRENT_HABIT,
 	setCurrentHabitArray, SET_CURRENT_HABIT_ARRAY, 
-	getUserHabits, GET_USER_HABITS
+	getUserHabits, GET_USER_HABITS,
+	setGrapinfo
 } from '../actions';
 import './Footer.css';
 import './Navbar.css';
