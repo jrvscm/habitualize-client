@@ -138,7 +138,7 @@ export const logSubmission = (currentHabit, streak) => {
 		let newLog = {submitted: today, impressions: 1};
 		let missedDayLog = {submitted: today, impressions: 0};
 
-		const newArray = [];
+		let newArray = [];
 
 		for(let i=0; i<streak.length; i++) {
 			newArray.push(streak[i]);
@@ -151,7 +151,7 @@ export const logSubmission = (currentHabit, streak) => {
 			newArray[last] = {submitted: today, impressions: newArray[last].impressions + 1};
 				} else if(moment(newArray[last].submitted).isSame(yesterday) == true) {
 					newArray.push(newLog);
-					} 
+					}
 
 		dispatch(setGraphInfo(currentHabit, newArray));
 	}
@@ -160,18 +160,26 @@ export const logSubmission = (currentHabit, streak) => {
 export const setGraphInfo = (currentHabit, newArray) => {
 	return  (dispatch) => {
 
-		////////////////FIGURE OUT HOW TO SET STREAK COMPARING MOMENTS////////////
 		const today = moment().format('MM-DD-YYYY');
 		const yesterday = moment(today).add(-1, 'days').format('MM-DD-YYYY');
 		let missedDayLog = {submitted: today, impressions: 0};
+		const last = newArray.length -1;
 
-		let last = newArray.length -1;
+		if(moment(newArray[last].submitted).isSame(today) == false && 
+			moment(newArray[last].submitted).isSame(yesterday) == false) {
+				let lastSubmit = moment(newArray[last].submitted);
+				let difference = lastSubmit.diff(today, 'days');
+				let datesMissedArray = [];
+				for(let i=0; i>difference; i--) {
+					datesMissedArray.push(moment(today).add(i, 'days').format('MM-DD-YYYY'));
+				}
+				
+				datesMissedArray.reverse();
 
-		if(moment(newArray[last].submitted).isSame(today) == false || moment(newArray[last].submitted).isSame(yesterday) == false) {
- 			newArray = [missedDayLog, ...newArray];
-		}
-
-		console.log(newArray)
+				for(let j=0; j<datesMissedArray.length; j++) {
+					newArray.push({submitted: datesMissedArray[j], impressions: 0});
+				}
+			}
 
 		let newCurrentHabit = {
 			name: currentHabit.name,
