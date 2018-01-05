@@ -52,7 +52,6 @@ class HabitStats extends Component {
 				<Col xs={12}>
 					<CalendarStreak 
 					habitName={this.props.habitName}
-					startDate={moment(this.props.startDate).format('MM-DD-YYYY')}
 					/>
 				</Col>
 			</Row>
@@ -96,7 +95,6 @@ const mapStateToProps = (state) => ({
 	habitName: state.HabitStatsReducer.currentHabit.name,
 	streak: state.HabitStatsReducer.currentHabitArray,
 	barDataArr: state.HabitStatsReducer.barDataArr,
-	startDate: state.HabitStatsReducer.currentHabit.date,
 	currentUser: state.auth.currentUser,
 	authToken: state.auth.authToken,
 	loggedEntry: state.HabitStatsReducer.loggedEntry,

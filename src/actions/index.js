@@ -77,10 +77,9 @@ export const assignUserHabits = (habit) => ({
 
 const formatUserHabit = (habit) => {
 	return (dispatch) => {
-		console.log(habit)
 		let newHabit = {
 			name: habit.habitTitle,
-			date: habit.startDate,
+			startdate: habit.startDate,
 			streak: habit.streak,
 			goodorbad: habit.goodOrBad,
 			goal: habit.goal,
@@ -109,7 +108,6 @@ export const getUserHabits = (currentUser, authToken) => (dispatch) => {
 
 
 export const createNewHabitRequest = (values, authToken, currentUser) => (dispatch) => {
-		const firstLog = moment().format('MM-DD-YYYY');
 		return fetch(`${API_BASE_URL}/habits/`, {
 			method: 'POST',
 			headers: {
@@ -123,7 +121,8 @@ export const createNewHabitRequest = (values, authToken, currentUser) => (dispat
         		userRef: currentUser.userId,
         		goodOrBad: values.goodOrBadRadio,
         		goal: values.habitGoalDropdown,
-        		logInterval: values.habitLogDropdown
+        		logInterval: values.habitLogDropdown,
+        		startDate: moment(values.habitStartDate).format('MM-DD-YYYY')
         	})
 		})
 		.then(response => response.json())
@@ -183,7 +182,7 @@ export const setGraphInfo = (currentHabit, newArray) => {
 
 		let newCurrentHabit = {
 			name: currentHabit.name,
-			date: currentHabit.date,
+			startDate: currentHabit.startDate,
 			streak: newArray,
 			goal: currentHabit.goal,
 			goodorbad: currentHabit.goodorbad,

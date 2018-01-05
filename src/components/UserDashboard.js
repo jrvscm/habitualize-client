@@ -49,7 +49,7 @@ class UserDashboard extends Component {
 				<Link to="/stats">
 					<ListedHabit 
 					name={habit.name}
-					date={habit.date}
+					date={habit.startdate}
 					/>
 				</Link>
 			</li>
@@ -62,7 +62,7 @@ class UserDashboard extends Component {
 				<Link to="/stats">
 					<ListedHabit 
 					name={habit.name}
-					date={moment(habit.date).format('MM-DD-YYYY')}
+					startdate={habit.startdate}
 					/>
 				</Link>
 			</li>
