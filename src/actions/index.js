@@ -1,4 +1,5 @@
 import { API_BASE_URL } from '../config';
+import { setCurrentHabitId, loadAuthToken } from '../local-storage';
 import moment from 'moment';
 
 const SET_CURRENT_HABIT = 'SET_CURRENT_HABIT'
@@ -13,11 +14,10 @@ export const setCurrentHabitArray = (array) => ({
 	array
 })
 
-const SEND_CURRENT_HABIT = 'SEND_CURRENT_HABIT'
 export const sendCurrentHabit = (habit) => {
 	return (dispatch) => {
-		dispatch(setCurrentHabitArray(habit.streak));
-		dispatch(setCurrentHabit(habit));
+		dispatch(setCurrentHabit(habit))
+		dispatch(setCurrentHabitArray(habit.streak))
 	}
 }
 
@@ -92,6 +92,18 @@ const formatUserHabit = (habit) => {
 	}
 }
 
+export const getCurrentHabit = (id, authToken) => (dispatch) => {
+	return fetch(`${API_BASE_URL}/habits/current/${id}`, {
+			headers: {
+          	//provide the authToken from our store
+            Authorization: `Bearer ${authToken}`
+        	}
+		})
+		.then(response => response.json())
+		.then(json => json.map(habit => dispatch(sendCurrentHabit(habit))))
+		.catch((ex) => console.log('parsing failed', ex))
+}
+
 export const getUserHabits = (currentUser, authToken) => (dispatch) => {
 		return fetch(`${API_BASE_URL}/habits/${currentUser.userId}`, {
 			headers: {
@@ -130,7 +142,24 @@ export const createNewHabitRequest = (values, authToken, currentUser) => (dispat
 		.catch((ex) => console.log('parsing failed', ex)) 
 }
 
-export const logSubmission = (currentHabit, streak) => {
+export const updateHabitStreak = (currentHabit, newArray, authToken) => (dispatch) => {
+		return fetch(`${API_BASE_URL}/habits/${currentHabit._id}`, {
+			method: 'PUT',
+			headers: {
+          	//provide the authToken from our store
+            Authorization: `Bearer ${authToken}`,
+            "Content-Type": "application/json"
+        	},
+        	body: JSON.stringify({
+        		streak: newArray
+        	})
+		})
+		.then(response => response.json())
+		.then(json => dispatch(sendCurrentHabit(json)))
+		.catch((ex) => console.log('parsing failed', ex)) 
+}
+
+export const logSubmission = (currentHabit, streak, authToken) => {
 	return  (dispatch) => {
 		const today = moment().format('MM-DD-YYYY');
 		const yesterday = moment(today).add(-1, 'days').format('MM-DD-YYYY');
@@ -153,15 +182,16 @@ export const logSubmission = (currentHabit, streak) => {
 					}
 
 		dispatch(setGraphInfo(currentHabit, newArray));
+		dispatch(updateHabitStreak(currentHabit, newArray, authToken))
 	}
 }
 
 export const setGraphInfo = (currentHabit, newArray) => {
 	return  (dispatch) => {
-
 		const today = moment().format('MM-DD-YYYY');
 		const yesterday = moment(today).add(-1, 'days').format('MM-DD-YYYY');
 		let missedDayLog = {submitted: today, impressions: 0};
+		
 		const last = newArray.length -1;
 
 		if(moment(newArray[last].submitted).isSame(today) == false && 
@@ -179,7 +209,6 @@ export const setGraphInfo = (currentHabit, newArray) => {
 					newArray.push({submitted: datesMissedArray[j], impressions: 0});
 				}
 			}
-
 		let newCurrentHabit = {
 			name: currentHabit.name,
 			startDate: currentHabit.startDate,
@@ -189,14 +218,14 @@ export const setGraphInfo = (currentHabit, newArray) => {
 			id: currentHabit.id,
 			userref: currentHabit.userref
 		}
-
-		dispatch(formatNewHabit(newCurrentHabit, newArray));
+		dispatch(sendCurrentHabit(newCurrentHabit))
+		const token = localStorage.getItem('authToken');
+		dispatch(formatNewHabit(newCurrentHabit, newArray, token));
 	}
 }
 
-export const formatNewHabit = (newCurrentHabit, newArray, streak) => {
+export const formatNewHabit = (newCurrentHabit, newArray) => {
 	return (dispatch) => {
-		dispatch(sendCurrentHabit(newCurrentHabit, newArray))
 		/* setting new barchart data */
 		const newBarDataArray = [];
 			newArray.map((streakIteration, index) =>

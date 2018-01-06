@@ -13,3 +13,9 @@ export const clearAuthToken = () => {
         localStorage.removeItem('authToken');
     } catch (e) {}
 };
+
+export const setCurrentHabitId = (currentHabitId) => {
+	try {
+		localStorage.setItem('currentHabitId', currentHabitId)
+	} catch (e) {}
+};

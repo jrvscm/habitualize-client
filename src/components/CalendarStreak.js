@@ -7,7 +7,6 @@ import './CalendarStreak.css';
 class CalendarStreak extends Component {
 	render() {
 		let startDate = this.props.streak[0].submitted;
-		console.log(startDate)
 		const habitSubmitInfo = this.props.streak.map((recording, index) =>
 		<Tooltip key={index}
 			content={[`${recording.impressions} time(s) on ${recording.submitted}`]}>	
@@ -27,7 +26,7 @@ class CalendarStreak extends Component {
 				<h3>{this.props.habitName}</h3>
 			</header>		
 			<div className={'calendar-streak'}>
-			<p>Start Date: {startDate}</p>
+			<p>Start Date: {}</p>
 				<ul className={'habit-streak-ul'}>{habitSubmitInfo}</ul>
 			</div>
 		</section>

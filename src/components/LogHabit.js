@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import { 
-	logSubmission 
+	logSubmission
 	} from '../actions/index';
 import { connect } from 'react-redux';
 import './LogHabit.css';
 
 class LogHabit extends Component {
-
 	onClick() {
-		/*updating the current streak and current habit to include the new streak*/
 		const currentHabit = this.props.currentHabit;
-		const streak = this.props.streak;
-		this.props.dispatch(logSubmission(currentHabit, streak));
+		const authToken = this.props.authToken;
+		/*updating the current streak and current habit to include the new streak*/
+		this.props.dispatch(logSubmission(currentHabit, currentHabit.streak, authToken));
 	}
+
 	render() {
 		return(
 			<div className="log-habit-container">
@@ -24,8 +24,9 @@ class LogHabit extends Component {
 }
 
 const mapStateToProps = (state) => ({
-	streak: state.HabitStatsReducer.currentHabitArray,
-	currentHabit: state.HabitStatsReducer.currentHabit
+	streak: state.HabitStatsReducer.currentHabit.Streak,
+	currentHabit: state.HabitStatsReducer.currentHabit,
+	authToken: state.auth.authToken
 })
 
 export default connect(mapStateToProps)(LogHabit);

@@ -9,12 +9,12 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { 
-	clearUserHabits, CLEAR_USER_HABITS,
-	sendCurrentHabit, SEND_CURRENT_HABIT,
-	setCurrentHabitArray, SET_CURRENT_HABIT_ARRAY, 
-	getUserHabits, GET_USER_HABITS,
-	setGrapinfo
+	clearUserHabits,
+	sendCurrentHabit, 
+	setCurrentHabitArray,  
+	getUserHabits
 } from '../actions';
+import { setCurrentHabitId } from '../local-storage';
 import './Footer.css';
 import './Navbar.css';
 import './ListedHabit.css';
@@ -32,6 +32,7 @@ class UserDashboard extends Component {
 
 	liClick(e, habit) {
 		this.props.dispatch(sendCurrentHabit(habit));
+		setCurrentHabitId(habit.id);
 	}
 
 	render() {

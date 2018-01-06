@@ -17,7 +17,7 @@ class BestStreak extends Component {
 		return (	
 			<div className={'best-streak statistics'}>
 				<span className={'best-streak'} >
-					<h3>{this.props.longestStreak} Day Streak</h3>
+					<h3>Best Streak:<br/>{this.props.longestStreak} Day(s)</h3>
 						<PieChart
   							data={[
     							{ 

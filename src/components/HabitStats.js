@@ -15,11 +15,17 @@ import PercentSuccess from './PercentSuccess';
 import SimpleModal from './Modal';
 import { Redirect } from 'react-router-dom';
 import Modal, {closeStyle} from 'simple-react-modal';
+import { getCurrentHabit } from '../actions'; 
 import './HabitStats.css';
 
 class HabitStats extends Component {
-
 	componentWillMount() {
+		let id = localStorage.getItem('currentHabitId');
+		let authToken = localStorage.getItem('authToken');
+		this.props.dispatch(getCurrentHabit(id, authToken));
+	}
+
+	componentDidMount() {
 		let streak = this.props.streak;
 		let habit = this.props.currentHabit;
 		this.props.dispatch(setGraphInfo(habit, streak));
