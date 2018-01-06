@@ -19,12 +19,6 @@ import { getCurrentHabit } from '../actions';
 import './HabitStats.css';
 
 class HabitStats extends Component {
-	componentWillMount() {
-		let id = localStorage.getItem('currentHabitId');
-		let authToken = localStorage.getItem('authToken');
-		this.props.dispatch(getCurrentHabit(id, authToken));
-	}
-
 	componentDidMount() {
 		let streak = this.props.streak;
 		let habit = this.props.currentHabit;
@@ -58,6 +52,9 @@ class HabitStats extends Component {
 				<Col xs={12}>
 					<CalendarStreak 
 					habitName={this.props.habitName}
+					currentHabit={this.props.currentHabit}
+					streak={this.props.streak}
+					startdate={this.props.currentHabit.startdate}
 					/>
 				</Col>
 			</Row>
@@ -69,18 +66,22 @@ class HabitStats extends Component {
 							</Col>
 
 							<Col xs>
-								<DonutChart />
+								<DonutChart
+								averageSubmit={this.props.averageSubmit}
+								donutDataArr={this.props.donutDataArr} />
 							</Col>
 
 							<Col xs>
-								<BestStreak />
+								<BestStreak 
+								longestStreak={this.props.longestStreak} />
 							</Col>
 						</Row>
 
 					</section>
 			<Row>
 				<Col xs={12}>
-					<BarGraph />
+					<BarGraph 
+					barDataArr={this.props.barDataArr}/>
 				</Col>
 			</Row>
 
@@ -99,11 +100,15 @@ class HabitStats extends Component {
 const mapStateToProps = (state) => ({
 	currentHabit: state.HabitStatsReducer.currentHabit,
 	habitName: state.HabitStatsReducer.currentHabit.name,
-	streak: state.HabitStatsReducer.currentHabitArray,
+	streak: state.HabitStatsReducer.currentHabit.streak,
+	longestStreak: state.HabitStatsReducer.longestStreak,
 	barDataArr: state.HabitStatsReducer.barDataArr,
 	currentUser: state.auth.currentUser,
 	authToken: state.auth.authToken,
 	loggedEntry: state.HabitStatsReducer.loggedEntry,
+	donutChartData: state.HabitStatsReducer.currentHabitArray,
+	donutDataArr: state.HabitStatsReducer.donutDataArr,
+	averageSubmit: state.HabitStatsReducer.averageSubmit,
 	loggedOut: state.auth.currentUser == null
 })
 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PieChart from 'react-minimal-pie-chart';
-import { setLongestStreak, SET_LONGEST_STREAK } from '../actions';
 import './BestStreak.css';
 
 class BestStreak extends Component {
@@ -39,9 +38,4 @@ class BestStreak extends Component {
 	}
 }
 
-const mapStateToProps = (state) => ({
-	streak: state.HabitStatsReducer.currentHabitArray,
-	longestStreak: state.HabitStatsReducer.longestStreak
-})
-
-export default connect(mapStateToProps) (BestStreak);
+export default BestStreak;

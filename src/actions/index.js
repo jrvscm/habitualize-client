@@ -14,14 +14,6 @@ export const setCurrentHabitArray = (array) => ({
 	array
 })
 
-export const sendCurrentHabit = (habit) => {
-	return (dispatch) => {
-		dispatch(setCurrentHabit(habit))
-		dispatch(setCurrentHabitArray(habit.streak))
-	}
-}
-
-
 const SET_PERCENT_SUCCESS = 'SET_PERCENT_SUCCESS'
 export const setPercentSuccess = (percentSuccess) => ({
 	type: 'SET_PERCENT_SUCCESS',
@@ -76,6 +68,7 @@ export const assignUserHabits = (habit) => ({
 })
 
 const formatUserHabit = (habit) => {
+	console.log(habit)
 	return (dispatch) => {
 		let newHabit = {
 			name: habit.habitTitle,
@@ -89,6 +82,7 @@ const formatUserHabit = (habit) => {
 		}
 
 		dispatch(assignUserHabits(newHabit));
+		dispatch(setCurrentHabit(newHabit));
 	}
 }
 
@@ -100,7 +94,7 @@ export const getCurrentHabit = (id, authToken) => (dispatch) => {
         	}
 		})
 		.then(response => response.json())
-		.then(json => json.map(habit => dispatch(sendCurrentHabit(habit))))
+		.then(json => json.map(habit => dispatch(setCurrentHabit(habit))))
 		.catch((ex) => console.log('parsing failed', ex))
 }
 
@@ -143,7 +137,7 @@ export const createNewHabitRequest = (values, authToken, currentUser) => (dispat
 }
 
 export const updateHabitStreak = (currentHabit, newArray, authToken) => (dispatch) => {
-		return fetch(`${API_BASE_URL}/habits/${currentHabit._id}`, {
+		return fetch(`${API_BASE_URL}/habits/${currentHabit.id}`, {
 			method: 'PUT',
 			headers: {
           	//provide the authToken from our store
@@ -155,7 +149,7 @@ export const updateHabitStreak = (currentHabit, newArray, authToken) => (dispatc
         	})
 		})
 		.then(response => response.json())
-		.then(json => dispatch(sendCurrentHabit(json)))
+		.then(json => dispatch(formatUserHabit(json)))
 		.catch((ex) => console.log('parsing failed', ex)) 
 }
 
@@ -172,7 +166,7 @@ export const logSubmission = (currentHabit, streak, authToken) => {
 			newArray.push(streak[i]);
 		}
 
-		const last = newArray.length -1;
+		let last = newArray.length -1;
 
 
 		if(moment(newArray[last].submitted).isSame(today) == true) {
@@ -182,17 +176,25 @@ export const logSubmission = (currentHabit, streak, authToken) => {
 					}
 
 		dispatch(setGraphInfo(currentHabit, newArray));
-		dispatch(updateHabitStreak(currentHabit, newArray, authToken))
+		dispatch(updateHabitStreak(currentHabit, newArray, authToken));
 	}
 }
 
 export const setGraphInfo = (currentHabit, newArray) => {
+
+	//in case we lose the current habit because of a page refresh.
+		if(newArray === undefined || currentHabit === undefined) {
+			window.location.href=('/');
+		}
+
 	return  (dispatch) => {
+		let habitId = localStorage.getItem('currentHabitId');
+		let authToken = localStorage.getItem('authToken');
+
 		const today = moment().format('MM-DD-YYYY');
 		const yesterday = moment(today).add(-1, 'days').format('MM-DD-YYYY');
 		let missedDayLog = {submitted: today, impressions: 0};
-		
-		const last = newArray.length -1;
+		let last = newArray.length -1;
 
 		if(moment(newArray[last].submitted).isSame(today) == false && 
 			moment(newArray[last].submitted).isSame(yesterday) == false) {
@@ -211,14 +213,15 @@ export const setGraphInfo = (currentHabit, newArray) => {
 			}
 		let newCurrentHabit = {
 			name: currentHabit.name,
-			startDate: currentHabit.startDate,
+			startdate: currentHabit.startdate,
 			streak: newArray,
 			goal: currentHabit.goal,
 			goodorbad: currentHabit.goodorbad,
 			id: currentHabit.id,
 			userref: currentHabit.userref
 		}
-		dispatch(sendCurrentHabit(newCurrentHabit))
+
+		dispatch(setCurrentHabit(newCurrentHabit))
 		const token = localStorage.getItem('authToken');
 		dispatch(formatNewHabit(newCurrentHabit, newArray, token));
 	}

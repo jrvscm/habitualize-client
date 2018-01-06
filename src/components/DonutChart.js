@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PieChart }from 'react-easy-chart';
-import { setDonutData, SET_DONUT_DATA } from '../actions';
 import './DonutChart.css';
 
 class DonutChart extends Component {
@@ -23,10 +22,4 @@ class DonutChart extends Component {
 	}
 }
 
-const mapPropsToState = (state) => ({
-	donutChartData: state.HabitStatsReducer.currentHabitArray,
-	donutDataArr: state.HabitStatsReducer.donutDataArr,
-	averageSubmit: state.HabitStatsReducer.averageSubmit
-})
-
-export default connect(mapPropsToState) (DonutChart);
+export default DonutChart;

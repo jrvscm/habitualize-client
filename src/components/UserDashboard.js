@@ -10,11 +10,12 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { 
 	clearUserHabits,
-	sendCurrentHabit, 
-	setCurrentHabitArray,  
+	setCurrentHabit,   
 	getUserHabits
 } from '../actions';
-import { setCurrentHabitId } from '../local-storage';
+import {
+	setCurrentHabitId
+} from '../local-storage';
 import './Footer.css';
 import './Navbar.css';
 import './ListedHabit.css';
@@ -31,8 +32,8 @@ class UserDashboard extends Component {
 }
 
 	liClick(e, habit) {
-		this.props.dispatch(sendCurrentHabit(habit));
-		setCurrentHabitId(habit.id);
+		this.props.dispatch(setCurrentHabit(habit));
+		setCurrentHabitId(habit.id)
 	}
 
 	render() {
@@ -118,7 +119,7 @@ const mapStateToProps = (state) => ({
 	userHabits: state.UserDashboardReducer.userHabits,
 	currentUser: state.auth.currentUser,
 	authToken: state.auth.authToken,
-	streak: state.HabitStatsReducer.currentHabitArray,
+	streak: state.HabitStatsReducer.currentHabit.streak,
 	loggedOut: state.auth.currentUser == null
 })
 
