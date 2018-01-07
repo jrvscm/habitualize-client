@@ -38,6 +38,24 @@ export const setLongestStreak = (longestStreak) => ({
 	longestStreak
 })
 
+const SET_CURRENT_STREAK = 'SET_CURRENT_STREAK'
+export const setCurrentStreak = (currentStreak) => ({
+	type: 'SET_CURRENT_STREAK',
+	currentStreak
+})
+
+const SET_NEW_RECORD = 'SET_NEW_RECORD'
+export const setNewRecord = () => ({
+	type: 'SET_NEW_RECORD',
+	setNewRecord: true
+})
+
+const SET_RECORD_TO_FALSE = 'SET_RECORD_TO_FALSE'
+export const setRecordToFalse = () => ({
+	type: 'SET_NEW_RECORD',
+	setNewRecord: false
+})
+
 const SET_BAR_CHART_DATA = 'SET_BAR_CHART_DATA'
 export const setBarChartData = (barDataArr) => ({
 	type: 'SET_BAR_CHART_DATA',
@@ -67,8 +85,33 @@ export const assignUserHabits = (habit) => ({
 	habit
 })
 
+const SET_LOADING_FALSE = 'SET_LOADING_FALSE'
+export const setLoadingFalse = () => ({
+	type: 'SET_LOADING_FALSE',
+	loading: false
+})
+
+const SET_LOADING_TRUE = 'SET_LOADING_TRUE'
+export const setLoadingTrue = () => ({
+	type: 'SET_LOADING_TRUE',
+	loading: true
+})
+
+export const deleteHabit = (habit, authToken, currentUser) => (dispatch) => {
+	return fetch(`${API_BASE_URL}/habits/${habit.id}`, {
+			method: 'DELETE',
+			headers: {
+          	//provide the authToken from our store
+            Authorization: `Bearer ${authToken}`
+        	}
+		})
+		.then(response => console.log(response))
+		.then(dispatch(setLoadingTrue))
+		.then(dispatch(getUserHabits(currentUser, authToken)))
+		.catch((ex) => console.log('parsing failed', ex))
+}
+
 const formatUserHabit = (habit) => {
-	console.log(habit)
 	return (dispatch) => {
 		let newHabit = {
 			name: habit.habitTitle,
@@ -153,10 +196,11 @@ export const updateHabitStreak = (currentHabit, newArray, authToken) => (dispatc
 		.catch((ex) => console.log('parsing failed', ex)) 
 }
 
-export const logSubmission = (currentHabit, streak, authToken) => {
+export const logSubmission = (currentHabit, authToken) => {
 	return  (dispatch) => {
 		const today = moment().format('MM-DD-YYYY');
 		const yesterday = moment(today).add(-1, 'days').format('MM-DD-YYYY');
+		let streak = currentHabit.streak;
 		let newLog = {submitted: today, impressions: 1};
 		let missedDayLog = {submitted: today, impressions: 0};
 
@@ -181,8 +225,7 @@ export const logSubmission = (currentHabit, streak, authToken) => {
 }
 
 export const setGraphInfo = (currentHabit, newArray) => {
-
-	//in case we lose the current habit because of a page refresh.
+		//in case we lose the current habit because of a page refresh.
 		if(newArray === undefined || currentHabit === undefined) {
 			window.location.href=('/');
 		}
@@ -270,10 +313,17 @@ export const setUpStreakChecker = (newArray) => {
   		(n ? res[res.length-1]++ : res.push(0), res)
 		, [0]);
 
+		let previousStreak;
 		const longestStreak = Math.max(...streaks);
+		const currentStreak = streaks[streaks.length -1];
 
-		dispatch(setLongestStreak(longestStreak));
-		dispatch(setUpPercentSuccess(newArray));
+		if(longestStreak % 10 === 0) {
+			dispatch(setNewRecord())
+		}
+
+		dispatch(setLongestStreak(longestStreak))
+		dispatch(setCurrentStreak(currentStreak))
+		dispatch(setUpPercentSuccess(newArray))
 	}
 }
 

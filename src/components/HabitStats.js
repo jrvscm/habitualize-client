@@ -13,6 +13,7 @@ import DonutChart from './DonutChart';
 import BestStreak from './BestStreak';
 import PercentSuccess from './PercentSuccess';
 import SimpleModal from './Modal';
+import NewBestStreakModal from './NewBestStreakModal';
 import { Redirect } from 'react-router-dom';
 import Modal, {closeStyle} from 'simple-react-modal';
 import { getCurrentHabit } from '../actions'; 
@@ -39,18 +40,13 @@ class HabitStats extends Component {
 				<Col xs={12}>	
 					<Navbar />
 				</Col>
-			</Row>
-
-			<Row>
-				<Col xs={12}>
-					<HeroArea title={'Habit Stats'}/>
-					<LogHabit />
-				</Col>
+				<NewBestStreakModal />
 			</Row>
 
 			<Row>
 				<Col xs={12}>
 					<CalendarStreak 
+					currentStreak={this.props.currentStreak}
 					habitName={this.props.habitName}
 					currentHabit={this.props.currentHabit}
 					streak={this.props.streak}
@@ -101,6 +97,7 @@ const mapStateToProps = (state) => ({
 	currentHabit: state.HabitStatsReducer.currentHabit,
 	habitName: state.HabitStatsReducer.currentHabit.name,
 	streak: state.HabitStatsReducer.currentHabit.streak,
+	currentStreak: state.HabitStatsReducer.currentStreak,
 	longestStreak: state.HabitStatsReducer.longestStreak,
 	barDataArr: state.HabitStatsReducer.barDataArr,
 	currentUser: state.auth.currentUser,

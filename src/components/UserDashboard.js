@@ -5,13 +5,17 @@ import moment from 'moment';
 import ListedHabit from './ListedHabit';
 import HeroArea from './HeroArea';
 import SimpleModal from './Modal';
+import LoadingSpinner from './LoadingSpinner';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { 
 	clearUserHabits,
 	setCurrentHabit,   
-	getUserHabits
+	getUserHabits,
+	deleteHabit,
+	setLoadingFalse,
+	setLoadingTrue
 } from '../actions';
 import {
 	setCurrentHabitId
@@ -22,18 +26,32 @@ import './ListedHabit.css';
 import './UserDashboard.css';
 
 class UserDashboard extends Component {
+
 	componentDidMount() {
 	if(this.props.currentUser == null) {
 		return true;
 	} else {
+		
 		this.props.dispatch(clearUserHabits());
 		this.props.dispatch(getUserHabits(this.props.currentUser, this.props.authToken));
+		setTimeout(() => {
+			this.props.dispatch(setLoadingFalse());
+			}, 2000);
+		}
 	}
-}
 
 	liClick(e, habit) {
 		this.props.dispatch(setCurrentHabit(habit));
 		setCurrentHabitId(habit.id)
+	}
+
+	deleteClick(e, habit) {
+		this.props.dispatch(setLoadingTrue())
+		this.props.dispatch(deleteHabit(habit, this.props.authToken, this.props.currentUser))
+		this.props.dispatch(clearUserHabits())
+		setTimeout(() => {
+			this.props.dispatch(setLoadingFalse());
+			}, 1000);
 	}
 
 	render() {
@@ -42,12 +60,18 @@ class UserDashboard extends Component {
 			return <Redirect to="/home" />;
 		}
 
+		if(this.props.loading === true) {
+			return (<LoadingSpinner />);
+		}
+
 		let userHabits;
 		if(this.props.userHabits.length < 1) {
 			userHabits = this.props.sampleHabits.map((habit, index) =>
 			<li key={index} index={index}
 					{...habit}	className="listed-habit" onClick={(e) => this.liClick(e, habit)}>
-				
+			<div>
+				<button onClick={(e) => this.deleteClick(e, habit)}>Delete</button>
+			</div>
 				<Link to="/stats">
 					<ListedHabit 
 					name={habit.name}
@@ -61,6 +85,9 @@ class UserDashboard extends Component {
 			<li key={index} index={index}
 					{...habit}	className="listed-habit" onClick={(e) => this.liClick(e, habit)}>
 				
+			<div>
+				<button onClick={(e) => this.deleteClick(e, habit)}>Delete</button>
+			</div>	
 				<Link to="/stats">
 					<ListedHabit 
 					name={habit.name}
@@ -115,6 +142,7 @@ return (
 }
 
 const mapStateToProps = (state) => ({
+	loading: state.UserDashboardReducer.loading,
 	sampleHabits: state.UserDashboardReducer.sampleHabits,
 	userHabits: state.UserDashboardReducer.userHabits,
 	currentUser: state.auth.currentUser,

@@ -1,5 +1,6 @@
 const initialState = {
 	show: false,
+	loading: true,
 	userHabits: [],
 	sampleHabits: [{
 				name: 'Floss Teeth',
@@ -60,6 +61,17 @@ const initialState = {
 
 const UserDashboardReducer = (state = initialState, action) => {
 	switch(action.type) {
+		case 'SET_LOADING_TRUE':
+		return {
+			...state,
+			loading: action.loading
+		}
+
+		case 'SET_LOADING_FALSE':
+		return {
+			...state,
+			loading: action.loading
+		}
 
 		case 'SET_MODAL_SHOW':
 		return {

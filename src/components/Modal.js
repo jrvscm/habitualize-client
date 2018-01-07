@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import Modal, {closeStyle} from 'simple-react-modal';
 import { connect } from 'react-redux';
-import { setModalShow, setCloseModal } from '../actions/index';
+import { 
+	setModalShow, 
+	setCloseModal
+} from '../actions/index';
 import HabitForm from './HabitForm';
 import './Modal.css';
 
@@ -16,6 +19,7 @@ class SimpleModal extends Component {
 	}
 
 	render() {
+
 		return(
 			<div>
       			<button onClick={this.show.bind(this)}>Create New Habit</button>
