@@ -2,8 +2,10 @@ import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import { DropdownList } from 'react-widgets';
 import { 
-	setCloseModal, SET_CLOSE_MODAL,
-	createNewHabitRequest		
+	setCloseModal,
+	createNewHabitRequest,
+  setLoadingTrue,
+  setLoadingFalse	
 	} from '../actions/index';
 import Input from './input';
 import moment from 'moment';
@@ -17,6 +19,10 @@ export class HabitForm extends React.Component {
     onSubmit(values) {
     	this.props.dispatch(createNewHabitRequest(values, this.props.authToken, this.props.currentUser));
     	this.props.dispatch(setCloseModal());
+      this.props.dispatch(setLoadingTrue());
+        setTimeout(funciton => {
+          this.props.dispatch(setLoadingFalse());
+        }, 1000)
     }
 
     render() {

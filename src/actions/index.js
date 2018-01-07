@@ -8,12 +8,6 @@ export const setCurrentHabit = (habit) => ({
 	habit
 })
 
-const SET_CURRENT_HABIT_ARRAY = 'SET_CURRENT_HABIT_ARRAY'
-export const setCurrentHabitArray = (array) => ({
-	type: 'SET_CURRENT_HABIT_ARRAY',
-	array
-})
-
 const SET_PERCENT_SUCCESS = 'SET_PERCENT_SUCCESS'
 export const setPercentSuccess = (percentSuccess) => ({
 	type: 'SET_PERCENT_SUCCESS',
@@ -97,19 +91,27 @@ export const setLoadingTrue = () => ({
 	loading: true
 })
 
-export const deleteHabit = (habit, authToken, currentUser) => (dispatch) => {
-	return fetch(`${API_BASE_URL}/habits/${habit.id}`, {
+export const deleteHabitSuccess = (currentUser, authToken) => {
+	return (dispatch) => {
+		dispatch(getUserHabitsRequest(currentUser, authToken))
+	}
+}
+
+export const deleteHabitRequest = (habit, authToken, currentUser) => (dispatch) => {
+	dispatch(setLoadingTrue())
+		return fetch(`${API_BASE_URL}/habits/delete/${habit.id}`, {
 			method: 'DELETE',
 			headers: {
           	//provide the authToken from our store
-            Authorization: `Bearer ${authToken}`
+            Authorization: `Bearer ${authToken}`,
+            "Content-Type": "application/json"
         	}
 		})
-		.then(response => console.log(response))
-		.then(dispatch(setLoadingTrue))
-		.then(dispatch(getUserHabits(currentUser, authToken)))
+		.then(response => console.log(response.status))
+		.then(dispatch(deleteHabitSuccess(currentUser, authToken)))
 		.catch((ex) => console.log('parsing failed', ex))
 }
+
 
 const formatUserHabit = (habit) => {
 	return (dispatch) => {
@@ -125,15 +127,16 @@ const formatUserHabit = (habit) => {
 		}
 
 		dispatch(assignUserHabits(newHabit));
-		dispatch(setCurrentHabit(newHabit));
 	}
 }
 
 export const getCurrentHabit = (id, authToken) => (dispatch) => {
 	return fetch(`${API_BASE_URL}/habits/current/${id}`, {
+			method: 'GET',
 			headers: {
           	//provide the authToken from our store
-            Authorization: `Bearer ${authToken}`
+            Authorization: `Bearer ${authToken}`,
+            "Content-Type": "application/json"
         	}
 		})
 		.then(response => response.json())
@@ -141,15 +144,22 @@ export const getCurrentHabit = (id, authToken) => (dispatch) => {
 		.catch((ex) => console.log('parsing failed', ex))
 }
 
-export const getUserHabits = (currentUser, authToken) => (dispatch) => {
+export const getUserHabitsSuccess = (habit) => (dispatch) => {
+	return dispatch(formatUserHabit(habit))
+}
+
+export const getUserHabitsRequest = (currentUser, authToken) => (dispatch) => {
+	dispatch(clearUserHabits());
 		return fetch(`${API_BASE_URL}/habits/${currentUser.userId}`, {
+			method: 'GET',
 			headers: {
           	//provide the authToken from our store
-            Authorization: `Bearer ${authToken}`
+            Authorization: `Bearer ${authToken}`,
+            "Content-Type": "application/json"
         	}
 		})
 		.then(response => response.json())
-		.then(json => json.map(habit => dispatch(formatUserHabit(habit))))
+		.then(json => json.map(habit => dispatch(getUserHabitsSuccess(habit))))
 		.catch((ex) => console.log('parsing failed', ex))
 	}
 

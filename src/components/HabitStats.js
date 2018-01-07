@@ -21,6 +21,9 @@ import './HabitStats.css';
 
 class HabitStats extends Component {
 	componentDidMount() {
+
+		window.scrollTo(0, 0)
+
 		let streak = this.props.streak;
 		let habit = this.props.currentHabit;
 		this.props.dispatch(setGraphInfo(habit, streak));

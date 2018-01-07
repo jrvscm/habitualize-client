@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import moment from 'moment';
 import { BarChart } from 'react-easy-chart';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
@@ -28,9 +27,4 @@ class BarGraph extends Component {
 	}
 }
 
-const mapStateToProps = (state) => ({
-	barDataArr: state.HabitStatsReducer.barDataArr,
-	streak: state.HabitStatsReducer.currentHabitArray
-})
-
-export default connect(mapStateToProps) (BarGraph)
+export default BarGraph;

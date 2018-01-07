@@ -12,8 +12,8 @@ import { connect } from 'react-redux';
 import { 
 	clearUserHabits,
 	setCurrentHabit,   
-	getUserHabits,
-	deleteHabit,
+	getUserHabitsRequest,
+	deleteHabitRequest,
 	setLoadingFalse,
 	setLoadingTrue
 } from '../actions';
@@ -28,15 +28,16 @@ import './UserDashboard.css';
 class UserDashboard extends Component {
 
 	componentDidMount() {
+
+  	window.scrollTo(0, 0)
+
 	if(this.props.currentUser == null) {
 		return true;
 	} else {
-		
-		this.props.dispatch(clearUserHabits());
-		this.props.dispatch(getUserHabits(this.props.currentUser, this.props.authToken));
-		setTimeout(() => {
+		this.props.dispatch(getUserHabitsRequest(this.props.currentUser, this.props.authToken));
+			setTimeout(() => {
 			this.props.dispatch(setLoadingFalse());
-			}, 2000);
+			}, 1000);
 		}
 	}
 
@@ -46,12 +47,10 @@ class UserDashboard extends Component {
 	}
 
 	deleteClick(e, habit) {
-		this.props.dispatch(setLoadingTrue())
-		this.props.dispatch(deleteHabit(habit, this.props.authToken, this.props.currentUser))
-		this.props.dispatch(clearUserHabits())
+		this.props.dispatch(deleteHabitRequest(habit, this.props.authToken, this.props.currentUser))
 		setTimeout(() => {
-			this.props.dispatch(setLoadingFalse());
-			}, 1000);
+			this.props.dispatch(setLoadingFalse())
+			}, 4000);
 	}
 
 	render() {
@@ -68,12 +67,12 @@ class UserDashboard extends Component {
 		if(this.props.userHabits.length < 1) {
 			userHabits = this.props.sampleHabits.map((habit, index) =>
 			<li key={index} index={index}
-					{...habit}	className="listed-habit" onClick={(e) => this.liClick(e, habit)}>
-			<div>
-				<button onClick={(e) => this.deleteClick(e, habit)}>Delete</button>
+					{...habit}	className="listed-habit">
+			<div onClick={(e) => this.deleteClick(e, habit)}>
+				<button >Delete</button>
 			</div>
 				<Link to="/stats">
-					<ListedHabit 
+					<ListedHabit onClick={(e) => this.liClick(e, habit)}
 					name={habit.name}
 					date={habit.startdate}
 					/>
@@ -83,12 +82,13 @@ class UserDashboard extends Component {
 		} else {
 			userHabits = this.props.userHabits.map((habit, index) =>
 			<li key={index} index={index}
-					{...habit}	className="listed-habit" onClick={(e) => this.liClick(e, habit)}>
+					{...habit}	className="listed-habit">
 				
 			<div>
 				<button onClick={(e) => this.deleteClick(e, habit)}>Delete</button>
 			</div>	
-				<Link to="/stats">
+
+				<Link to="/stats" onClick={(e) => this.liClick(e, habit)}>
 					<ListedHabit 
 					name={habit.name}
 					startdate={habit.startdate}
