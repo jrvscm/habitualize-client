@@ -1,5 +1,5 @@
 import { API_BASE_URL } from '../config';
-import { setCurrentHabitId, loadAuthToken } from '../local-storage';
+import { saveCurrentHabit } from '../local-storage';
 import moment from 'moment';
 
 const SET_CURRENT_HABIT = 'SET_CURRENT_HABIT'
@@ -91,11 +91,6 @@ export const setLoadingTrue = () => ({
 	loading: true
 })
 
-export const deleteHabitSuccess = (currentUser, authToken) => {
-	return (dispatch) => {
-		dispatch(getUserHabitsRequest(currentUser, authToken))
-	}
-}
 
 export const deleteHabitRequest = (habit, authToken, currentUser) => (dispatch) => {
 	dispatch(setLoadingTrue())
@@ -107,8 +102,7 @@ export const deleteHabitRequest = (habit, authToken, currentUser) => (dispatch) 
             "Content-Type": "application/json"
         	}
 		})
-		.then(response => console.log(response.status))
-		.then(dispatch(deleteHabitSuccess(currentUser, authToken)))
+		.then(response => dispatch(getUserHabitsRequest(currentUser, authToken)))
 		.catch((ex) => console.log('parsing failed', ex))
 }
 
@@ -212,7 +206,6 @@ export const logSubmission = (currentHabit, authToken) => {
 		const yesterday = moment(today).add(-1, 'days').format('MM-DD-YYYY');
 		let streak = currentHabit.streak;
 		let newLog = {submitted: today, impressions: 1};
-		let missedDayLog = {submitted: today, impressions: 0};
 
 		let newArray = [];
 
@@ -223,9 +216,9 @@ export const logSubmission = (currentHabit, authToken) => {
 		let last = newArray.length -1;
 
 
-		if(moment(newArray[last].submitted).isSame(today) == true) {
+		if(moment(newArray[last].submitted).isSame(today) === true) {
 			newArray[last] = {submitted: today, impressions: newArray[last].impressions + 1};
-				} else if(moment(newArray[last].submitted).isSame(yesterday) == true) {
+				} else if(moment(newArray[last].submitted).isSame(yesterday) === true) {
 					newArray.push(newLog);
 					}
 
@@ -235,22 +228,20 @@ export const logSubmission = (currentHabit, authToken) => {
 }
 
 export const setGraphInfo = (currentHabit, newArray) => {
+	return  (dispatch) => {
 		//in case we lose the current habit because of a page refresh.
 		if(newArray === undefined || currentHabit === undefined) {
-			window.location.href=('/');
-		}
-
-	return  (dispatch) => {
-		let habitId = localStorage.getItem('currentHabitId');
-		let authToken = localStorage.getItem('authToken');
+			const retrieveHabit = localStorage.getItem('currentHabit', currentHabit);
+			currentHabit = JSON.parse(retrieveHabit);
+			newArray = currentHabit.streak;
+		} 
 
 		const today = moment().format('MM-DD-YYYY');
 		const yesterday = moment(today).add(-1, 'days').format('MM-DD-YYYY');
-		let missedDayLog = {submitted: today, impressions: 0};
 		let last = newArray.length -1;
 
-		if(moment(newArray[last].submitted).isSame(today) == false && 
-			moment(newArray[last].submitted).isSame(yesterday) == false) {
+		if(moment(newArray[last].submitted).isSame(today) === false && 
+			moment(newArray[last].submitted).isSame(yesterday) === false) {
 				let lastSubmit = moment(newArray[last].submitted);
 				let difference = lastSubmit.diff(today, 'days');
 				let datesMissedArray = [];
@@ -264,6 +255,7 @@ export const setGraphInfo = (currentHabit, newArray) => {
 					newArray.push({submitted: datesMissedArray[j], impressions: 0});
 				}
 			}
+
 		let newCurrentHabit = {
 			name: currentHabit.name,
 			startdate: currentHabit.startdate,
@@ -275,6 +267,7 @@ export const setGraphInfo = (currentHabit, newArray) => {
 		}
 
 		dispatch(setCurrentHabit(newCurrentHabit))
+		saveCurrentHabit(newCurrentHabit)
 		const token = localStorage.getItem('authToken');
 		dispatch(formatNewHabit(newCurrentHabit, newArray, token));
 	}
@@ -320,10 +313,8 @@ export const setUpStreakChecker = (newArray) => {
 		);
 
 		let streaks = streakCheckArr.reduce((res, n) => 
-  		(n ? res[res.length-1]++ : res.push(0), res)
-		, [0]);
+  		(n ? res[res.length-1]++ : res.push(0), res), [0]);
 
-		let previousStreak;
 		const longestStreak = Math.max(...streaks);
 		const currentStreak = streaks[streaks.length -1];
 

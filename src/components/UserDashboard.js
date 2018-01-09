@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
 import Footer from  './Footer';
-import moment from 'moment';
 import ListedHabit from './ListedHabit';
 import HeroArea from './HeroArea';
 import SimpleModal from './Modal';
@@ -10,15 +9,13 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { 
-	clearUserHabits,
 	setCurrentHabit,   
 	getUserHabitsRequest,
 	deleteHabitRequest,
-	setLoadingFalse,
-	setLoadingTrue
+	setLoadingFalse
 } from '../actions';
 import {
-	setCurrentHabitId
+	saveCurrentHabit
 } from '../local-storage';
 import './Footer.css';
 import './Navbar.css';
@@ -42,15 +39,15 @@ class UserDashboard extends Component {
 	}
 
 	liClick(e, habit) {
+		saveCurrentHabit(habit);
 		this.props.dispatch(setCurrentHabit(habit));
-		setCurrentHabitId(habit.id)
 	}
 
 	deleteClick(e, habit) {
 		this.props.dispatch(deleteHabitRequest(habit, this.props.authToken, this.props.currentUser))
 		setTimeout(() => {
 			this.props.dispatch(setLoadingFalse())
-			}, 4000);
+			}, 1000);
 	}
 
 	render() {

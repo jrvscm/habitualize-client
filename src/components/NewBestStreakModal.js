@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Modal, {closeStyle} from 'simple-react-modal';
 import { connect } from 'react-redux';
 import { 
-setModalShow, 
 setCloseModal,
 setRecordToFalse
 } from '../actions/index';

@@ -14,8 +14,8 @@ export const clearAuthToken = () => {
     } catch (e) {}
 };
 
-export const setCurrentHabitId = (currentHabitId) => {
+export const saveCurrentHabit = (currentHabit) => {
 	try {
-		localStorage.setItem('currentHabitId', currentHabitId)
+		localStorage.setItem('currentHabit', JSON.stringify(currentHabit));
 	} catch (e) {}
 };
