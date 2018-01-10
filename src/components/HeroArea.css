@@ -2,16 +2,43 @@ div.hero-area {
 	padding: 25px;
 }
 
-h4 {
+.hero-area button {
+	width: 150px;
+	border: 1px solid rgb(255,171,74);
+	padding: 5px;
+	margin: 10px;
+	cursor: pointer;
+	transition: all .2s ease-in-out;
+}
+
+.sign-up-button {
+	background-color: transparent;
+	color: white;
+}
+
+.sign-up-button:hover {
+	background-color: rgb(255,171,74);
+}
+
+.learn-more-button {
+	background-color: transparent;
+	color: white;
+}
+
+.learn-more-button:hover {
+	background-color: rgb(255,171,74); 
+}
+.hero-area h4 {
 	padding-top: 70px !important;
 }
 
-svg {
+
+.hero-area svg {
 	height: 50px !important;
 	width: 50px !important;
 }
 
-svg:hover {
+.hero-area svg:hover {
 	color: rgba(0,0,0,.5);
 	cursor: pointer;
 }

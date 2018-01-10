@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import HeroArea from './HeroArea';
 import InfoItem from './InfoItem';
 import SignUpForm from './SignUpForm';
+import Navbar from './Navbar';
 import Footer from './Footer';
 import '../reset.css';
 import './LandingPage.css';
@@ -18,16 +19,18 @@ class LandingPage extends Component {
         return <Redirect to="/dashboard" />;
     }
 
-    return (
-    
+    return (    
     <Grid fluid> 
       <div className="landing-page-container">
+
+        <Navbar />
+        
         <HeroArea 
         title={'Habitualize'} 
-        hook={'Track your habits. Crush your goals. Repeat'} 
+        hook={'Track your habits. Crush your goals. Repeat.'} 
         />
 
-        <Row>
+        <Row className={'pitch-boxes'}>
         <Col xs>
           <InfoItem 
           title={'Simple habit tracking'} 

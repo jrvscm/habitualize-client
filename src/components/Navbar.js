@@ -35,7 +35,7 @@ class Navbar extends Component {
 		return(
 				<div className="navbar-container">
 					<nav>
-						<NavLink address={'/login'} title={'Sign In'} />
+						<NavLink address={'/login'} title={'Sign In'} className={'login-button'} />
 					</nav>
 				</div>
 			);

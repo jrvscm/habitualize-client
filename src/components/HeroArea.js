@@ -46,7 +46,9 @@ class HeroArea extends Component {
 						<header>
 							<h1>{this.props.title}</h1>
 							<h2>{this.props.hook}</h2>
-							<h4 onClick={this.scrollTo}><FontAwesome.FaAngleDoubleDown /></h4>
+							<button className={'sign-up-button'} onClick={this.scrollToBottom}>Sign Up</button>
+							<button className={'learn-more-button'} onClick={this.scrollTo}>Learn More</button>
+							<h4><FontAwesome.FaAngleDoubleDown onClick={this.scrollTo}/></h4>
 						</header>
 					</section>
 				</div>	

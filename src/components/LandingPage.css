@@ -5,15 +5,20 @@
 .hero-area {
 	background: 
 	linear-gradient(
-	rgba(106,90,205,.7),
-	rgba(106,90,205,.7)), 
+	rgba(91,192,235,.8),
+	rgba(106,90,205,.8)), 
 	url('../images/graphs-on-laptop.jpg') no-repeat center center;
 	background-size: cover;
 	height: 100vh;
 }
 
+.pitch-boxes {
+	background-color: #315989;
+}
+
 h1 {
   font-size: 4em;
+  padding-top: .6em;
 }
 
 body {
@@ -21,7 +26,6 @@ body {
   	sans-serif;
   	color: white;
   	line-height: 1.5;
-  	background-color: slateBlue;
 }
 
 section {
