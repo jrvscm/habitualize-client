@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Redirect } from 'react-router-dom';
-import Navbar from './Navbar';
 import HeroArea from './HeroArea';
 import InfoItem from './InfoItem';
 import SignUpForm from './SignUpForm';
 import Footer from './Footer';
+import '../reset.css';
 import './LandingPage.css';
 
 class LandingPage extends Component {
@@ -22,8 +22,6 @@ class LandingPage extends Component {
     
     <Grid fluid> 
       <div className="landing-page-container">
-        <Navbar />
-
         <HeroArea 
         title={'Habitualize'} 
         hook={'Track your habits. Crush your goals. Repeat'} 
@@ -53,7 +51,7 @@ class LandingPage extends Component {
         
       </Row>
 
-          <SignUpForm />
+          <SignUpForm className={'sign-up-form'}/>
 
           <Footer title={'Footer Stuff'} />
       </div>

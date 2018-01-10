@@ -5,10 +5,11 @@
 
 .navbar-container {
 	position: fixed;
-	top: 0;
+	top: 10px;
 	left: 0;
 	right: 0;
 	z-index: 10;
- 	background-color: #d3d3d3;
+ 	background-color: transparent;
+ 	color:white;
  	text-align: right;
 }

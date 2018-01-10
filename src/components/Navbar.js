@@ -3,6 +3,7 @@ import { clearAuth, CLEAR_AUTH } from '../actions/auth';
 import { clearAuthToken } from '../local-storage';
 import { connect } from 'react-redux';
 import NavLink from './NavLink';
+import '../reset.css';
 import './Navbar.css';
 
 class Navbar extends Component {
@@ -35,7 +36,6 @@ class Navbar extends Component {
 				<div className="navbar-container">
 					<nav>
 						<NavLink address={'/login'} title={'Sign In'} />
-						<NavLink address={'/home'} title={'Home'} />
 					</nav>
 				</div>
 			);
