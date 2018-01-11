@@ -24,30 +24,33 @@ class LandingPage extends Component {
       <div className="landing-page-container">
 
         <Navbar />
-        
-        <HeroArea 
-        title={'Habitualize'} 
-        hook={'Track your habits. Crush your goals. Repeat.'} 
-        />
+        <Row>
+          <Col xs>
+            <HeroArea 
+            title={'Habitualize'} 
+            hook={'Track your habits. Crush your goals. Repeat.'} 
+            />
+          </Col>
+        </Row>
 
         <Row className={'pitch-boxes'}>
-        <Col xs>
+        <Col md>
           <InfoItem 
-          title={'Simple habit tracking'} 
+          title={'Easy Tracking'} 
           info={'Habitualize helps you track your habits so you can stay productive. Habit tracking trains your mind to instinctively do the things you find worthwhile.'}
           /> 
         </Col>
 
-        <Col xs>
+        <Col md>
           <InfoItem 
-          title={'Compete against yourself'} 
+          title={'Compete Against Yourself'} 
           info={'Custom streaks and user feedback push you to take your tracking to the next level. Beat your current streak and set personal records.'}
           /> 
         </Col>
 
-        <Col xs>
+        <Col md>
           <InfoItem 
-          title={'Track your progress'} 
+          title={'Track Your Progress'} 
           info={"Interactive charts and personalized statistics keep you motivated and let you know exactly how you're progressing."}
           /> 
         </Col>
@@ -56,7 +59,7 @@ class LandingPage extends Component {
 
           <SignUpForm className={'sign-up-form'}/>
 
-          <Footer title={'Footer Stuff'} />
+          <Footer title={'Built by JrvscM'} />
       </div>
     </Grid>      
     );

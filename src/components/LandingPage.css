@@ -5,25 +5,27 @@
 .hero-area {
 	background: 
 	linear-gradient(
-	rgba(91,192,235,.8),
-	rgba(106,90,205,.8)), 
+	rgba(40,175,176,.7),
+	rgba(106,90,205,.7)),
 	url('../images/graphs-on-laptop.jpg') no-repeat center center;
 	background-size: cover;
 	height: 100vh;
 }
 
 .pitch-boxes {
-	background-color: #315989;
+	background-color: #28AFB0;
+	padding: 10%;
 }
 
 h1 {
   font-size: 4em;
   padding-top: .6em;
+  font-family: 'Corben', cursive;
+  font-weight: bold;
 }
 
 body {
-	font-family: "Open Sans",
-  	sans-serif;
+	font-family: 'Nobile', sans-serif;
   	color: white;
   	line-height: 1.5;
 }

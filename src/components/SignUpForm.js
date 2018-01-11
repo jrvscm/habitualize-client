@@ -4,6 +4,7 @@ import {registerUser} from '../actions/users';
 import {login} from '../actions/auth';
 import Input from './input';
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
+import '../reset.css';
 import './SignUpForm.css';
 
 class SignUpForm extends Component {
@@ -18,6 +19,7 @@ class SignUpForm extends Component {
 
 	render() {
 		return(
+           <section className={'sign-up-form'}> 
             <form
                 className="sign-up-form"
                 onSubmit={this.props.handleSubmit(values =>
@@ -33,6 +35,7 @@ class SignUpForm extends Component {
                     type="text"
                     name="username"
                     validate={[required, nonEmpty, isTrimmed]}
+                    warn={required}
                 />
                 <label htmlFor="password">Password</label>
                 <Field
@@ -54,6 +57,7 @@ class SignUpForm extends Component {
                     Register
                 </button>
             </form>
+        </section>
 		);
 	}
 }

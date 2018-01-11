@@ -14,9 +14,12 @@ div.navbar-container a {
 	padding-left: 5px;
 	padding-right: 5px;
 	color: white;
+	background-color: #6A5ACD;
+	padding: 5px;
+	transition: all .2s ease-in-out;
 }
 
 
 div.navbar-container a:hover {
-	background-color: rgba(0,0,0,.5);
+	background-color: rgba(106,90,205,.5);
 }

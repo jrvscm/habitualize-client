@@ -1,14 +1,20 @@
-* {
-	padding:0;
-	margin:0;
-}
-
 .footer-container {
 	position: relative;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	z-index:10;
- 	background-color: #42548e;
+ 	background-color: #219091;
  	text-align: center;
+}
+
+.footer-container svg {
+	height: 25px;
+	width: 25px;
+	margin-left: 5px;
+	color:white;
+}
+
+.footer-container svg:hover {
+	color:rgba(0,0,0,.5);
 }
