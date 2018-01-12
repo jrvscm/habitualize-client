@@ -25,12 +25,10 @@ class LandingPage extends Component {
 
         <Navbar />
         <Row>
-          <Col xs>
             <HeroArea 
             title={'Habitualize'} 
             hook={'Track your habits. Crush your goals. Repeat.'} 
             />
-          </Col>
         </Row>
 
         <Row className={'pitch-boxes'}>
@@ -56,11 +54,14 @@ class LandingPage extends Component {
         </Col>
         
       </Row>
-
-          <SignUpForm className={'sign-up-form'}/>
-
-          <Footer title={'Built by JrvscM'} />
-      </div>
+      
+      <Row>
+        <SignUpForm className={'sign-up-form'}/>
+      </Row>
+      <Row>
+        <Footer title={'Built by JrvscM'} />
+      </Row>
+    </div>
     </Grid>      
     );
   }

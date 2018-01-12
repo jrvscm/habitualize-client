@@ -6,6 +6,7 @@ import Navbar from './Navbar';
 import LoginForm from './LoginForm';
 import './Navbar.css';
 import './LoginPage.css';
+import '../reset.css';
 
 class LoginPage extends Component {
 
@@ -19,17 +20,11 @@ class LoginPage extends Component {
 		<Grid fluid>
 		<Navbar />
 			<Row>
-				<Col xs={12}>
-					<Row center="xs">
-						<Col xs={4}>
-							<div className="login-form-container">		
-								<section className="login-section">
-									<LoginForm />
-								</section>
-							</div>
-						</Col>
-					</Row>
-				</Col>
+					<div className="login-form-container">		
+						<section className="login-section">
+							<LoginForm />
+						</section>
+					</div>
 			</Row>
 		</Grid>
 		);

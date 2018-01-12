@@ -33,3 +33,20 @@ body {
 section {
   padding: 20px;
 }
+
+@media screen and (max-width: 600px) {
+		.hero-area h1 {
+			font-size: 3em !important;
+		}
+
+		.hero-area h2 {
+			font-size: .8em;
+		}
+
+}
+
+@media screen and (max-width: 500px) {
+	.hero-area h1 {
+		font-size: 2em !important;
+	}
+}

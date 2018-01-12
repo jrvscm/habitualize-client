@@ -1,5 +1,6 @@
 div.hero-area {
 	padding: 25px;
+	width: 100%;
 }
 
 .hero-area button {
@@ -48,6 +49,7 @@ div.hero-area {
 	color: #28AFB0;
 	cursor: pointer;
 }
+
 
 
 
