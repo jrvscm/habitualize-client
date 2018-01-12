@@ -19,11 +19,11 @@ class Navbar extends Component {
 		let logOutButton;
         if (this.props.loggedIn) {
             logOutButton = (
-                <button onClick={() => this.logOut()}>Log out</button>
+                <button className={'log-out-button'} onClick={() => this.logOut()}>Log Out</button>
             );
 		
 		return(
-				<div className="navbar-container">
+				<div className={"navbar-container logged-in-nav"}>
 					<nav>
 						<NavLink address={'/dashboard'} title={'Home'} />
 						{logOutButton}

@@ -6,11 +6,10 @@ import './ListedHabit.css';
 class ListedHabit extends Component {
 	render() {
 		return(
-			<section className="listed-habit">
-				<header>
+			<section className={"listed-habit"}>
+				<header className={'listed-habit-header'}>
 					<h3>{this.props.name}</h3>
 					<p>{moment(this.props.startdate).format('MM-DD-YYYY')}</p>
-					[PLACEHOLDER FOR CALENDAR]
 				</header>
 			</section>
 		);

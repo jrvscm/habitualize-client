@@ -10,5 +10,10 @@ section {
   padding: 20px;
 }
 
+body, main, html {
+	height: 100%;
+	width: 100%;
+}
+
 
 

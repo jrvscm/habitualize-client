@@ -43,10 +43,15 @@ section {
 			font-size: .8em;
 		}
 
+		.hero-area h1 {
+			padding-top: 3em;
+		}
+
 }
 
 @media screen and (max-width: 500px) {
 	.hero-area h1 {
 		font-size: 2em !important;
 	}
+
 }

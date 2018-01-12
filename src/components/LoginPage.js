@@ -3,8 +3,10 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import Navbar from './Navbar';
+import Footer from './Footer';
 import LoginForm from './LoginForm';
 import './Navbar.css';
+import './Footer.css';
 import './LoginPage.css';
 import '../reset.css';
 
@@ -17,16 +19,15 @@ class LoginPage extends Component {
 		}
 		
 		return(
-		<Grid fluid>
-		<Navbar />
-			<Row>
-					<div className="login-form-container">		
-						<section className="login-section">
-							<LoginForm />
-						</section>
-					</div>
-			</Row>
-		</Grid>
+		<div className={'login-form-outer-container'}>	
+			<Navbar />
+				<div className="login-form-container">		
+					<section className="login-section">
+						<LoginForm />
+					</section>
+				</div>
+			<Footer title={'Built by JrvscM'}/>
+		</div>
 		);
 	}
 }

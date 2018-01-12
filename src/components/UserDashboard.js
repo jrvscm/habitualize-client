@@ -108,8 +108,9 @@ return (
 
 			<Row>
 				<Col xs>
-					<HeroArea title={'My Habits'} />
-					<p>These are just sample habits. When you create some of your own, this is how they will appear.</p>
+					<header className={'username-header'}>
+						<h2>{this.props.currentUser.username}'s Habits</h2>
+					</header>
 					<SimpleModal />
 				</Col>
 			</Row>

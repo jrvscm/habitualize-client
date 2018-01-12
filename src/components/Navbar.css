@@ -1,23 +1,30 @@
 .navbar-container {
 	position: fixed;
-	top: 15px;
+	top: 0px;
 	left: 0;
-	right: 15px;
+	right: 0px;
 	z-index: 10;
  	background-color: transparent;
  	color:white;
  	text-align: right;
 }
 
-div.navlink-container a {
+div.navlink-container {
+	margin-top: 5px;
+	margin-right: 5px;
+}
+
+div.navlink-container:nth-child(2n) {
 	border-radius: 50px;
-	color: white;
 	background-color: #6A5ACD;
-	padding: 5px;
 	transition: all .2s ease-in-out;
 }
 
+div.navlink-container:nth-child(2n):hover {
+	background-color: rgba(0,0,0,.5);
+}
 
-div.navbar-container a:hover {
-	background-color: rgba(106,90,205,.5);
+div.navbar-container a {
+	color:white;
+	font-size: 12px;
 }

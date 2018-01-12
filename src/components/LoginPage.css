@@ -1,21 +1,35 @@
-body {
-	background-color: rgb(106,90,205);
-}
-
 section.login-section {
 	background-color: #28AFB0;
 	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.login-form-outer-container {
+	position: absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background-color: #6A5ACD;
 }
 
 div.login-form-container {
-	background-color: #28AFB0;
-	height: 215px;
+	height: 200px;
 	width: 300px;
+	margin-top: 100px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 15%;
-	padding: 15px;
+	background-color: #28AFB0;
 	-webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
 	box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
 }
+
+div.footer-container {
+	position: fixed;
+	bottom:0;
+	left:0;
+}
+
+
