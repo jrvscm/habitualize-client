@@ -23,18 +23,20 @@ label#goodHabitRadioLabel {
 }
 
 button.habit-submit {
-	background-color: rgb(40,175,176);
-	border: none;
-	color: rgb(106,90,205);
-	font-weight: bold;
 	height: 30px;
 	width: 100%;
 	margin-top: 5px;
+	background-color: transparent;
+	border: 2px solid white;
+	color: white;
+	height: 30px;
+	width: 80px;
 	cursor: pointer;
+	z-index: 101;
 	transition: all .2s ease-in-out;
 }
 
 button.habit-submit:hover {
-	background-color: rgb(106,90,205);
-	color: rgb(40,175,176);
+	background-color: white;
+	color: rgba(106,90,205,.8);
 }

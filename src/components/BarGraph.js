@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import { BarChart } from 'react-easy-chart';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import './BarGraph.css';
 
 class BarGraph extends Component {
@@ -9,7 +8,7 @@ class BarGraph extends Component {
 		return (
 		<section className={'bar-chart-section'}>	
 			<div className={'bar-chart'}>
-				<LineChart 
+				<AreaChart 
 					width={800} 
 					height={300} 
 					data={this.props.barDataArr}
@@ -19,8 +18,8 @@ class BarGraph extends Component {
        			<CartesianGrid strokeDasharray="3 3"/>
        			<Tooltip />
        			<Legend height={5} width={5} wrapperStyle={{ bottom: 40, left: 200, backgroundColor: 'transparent', border: 'none', borderRadius: 3, lineHeight: '10px' }} />
-       			<Line type="monotone" dataKey="Submission" stroke="#8884d8" activeDot={{r: 8}}/>
-      			</LineChart>
+       			<Area type="monotone" dataKey="Submission" stroke="#8884d8" fill={'#8884d8'} activeDot={{r: 8}}/>
+      			</AreaChart>
 			</div>
 		</section>
 		);

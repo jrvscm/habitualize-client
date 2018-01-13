@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { clearAuth, CLEAR_AUTH } from '../actions/auth';
+import { setLoadingTrue, setLoadingFalse } from '../actions';
 import { clearAuthToken } from '../local-storage';
 import { connect } from 'react-redux';
 import NavLink from './NavLink';

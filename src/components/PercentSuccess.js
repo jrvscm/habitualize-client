@@ -8,7 +8,7 @@ class PercentSuccess extends Component {
 		return (	
 			<div className={'percent-success statistics'}>
 			<span className={'percentageDisplay'} >
-				<h3>{this.props.percentSuccess} %</h3>
+				<h3>{this.props.percentSuccess} %<br/>Success</h3>
 				<PieChart
   					data={[
     					{ 

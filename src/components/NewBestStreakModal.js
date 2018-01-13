@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Modal, {closeStyle} from 'simple-react-modal';
+import * as FontAwesome from 'react-icons/lib/fa';
 import { connect } from 'react-redux';
 import { 
 setCloseModal,
@@ -27,10 +28,11 @@ class BestStreakModal extends Component {
       				show={this.props.show}
       				onClose={this.close.bind(this)}>
       						
-      					<div className={'modal-content'}>	<a className={'closeLink'} onClick={this.close.bind(this)}>X</a>
+      					<div className={'modal-content'}>	<a id={'closeLink'} onClick={this.close.bind(this)}><FontAwesome.FaClose /></a>
       						<p>Contratulations!</p> 
       						<p>You have a {this.props.longestStreak} Day(s) streak going!</p> 
       						<p>Keep up the good work!</p>
+                  <div className={'shared'}>
         						<ShareButton
                 				compact
                 				socialMedia={'facebook'}
@@ -38,6 +40,9 @@ class BestStreakModal extends Component {
                 				media={'/*add screenshot of UI*/'}
                 				text="I set a new record on Habitualize!"
             					/>
+                  </div>
+
+                  <div className={'shared'}>
             					<ShareButton
                 				compact
                 				socialMedia={'twitter'}
@@ -45,6 +50,7 @@ class BestStreakModal extends Component {
                 				media={'/*add screenshot of UI*/'}
                 				text="I set a new record on Habitualize!"
             					/>
+                  </div>
 
       					</div>
       			</Modal>

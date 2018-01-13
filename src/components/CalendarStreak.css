@@ -1,21 +1,17 @@
-*{
-	padding:0;
-	margin:0;
-	box-sizing: border-box;
-}
-
 div.calendar-streak {
 	max-width: 450px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
-	background-color: #d3d3d3;
-	border: 1px solid black;
 }
 
 section.calendar-section {
 	text-align: center;
-	background: #bbb;
+	font-size: 12px;
+}
+
+section.calendar-section h3 {
+	font-size: 20px;
 }
 
 .habit-streak-ul {
@@ -28,10 +24,14 @@ section.calendar-section {
 ul.habit-streak-ul li {
 	width: 6px;
 	height:6px;
+	border-radius:5px;
 	list-style-type: none;
 	display:inline-block;
 	border: 1px solid black;
 	margin: .5px;
+	-webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
 }
 
 ul.habit-streak-ul li:hover {

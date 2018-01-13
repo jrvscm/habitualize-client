@@ -36,7 +36,7 @@ class CalendarStreak extends Component {
 				<h3>{this.props.habitName}</h3>
 			</header>		
 			<div className={'calendar-streak'}>
-			<p>Start Date: {this.props.currentHabit.startdate}</p>
+			<p>Goal: {this.props.currentHabit.goal}</p>
 			<p>Current Streak: {this.props.currentStreak} Day(s)</p>
 				<ul className={'habit-streak-ul'}>{habitSubmitInfo}</ul>
 			</div>
@@ -64,8 +64,10 @@ class CalendarStreak extends Component {
 				<h3>{this.props.habitName}</h3>
 			</header>		
 			<div className={'calendar-streak'}>
-			<p>Start Date: {this.props.currentHabit.startdate}</p>
+			<p>Started on {this.props.currentHabit.startdate}</p>
+			<p>Goal: {this.props.currentHabit.goal} times {this.props.currentHabit.loginterval}</p>
 			<p>Current Streak: {this.props.currentStreak} Day(s)</p>
+			<hr/>
 				<ul className={'habit-streak-ul'}>{habitSubmitInfo}</ul>
 			</div>
 			<LogHabit />

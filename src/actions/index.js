@@ -263,9 +263,9 @@ export const setGraphInfo = (currentHabit, newArray) => {
 			goal: currentHabit.goal,
 			goodorbad: currentHabit.goodorbad,
 			id: currentHabit.id,
-			userref: currentHabit.userref
+			userref: currentHabit.userref,
+			loginterval: currentHabit.loginterval
 		}
-
 		dispatch(setCurrentHabit(newCurrentHabit))
 		saveCurrentHabit(newCurrentHabit)
 		const token = localStorage.getItem('authToken');
@@ -318,7 +318,7 @@ export const setUpStreakChecker = (newArray) => {
 		const longestStreak = Math.max(...streaks);
 		const currentStreak = streaks[streaks.length -1];
 
-		if(longestStreak % 10 === 0) {
+		if(longestStreak % 1 === 0) {
 			dispatch(setNewRecord())
 		}
 

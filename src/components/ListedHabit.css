@@ -14,11 +14,21 @@ li.listed-habit {
 }
 
 li.listed-habit h3 {
-	font-size: 1.5vw;
+	font-size: 2.5vw;
 }
 
 li.listed-habit p {
-	font-size: 1.5vw;
+	font-size: 2.5vw;
 }
 
+
+@media screen and (max-width: 500px) {
+	li.listed-habit h3 {
+		font-size: 12px;
+	}
+
+	li.listed-habit p {
+		font-size: 12px;
+	}
+}
 

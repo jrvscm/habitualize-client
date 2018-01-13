@@ -30,13 +30,7 @@
 	font-size: 2vw;
 }
 
-.sign-up-row {
-	width: 100%;
+.row {
 	margin:0;
+	width:100%;
 }
-
-.hero-row {
-	width: 100%;
-	margin:0;
-}
-

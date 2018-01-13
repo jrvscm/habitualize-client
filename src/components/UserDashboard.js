@@ -13,7 +13,8 @@ import {
 	setCurrentHabit,   
 	getUserHabitsRequest,
 	deleteHabitRequest,
-	setLoadingFalse
+	setLoadingFalse,
+	setLoadingTrue
 } from '../actions';
 import {
 	saveCurrentHabit
@@ -27,7 +28,7 @@ import './UserDashboard.css';
 class UserDashboard extends Component {
 
 	componentDidMount() {
-
+	this.props.dispatch(setLoadingTrue());
   	window.scrollTo(0, 0)
 
 	if(this.props.currentUser == null) {

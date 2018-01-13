@@ -81,6 +81,7 @@ export class HabitForm extends React.Component {
           				name="habitStartDate"
           				showTime={false}
           				component={renderDateTimePicker}
+                  validate={[required]}
         		/>
                 <label id="goodHabitRadioLabel" htmlFor="goodHabitRadio">Good
                 <Field
@@ -108,9 +109,10 @@ export class HabitForm extends React.Component {
           				data={numbers}
           				valueField="value"
           				textField="goal"
+                  validate={[required]}
           		/>
 
-          		<label htmlFor="habigLogDropdown">When to log</label>
+          		<label htmlFor="habitLogDropdown">When to log</label>
 			        <Field
           				name="habitLogDropdown"
           				id="habitLogDropdown"
@@ -118,6 +120,7 @@ export class HabitForm extends React.Component {
           				data={logData}
           				valueField="value"
           				textField="log"
+                  validate={[required]}
           			/>
 
                 <button className={'habit-submit'} disabled={this.props.pristine || this.props.submitting}>

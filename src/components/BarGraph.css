@@ -9,13 +9,15 @@ div.bar-chart {
 	margin-right: auto;
 	padding-top: 1%;
 	text-align: center;
-	background-color: #d3d3d3;
-	border: 1px solid black;
+	background-color: #f2f2f2;
+	-webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
 }
 
 section.bar-chart-section {
 	text-align: center;
-	background: #bbb;
+	margin-bottom: 50px;
 }
 
 svg.recharts-surface {
@@ -37,3 +39,10 @@ svg.recharts-surface {
 	font-size: 10px;
 }
 
+@media only screen and (max-width: 600px) {
+	div.recharts-legend-wrapper {
+		position: absolute;
+		bottom:25px !important;
+		left:50px!important;
+	}
+}

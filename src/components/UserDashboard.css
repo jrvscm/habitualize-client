@@ -1,4 +1,5 @@
 .logged-in-nav {
+	height: 35px;
 	background:
 	linear-gradient(
 	to right,
@@ -10,20 +11,17 @@
 }
 
 button.log-out-button {
-	color:white;
-	background-color: rgb(40,175,176);
-	border:1px solid rgb(40,175,176);
-	border-radius: 50px;
-	padding: 3px;
+	background-color: transparent;
+	color: white;
 	margin-right: 5px;
 	cursor: pointer;
+	border: none;
+	z-index: 101;
 	transition: all .2s ease-in-out;
-	margin-bottom: 6px;
 }
 
 button.log-out-button:hover {
-	background-color: rgb(106,90,205);
-	color:rgb(40,175,176);
+	color: rgba(0,0,0,.5);
 }
 
 div.delete-button-container {
@@ -38,23 +36,21 @@ section.listed-habit {
 .username-header h2 {
 	color: black;
 	text-align: center;
-	font-size: 6vw;
+	font-size: 30px;
 	font-weight: bold;
 	font-family: 'Corben', cursive;
 }
 
 header.username-header {
 	text-align: center;
-	margin-top: 6vh;
+	margin-top: 8vh;
 }
 
-header.listed-habit-header {
-	line-height: 50px;
+header.username-header h2 {
+	font-size: 40px;
 }
 
-div.start-date-container {
-	line-height: 50px;
-}
+
 
 li.listed-habit:hover {
 	cursor:pointer;

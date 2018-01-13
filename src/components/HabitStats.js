@@ -17,34 +17,28 @@ import './HabitStats.css';
 
 class HabitStats extends Component {
 	componentDidMount() {
-
 		window.scrollTo(0, 0)
-
 		let streak = this.props.streak;
 		let habit = this.props.currentHabit;
 		this.props.dispatch(setGraphInfo(habit, streak));
 	}
 
 	render() {
-
-		/*if(this.props.loggedOut) {
-			return(<Redirect to="/home"/>)
-		}*/
-
 		return (
 	<Grid fluid>
 		<div className={'habit-stats-container'}>
 			
-			<Row>
-				<Col xs={12}>	
-					<Navbar />
-				</Col>
+			<Navbar />
+
+			<Row>	
 				<NewBestStreakModal />
 			</Row>
 
-			<Row>
+
+			<Row className={'streak-row'}>
 				<Col xs={12}>
 					<CalendarStreak 
+					logInterval={this.props.currentStreak.loginterval}
 					currentStreak={this.props.currentStreak}
 					habitName={this.props.habitName}
 					currentHabit={this.props.currentHabit}
@@ -53,26 +47,28 @@ class HabitStats extends Component {
 					/>
 				</Col>
 			</Row>
-					<section className={'circle-charts'}>
+
+			<section className={'circle-charts'}>
 					
-						<Row>
-							<Col xs>
-								<PercentSuccess />
-							</Col>
+				<Row>
+					<Col xs>
+						<BestStreak 
+						longestStreak={this.props.longestStreak} />
+					</Col>
 
-							<Col xs>
-								<DonutChart
-								averageSubmit={this.props.averageSubmit}
-								donutDataArr={this.props.donutDataArr} />
-							</Col>
+					<Col xs>
+						<DonutChart
+						averageSubmit={this.props.averageSubmit}
+						donutDataArr={this.props.donutDataArr} />
+					</Col>
 
-							<Col xs>
-								<BestStreak 
-								longestStreak={this.props.longestStreak} />
-							</Col>
-						</Row>
+					<Col xs>
+						<PercentSuccess />
+					</Col>
+				</Row>
 
-					</section>
+			</section>
+
 			<Row>
 				<Col xs={12}>
 					<BarGraph 
@@ -82,7 +78,9 @@ class HabitStats extends Component {
 
 			<Row>
 				<Col xs={12}>
-					<Footer title={'footer stuff'}/>
+					<div>
+						<Footer title={'Built by JrvscM'} />
+					</div>
 				</Col>
 			</Row>
 
