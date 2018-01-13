@@ -1,0 +1,42 @@
+section.login-section {
+	background-color: #28AFB0;
+	width: 100%;
+}
+
+div.login-form-wrapper {
+	position: absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background-color: #6A5ACD;
+}
+
+div.login-form-container {
+	height: 200px;
+	width: 300px;
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #28AFB0;
+	-webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+}
+
+@media only screen and (max-width: 500px) {
+	div.login-form-wrapper {
+		background-color: #28AFB0;	
+	}
+
+	div.login-form-container {
+		height:100%;
+		width:100%;
+		padding-top: 15vh;
+		box-shadow: none;
+	}
+
+	.login-form {
+		padding: 1vw;
+	}
+}

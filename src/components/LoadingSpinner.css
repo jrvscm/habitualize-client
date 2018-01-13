@@ -1,0 +1,9 @@
+div.sweet-loading {
+	padding-top: 60%;
+}
+
+@media screen and (max-width: 500px) {
+	div.sweet-loading {
+		padding-top: 250%;
+	}
+}

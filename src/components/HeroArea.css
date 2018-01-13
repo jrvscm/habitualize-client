@@ -1,0 +1,57 @@
+div.hero-area {
+	padding: 25px;
+	width: 100%;
+}
+
+.hero-area button {
+	width: 19vw;
+	border: 1px solid white;
+	padding: .5vw;
+	margin: 10px;
+	cursor: pointer;
+	font-size: 2vw;
+	transition: all .2s ease-in-out;
+}
+
+.sign-up-button {
+	background-color: transparent;
+	color: white;
+}
+
+.sign-up-button:hover {
+	background-color: white;
+	color: #6A5ACD;
+	border: 1px solid #6A5ACD;
+}
+
+.learn-more-button {
+	background-color: transparent;
+	color: white;
+}
+
+.learn-more-button:hover {
+	background-color: white; 
+	color: #6A5ACD;
+	border: 1px solid #6A5ACD;
+}
+
+.hero-area h4 {
+	padding-top: 70px !important;
+}
+
+
+.hero-area svg {
+	height: 50px !important;
+	width: 50px !important;
+	transition: all .2s ease-in-out;
+}
+
+.hero-area svg:hover {
+	color: #28AFB0;
+	cursor: pointer;
+}
+
+
+
+
+

@@ -1,0 +1,36 @@
+.landing-page-container {
+  text-align: center;
+}
+
+.hero-area {
+	background: 
+	linear-gradient(
+	rgba(40,175,176,.7),
+	rgba(106,90,205,.7)),
+	url('../images/graphs-on-laptop.jpg') no-repeat center center;
+	background-size: cover;
+	height: 100vh;
+}
+
+.pitch-boxes {
+	background-color: #28AFB0;
+	padding: 10%;
+	width: 100%;
+	margin:0;
+}
+
+.hero-area h1 {
+  font-size: 8vw;
+  padding-top: 7vh;
+  font-family: 'Corben', cursive;
+  font-weight: bold;
+}
+
+.hero-area h2 {
+	font-size: 2vw;
+}
+
+.row {
+	margin:0;
+	width:100%;
+}

@@ -1,0 +1,95 @@
+.logged-in-nav {
+	height: 35px;
+	background:
+	linear-gradient(
+	to right,
+	rgb(40,175,176),
+	rgb(106,90,205));
+	-webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+}
+
+button.log-out-button {
+	background-color: transparent;
+	color: white;
+	margin-right: 5px;
+	cursor: pointer;
+	border: none;
+	z-index: 101;
+	transition: all .2s ease-in-out;
+}
+
+button.log-out-button:hover {
+	color: rgba(0,0,0,.5);
+}
+
+div.delete-button-container {
+	display:inline-block;
+	float: right;
+}
+
+section.listed-habit {
+	padding:0;
+}
+
+.username-header h2 {
+	color: black;
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	font-family: 'Corben', cursive;
+}
+
+header.username-header {
+	text-align: center;
+	margin-top: 8vh;
+}
+
+header.username-header h2 {
+	font-size: 40px;
+}
+
+
+
+li.listed-habit:hover {
+	cursor:pointer;
+	background-color: rgba(106,90,205,.30);
+}
+
+li.listed-habit svg {
+	height:15px;
+	width:15px;
+	float: right;
+}
+
+li.listed-habit button {
+	background-color:transparent;
+	border:none;
+	cursor: pointer;
+	transition: all .2s ease-in-out;
+}
+
+li.listed-habit button:hover {
+	color:rgba(0,0,0,.5);
+}
+
+li.listed-habit:last-child {
+	margin-bottom: 50px;
+}
+
+a {
+	text-decoration: none;
+	color:black;
+	transition: all .2s ease-in-out;
+}
+
+nav a:hover {
+	color:rgba(0,0,0,.5);
+}
+
+@media only screen and (max-width: 600px) {
+	li.listed-habit {
+		width:90%;
+	}
+}

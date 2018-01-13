@@ -1,0 +1,20 @@
+
+div.donut-chart {
+	position: relative;
+}
+
+span h3 {
+	margin:auto;
+	position: absolute;
+	top:32%;
+	left:0;
+	right:0;
+}
+
+svg {
+	height:150px
+}
+
+.pie-chart-label  {
+	fill: white !important;
+}

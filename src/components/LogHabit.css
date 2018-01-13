@@ -1,0 +1,18 @@
+.log-habit-button {
+	position: fixed;
+	top:2.5px;
+	left:5px;
+	background-color: transparent;
+	border: 2px solid white;
+	color: white;
+	height: 30px;
+	width: 80px;
+	cursor: pointer;
+	z-index: 101;
+	transition: all .2s ease-in-out;
+}
+
+.log-habit-button:hover {
+	background-color: white;
+	color: rgb(40,175,176);
+}

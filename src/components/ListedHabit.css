@@ -1,0 +1,34 @@
+li.listed-habit {
+	text-align: center;
+	width: 60%;
+	margin-top: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 3px;
+	background-color: #f2f2f2;
+	color: black;
+	transition: all .2s ease-in-out;
+	-webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+}
+
+li.listed-habit h3 {
+	font-size: 2.5vw;
+}
+
+li.listed-habit p {
+	font-size: 2.5vw;
+}
+
+
+@media screen and (max-width: 500px) {
+	li.listed-habit h3 {
+		font-size: 12px;
+	}
+
+	li.listed-habit p {
+		font-size: 12px;
+	}
+}
+

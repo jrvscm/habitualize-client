@@ -1,0 +1,47 @@
+div.calendar-streak {
+	max-width: 450px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+section.calendar-section {
+	text-align: center;
+	font-size: 12px;
+}
+
+section.calendar-section h3 {
+	font-size: 20px;
+}
+
+.habit-streak-ul {
+	max-width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+ul.habit-streak-ul li {
+	width: 6px;
+	height:6px;
+	border-radius:5px;
+	list-style-type: none;
+	display:inline-block;
+	border: 1px solid black;
+	margin: .5px;
+	-webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+}
+
+ul.habit-streak-ul li:hover {
+	background-color: rgba(0,0,0,.5);
+}
+
+.green {
+	background: green;
+}
+
+.red {
+	background: red;
+}

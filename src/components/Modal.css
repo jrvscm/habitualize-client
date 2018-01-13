@@ -1,0 +1,80 @@
+div.create-habit-button-container {
+	width: 15%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+}
+
+#create-habit-button {
+	position: fixed;
+	top:2.5px;
+	left:5px;
+	background-color: transparent;
+	border: 2px solid white;
+	color: white;
+	height: 30px;
+	width: 80px;
+	cursor: pointer;
+	z-index: 101;
+	transition: all .2s ease-in-out;
+}
+
+#create-habit-button:hover {
+	background-color: white;
+	color: #28AFB0;
+}
+
+div.create-habit-button-container svg {
+	height:8px;
+	width:8px;
+}
+
+a.closeLink {
+	display:inline-block;
+	float: right;
+	cursor: pointer;
+}
+
+div.modal {
+	position: fixed;
+	background-color: rgba(0,0,0,.5);
+	top:0;
+	right:0;
+	left:0;
+	bottom:0;
+}
+
+div.modal-content {
+	background:
+	linear-gradient(
+	rgba(40,175,176,.3),
+	rgba(106,90,205,.3));
+	margin-top: 5%;
+	margin-left: auto;
+	margin-right: auto;
+	min-width: 300px;
+	border-radius: 5px;
+	padding: 5px;
+	-webkit-box-shadow: 10px 10px 19px -5px rgba(0,0,0,0.80);
+	-moz-box-shadow: 10px 10px 19px -5px rgba(0,0,0,0.80);
+	box-shadow: 10px 10px 19px -5px rgba(0,0,0,0.80);
+}
+
+@media only screen and (max-width: 450px) {
+
+	div.modal {
+		background:
+		linear-gradient(
+		rgb(40,175,176),
+		rgb(106,90,205)); 
+	}
+
+	div.modal-content {
+		width: 100%!important;
+		margin-top: 40%!important;
+		background-color: transparent!important;
+		-webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0) !important;
+		-moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0)!important;
+		box-shadow: 0px 0px 0px 0px rgba(0,0,0,0)!important;
+	}
+}

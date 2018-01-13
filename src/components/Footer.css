@@ -1,0 +1,21 @@
+.footer-container {
+	position: fixed;	
+	bottom: 0;
+	right:0;
+	left:0;
+ 	background-color: transparent;
+ 	text-align: center;
+ 	width:100%;
+}
+
+.footer-container svg {
+	height: 25px;
+	width: 25px;
+	margin-left: 5px;
+	color:white;
+}
+
+.footer-container svg:hover {
+	color:rgba(0,0,0,.5);
+}
+

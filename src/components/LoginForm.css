@@ -1,0 +1,27 @@
+.login-form button {
+	float: right;
+	background: transparent;
+	border: 1px solid white;
+	color: white;
+	padding: 5px;
+	transition: all .2s ease-in-out;
+	margin-top: 5px;
+}
+
+.login-form button:hover {
+	cursor: pointer;
+	background-color: white;
+	color:#6A5ACD;
+	margin-top: 3px;
+	margin-right: 3px;
+}
+
+.form-error, .form-warning {
+	text-align: right;
+	color: red;
+}
+
+.login-form {
+	background-color: #28AFB0;
+}
+
