@@ -5,6 +5,7 @@ import ListedHabit from './ListedHabit';
 import HeroArea from './HeroArea';
 import SimpleModal from './Modal';
 import LoadingSpinner from './LoadingSpinner';
+import * as FontAwesome from 'react-icons/lib/fa';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -17,8 +18,9 @@ import {
 import {
 	saveCurrentHabit
 } from '../local-storage';
+import '../reset.css';
+import '../App.css';
 import './Footer.css';
-import './Navbar.css';
 import './ListedHabit.css';
 import './UserDashboard.css';
 
@@ -65,7 +67,7 @@ class UserDashboard extends Component {
 			userHabits = this.props.sampleHabits.map((habit, index) =>
 			<li key={index} index={index}
 					{...habit}	className="listed-habit">
-			<div onClick={(e) => this.deleteClick(e, habit)}>
+			<div className={'delete-button-container'} onClick={(e) => this.deleteClick(e, habit)}>
 				<button >Delete</button>
 			</div>
 				<Link to="/stats">
@@ -81,9 +83,9 @@ class UserDashboard extends Component {
 			<li key={index} index={index}
 					{...habit}	className="listed-habit">
 				
-			<div>
-				<button onClick={(e) => this.deleteClick(e, habit)}>Delete</button>
-			</div>	
+				<div className={'delete-button-container'}>
+					<button onClick={(e) => this.deleteClick(e, habit)}><FontAwesome.FaClose /></button>
+				</div>	
 
 				<Link to="/stats" onClick={(e) => this.liClick(e, habit)}>
 					<ListedHabit 
@@ -96,45 +98,23 @@ class UserDashboard extends Component {
 		}
 
 return (
-
-	<Grid fluid>
-
 		<div className="habits-container">	
-			<Row>
-				<Col xs>
-					<Navbar />
-				</Col>
-			</Row>
+			<Navbar />
+				<header className={'username-header'}>
+					<h2>{this.props.currentUser.username}</h2>
+				</header>
+			<SimpleModal />
 
-			<Row>
-				<Col xs>
-					<header className={'username-header'}>
-						<h2>{this.props.currentUser.username}'s Habits</h2>
-					</header>
-					<SimpleModal />
-				</Col>
-			</Row>
-
-
-			<Row>
-				<Col xs>
-					<ul className='user-habit-list'>
-						{userHabits}
-					</ul>
-				</Col>
-			</Row>
-
-
-			<Row>
-				<Col xs>
-					<div>
-						<Footer title={'Footer Stuff'} />
-					</div>
-				</Col>
-			</Row>
+		<div>
+			<ul className='user-habit-list'>
+				{userHabits}
+			</ul>
 		</div>
-
-	</Grid>
+			
+			<div>
+				<Footer title={'Built by JrvscM'} />
+			</div>
+		</div>
 		);
 	}
 }

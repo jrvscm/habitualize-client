@@ -19,14 +19,14 @@ class LoginPage extends Component {
 		}
 		
 		return(
-		<div className={'login-form-outer-container'}>	
+		<div className={'login-form-wrapper'}>	
 			<Navbar />
 				<div className="login-form-container">		
 					<section className="login-section">
 						<LoginForm />
 					</section>
 				</div>
-			<Footer title={'Built by JrvscM'}/>
+			<Footer title={'Built by JrvscM'} /> 
 		</div>
 		);
 	}

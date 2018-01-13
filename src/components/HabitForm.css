@@ -21,3 +21,20 @@ label#goodHabitRadioLabel {
 	float:left;
 	margin-right: 20%;
 }
+
+button.habit-submit {
+	background-color: rgb(40,175,176);
+	border: none;
+	color: rgb(106,90,205);
+	font-weight: bold;
+	height: 30px;
+	width: 100%;
+	margin-top: 5px;
+	cursor: pointer;
+	transition: all .2s ease-in-out;
+}
+
+button.habit-submit:hover {
+	background-color: rgb(106,90,205);
+	color: rgb(40,175,176);
+}

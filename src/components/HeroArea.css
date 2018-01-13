@@ -4,11 +4,12 @@ div.hero-area {
 }
 
 .hero-area button {
-	width: 150px;
+	width: 19vw;
 	border: 1px solid white;
-	padding: 5px;
+	padding: .5vw;
 	margin: 10px;
 	cursor: pointer;
+	font-size: 2vw;
 	transition: all .2s ease-in-out;
 }
 

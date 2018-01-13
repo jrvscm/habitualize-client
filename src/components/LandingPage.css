@@ -17,11 +17,15 @@
 	padding: 10%;
 }
 
-h1 {
-  font-size: 4em;
-  padding-top: .6em;
+.hero-area h1 {
+  font-size: 8vw;
+  padding-top: 7vh;
   font-family: 'Corben', cursive;
   font-weight: bold;
+}
+
+.hero-area h2 {
+	font-size: 2vw;
 }
 
 body {
@@ -34,24 +38,4 @@ section {
   padding: 20px;
 }
 
-@media screen and (max-width: 600px) {
-		.hero-area h1 {
-			font-size: 3em !important;
-		}
 
-		.hero-area h2 {
-			font-size: .8em;
-		}
-
-		.hero-area h1 {
-			padding-top: 3em;
-		}
-
-}
-
-@media screen and (max-width: 500px) {
-	.hero-area h1 {
-		font-size: 2em !important;
-	}
-
-}

@@ -1,19 +1,9 @@
-.App {
-  text-align: center;
-}
-
-h1 {
-  font-size: 30px;
-}
-
-section {
-  padding: 20px;
-}
-
-body, main, html {
+html, body, main {
 	height: 100%;
 	width: 100%;
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
 }
-
 
 

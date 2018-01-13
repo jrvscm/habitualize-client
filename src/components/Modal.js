@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Modal, {closeStyle} from 'simple-react-modal';
+import * as FontAwesome from 'react-icons/lib/fa';
 import { connect } from 'react-redux';
 import { 
 	setModalShow, 
@@ -21,8 +22,8 @@ class SimpleModal extends Component {
 	render() {
 
 		return(
-			<div>
-      			<button onClick={this.show.bind(this)}>Create New Habit</button>
+			<div className={'create-habit-button-container'}>
+      			<button id={'create-habit-button'} onClick={this.show.bind(this)}>Habit <FontAwesome.FaPlus /></button>
       				<Modal
       					className="modal"
       					containerStyle={{background: 'transparent'}}
@@ -31,7 +32,7 @@ class SimpleModal extends Component {
       					show={this.props.show}
       					onClose={this.close.bind(this)}>
       						
-      						<div className={'modal-content'}>	<a className={'closeLink'} onClick={this.close.bind(this)}>X</a>
+      						<div className={'modal-content'}>	<a className={'closeLink'} onClick={this.close.bind(this)}><FontAwesome.FaClose /></a>
       							<HabitForm authToken={this.props.authToken} currentUser={this.props.currentUser} />
       						</div>
       				</Modal>

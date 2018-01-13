@@ -120,7 +120,7 @@ export class HabitForm extends React.Component {
           				textField="log"
           			/>
 
-                <button disabled={this.props.pristine || this.props.submitting}>
+                <button className={'habit-submit'} disabled={this.props.pristine || this.props.submitting}>
                     Submit
                 </button>
             </form>
