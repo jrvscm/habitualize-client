@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PieChart from 'react-minimal-pie-chart';
 import './BestStreak.css';
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import moment from 'moment';
 import '../reset.css';
@@ -29,10 +28,4 @@ class ListedHabit extends Component {
 	}
 }
 
-const mapStateToProps = (state) => ({
-	currentHabit: state.HabitStatsReducer.currentHabit,
-	habitName: state.HabitStatsReducer.currentHabit.name,
-	streak: state.HabitStatsReducer.currentHabit.streak
-})
-
-export default connect(mapStateToProps) (ListedHabit);
+export default ListedHabit;
