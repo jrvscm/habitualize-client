@@ -7,6 +7,8 @@ import {
 	setCloseModal
 } from '../actions/index';
 import HabitForm from './HabitForm';
+import '../reset.css';
+import '../App.css';
 import './Modal.css';
 
 class SimpleModal extends Component {

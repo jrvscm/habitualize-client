@@ -8,6 +8,7 @@ import SignUpForm from './SignUpForm';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import '../reset.css';
+import '../App.css';
 import './LandingPage.css';
 
 class LandingPage extends Component {
@@ -24,7 +25,7 @@ class LandingPage extends Component {
       <div className="landing-page-container">
 
         <Navbar />
-        <Row>
+        <Row className={'hero-row'}>
             <HeroArea 
             title={'Habitualize'} 
             hook={'Track your habits. Crush your goals. Repeat.'} 
@@ -55,7 +56,7 @@ class LandingPage extends Component {
         
       </Row>
       
-      <Row>
+      <Row className={'sign-up-row'}>
         <SignUpForm className={'sign-up-form'}/>
       </Row>
       <Row>

@@ -4,6 +4,8 @@ import {
 	setModalShow
 } from '../actions/index';
 import { connect } from 'react-redux';
+import '../reset.css';
+import '../App.css';
 import './LogHabit.css';
 
 class LogHabit extends Component {

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import '../reset.css';
+import '../App.css';
 import './NavLink.css';
 
 class NavLink extends Component {

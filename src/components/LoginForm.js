@@ -4,6 +4,7 @@ import Input from './input';
 import {login} from '../actions/auth';
 import {required, nonEmpty} from '../validators';
 import '../reset.css';
+import '../App.css';
 import './LoginForm.css';
 
 export class LoginForm extends React.Component {

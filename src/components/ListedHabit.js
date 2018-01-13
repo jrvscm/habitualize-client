@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import moment from 'moment';
 import '../reset.css';
+import '../App.css';
 import './ListedHabit.css';
 
 class ListedHabit extends Component {

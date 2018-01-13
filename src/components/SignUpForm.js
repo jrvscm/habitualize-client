@@ -5,6 +5,7 @@ import {login} from '../actions/auth';
 import Input from './input';
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
 import '../reset.css';
+import '../App.css';
 import './SignUpForm.css';
 
 class SignUpForm extends Component {

@@ -9,6 +9,7 @@ import './Navbar.css';
 import './Footer.css';
 import './LoginPage.css';
 import '../reset.css';
+import '../App.css';
 
 class LoginPage extends Component {
 

@@ -15,6 +15,8 @@
 .pitch-boxes {
 	background-color: #28AFB0;
 	padding: 10%;
+	width: 100%;
+	margin:0;
 }
 
 .hero-area h1 {
@@ -28,14 +30,13 @@
 	font-size: 2vw;
 }
 
-body {
-	font-family: 'Nobile', sans-serif;
-  	color: white;
-  	line-height: 1.5;
+.sign-up-row {
+	width: 100%;
+	margin:0;
 }
 
-section {
-  padding: 20px;
+.hero-row {
+	width: 100%;
+	margin:0;
 }
-
 

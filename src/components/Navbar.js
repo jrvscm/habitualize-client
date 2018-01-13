@@ -4,6 +4,7 @@ import { clearAuthToken } from '../local-storage';
 import { connect } from 'react-redux';
 import NavLink from './NavLink';
 import '../reset.css';
+import '../App.css';
 import './Navbar.css';
 
 class Navbar extends Component {
