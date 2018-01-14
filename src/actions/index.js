@@ -4,90 +4,90 @@ import moment from 'moment';
 
 const SET_CURRENT_HABIT = 'SET_CURRENT_HABIT'
 export const setCurrentHabit = (habit) => ({
-	type: 'SET_CURRENT_HABIT',
+	type: SET_CURRENT_HABIT	,
 	habit
 })
 
 const SET_PERCENT_SUCCESS = 'SET_PERCENT_SUCCESS'
 export const setPercentSuccess = (percentSuccess) => ({
-	type: 'SET_PERCENT_SUCCESS',
+	type: SET_PERCENT_SUCCESS	,
 	percentSuccess
 })
 
 const SET_AVERAGE_SUBMIT = 'SET_AVERAGE_SUBMIT'
 export const setAverageSubmit = (averageSubmit) => ({
-	type: 'SET_AVERAGE_SUBMIT',
+	type: SET_AVERAGE_SUBMIT	,
 	averageSubmit
 })
 
 const SET_DONUT_DATA = 'SET_DONUT_DATA'
 export const setDonutData = (donutDataArr) => ({
-	type: 'SET_DONUT_DATA',
+	type: SET_DONUT_DATA	,
 	donutDataArr
 })
 
 const SET_LONGEST_STREAK = 'SET_LONGEST_STREAK'
 export const setLongestStreak = (longestStreak) => ({
-	type: 'SET_LONGEST_STREAK',
+	type: SET_LONGEST_STREAK	,
 	longestStreak
 })
 
 const SET_CURRENT_STREAK = 'SET_CURRENT_STREAK'
 export const setCurrentStreak = (currentStreak) => ({
-	type: 'SET_CURRENT_STREAK',
+	type: SET_CURRENT_STREAK,
 	currentStreak
 })
 
 const SET_NEW_RECORD = 'SET_NEW_RECORD'
 export const setNewRecord = () => ({
-	type: 'SET_NEW_RECORD',
+	type: SET_NEW_RECORD,
 	setNewRecord: true
 })
 
 const SET_RECORD_TO_FALSE = 'SET_RECORD_TO_FALSE'
 export const setRecordToFalse = () => ({
-	type: 'SET_NEW_RECORD',
+	type: SET_RECORD_TO_FALSE,
 	setNewRecord: false
 })
 
 const SET_BAR_CHART_DATA = 'SET_BAR_CHART_DATA'
 export const setBarChartData = (barDataArr) => ({
-	type: 'SET_BAR_CHART_DATA',
+	type: SET_BAR_CHART_DATA,
 	barDataArr
 })
 
 const SET_MODAL_SHOW = 'SET_MODAL_SHOW'
 export const setModalShow = () => ({
-	type: 'SET_MODAL_SHOW',
+	type: SET_MODAL_SHOW,
 	show: true
 })
 
 const SET_CLOSE_MODAL = 'SET_CLOSE_MODAL'
 export const setCloseModal = () => ({
-	type: 'SET_CLOSE_MODAL',
+	type: SET_CLOSE_MODAL,
 	show: false
 })
 
 const CLEAR_USER_HABITS = 'CLEAR_USER_HABITS'
 export const clearUserHabits = () => ({
-	type: 'CLEAR_USER_HABITS'
+	type: CLEAR_USER_HABITS
 })
 
 const ASSIGN_USER_HABITS = 'ASSIGN_USER_HABITS'
 export const assignUserHabits = (habit) => ({
-	type: 'ASSIGN_USER_HABITS',
+	type: ASSIGN_USER_HABITS,
 	habit
 })
 
 const SET_LOADING_FALSE = 'SET_LOADING_FALSE'
 export const setLoadingFalse = () => ({
-	type: 'SET_LOADING_FALSE',
+	type: SET_LOADING_FALSE,
 	loading: false
 })
 
 const SET_LOADING_TRUE = 'SET_LOADING_TRUE'
 export const setLoadingTrue = () => ({
-	type: 'SET_LOADING_TRUE',
+	type: SET_LOADING_TRUE,
 	loading: true
 })
 
