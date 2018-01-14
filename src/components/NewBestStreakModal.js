@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Modal, {closeStyle} from 'simple-react-modal';
+import Modal from 'simple-react-modal';
 import * as FontAwesome from 'react-icons/lib/fa';
 import { connect } from 'react-redux';
 import { 

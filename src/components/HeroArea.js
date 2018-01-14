@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import * as FontAwesome from 'react-icons/lib/fa';
-import * as Scroll from 'react-scroll';
-import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
+import { scroll, Events, animateScroll as scrollSpy } from 'react-scroll';
 import '../reset.css';
 import './HeroArea.css';
 
@@ -24,17 +23,12 @@ class HeroArea extends Component {
     Events.scrollEvent.remove('begin');
     Events.scrollEvent.remove('end');
   }
-  scrollToTop() {
-    scroll.scrollToTop();
-  }
+
   scrollToBottom() {
     scroll.scrollToBottom();
   }
   scrollTo() {
     scroll.scrollTo(400);
-  }
-  scrollMore() {
-    scroll.scrollMore(100);
   }
   handleSetActive(to) {
     console.log(to);

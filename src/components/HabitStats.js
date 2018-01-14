@@ -10,7 +10,6 @@ import DonutChart from './DonutChart';
 import BestStreak from './BestStreak';
 import PercentSuccess from './PercentSuccess';
 import NewBestStreakModal from './NewBestStreakModal';
-import { Redirect } from 'react-router-dom';
 import '../reset.css';
 import '../App.css';
 import './HabitStats.css';

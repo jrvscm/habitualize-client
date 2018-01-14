@@ -289,7 +289,7 @@ export const setupDonutData = (newArray) => {
 	return (dispatch) => {
 		/*setting new donutChartData*/
 		const newDonutDataArr = [];
-
+		//eslint-disable-next-line
 		newArray.map((recording, index) => {
 			if(recording.impressions > 0) {
 				newDonutDataArr.push({
@@ -313,6 +313,7 @@ export const setUpStreakChecker = (newArray) => {
 		);
 
 		let streaks = streakCheckArr.reduce((res, n) => 
+		//eslint-disable-next-line 
   		(n ? res[res.length-1]++ : res.push(0), res), [0]);
 
 		const longestStreak = Math.max(...streaks);
