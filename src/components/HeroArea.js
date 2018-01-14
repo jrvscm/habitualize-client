@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as FontAwesome from 'react-icons/lib/fa';
-import { scroll, Events, animateScroll as scrollSpy } from 'react-scroll';
+import { Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
 import '../reset.css';
 import './HeroArea.css';
 
