@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import Navbar from './Navbar';
 import Footer from  './Footer';
 import ListedHabit from './ListedHabit';
-import HeroArea from './HeroArea';
 import SimpleModal from './Modal';
 import LoadingSpinner from './LoadingSpinner';
 import * as FontAwesome from 'react-icons/lib/fa';
-import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { 

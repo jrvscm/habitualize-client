@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Tooltip } from 'react-lightweight-tooltip';
 import { connect } from 'react-redux';
 import LogHabit from './LogHabit';
-import { setGraphInfo, setCurrentHabit } from '../actions'
-import moment from 'moment';
 import './CalendarStreak.css';
 
 class CalendarStreak extends Component {
@@ -12,8 +10,10 @@ class CalendarStreak extends Component {
 		let habitSubmitInfo;
 
 		if(this.props.streak === undefined) {
-			const retrieveHabit = localStorage.getItem('currentHabit', currentHabit);
-			let currentHabit = JSON.parse(retrieveHabit);
+			let currentHabit;
+			let retrieveHabit;
+			retrieveHabit = localStorage.getItem('currentHabit', currentHabit);
+			currentHabit = JSON.parse(retrieveHabit);
 			let newArray = currentHabit.streak;
 
 	habitSubmitInfo = ( newArray.map((recording, index) =>
