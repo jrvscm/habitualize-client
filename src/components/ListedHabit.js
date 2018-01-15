@@ -10,7 +10,7 @@ class ListedHabit extends Component {
 		return(	
 		<Grid fluid>
 			<section className={"listed-habit"}>
-				<Row>
+				<Row className={'listed-habit-row'}>
 					<Col xs>
 						<header className={'listed-habit-header'}>
 							<h3>{this.props.name}</h3>

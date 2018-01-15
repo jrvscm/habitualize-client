@@ -215,7 +215,6 @@ export const logSubmission = (currentHabit, authToken) => {
 
 		let last = newArray.length -1;
 
-
 		if(moment(newArray[last].submitted).isSame(today) === true) {
 			newArray[last] = {submitted: today, impressions: newArray[last].impressions + 1};
 				} else if(moment(newArray[last].submitted).isSame(yesterday) === true) {
@@ -319,7 +318,7 @@ export const setUpStreakChecker = (newArray) => {
 		const longestStreak = Math.max(...streaks);
 		const currentStreak = streaks[streaks.length -1];
 
-		if(longestStreak % 1 === 0) {
+		if(longestStreak % 5 === 0) {
 			dispatch(setNewRecord())
 		}
 

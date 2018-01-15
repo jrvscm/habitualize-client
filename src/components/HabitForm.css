@@ -1,3 +1,12 @@
+.habit-form {
+	font-size: 30px;
+}
+
+#habitTitle {
+	font-size: 30px;
+	color: #555;
+}
+
 li.rw-list-option {
 	list-style-type: none;
 	text-align: center;
@@ -9,11 +18,11 @@ input, textarea {
   max-width: 500px;
 }
 
-input[type="radio"] {
+.habit-form input[type="radio"] {
 	width:auto;
 }
 
-label {
+.habit-form label {
   display: block;
 }
 
@@ -23,17 +32,16 @@ label#goodHabitRadioLabel {
 }
 
 button.habit-submit {
-	height: 30px;
-	width: 100%;
+	width: 30%;
+	padding: 5px;
 	margin-top: 5px;
 	background-color: transparent;
 	border: 2px solid white;
 	color: white;
-	height: 30px;
-	width: 80px;
 	cursor: pointer;
 	z-index: 101;
 	transition: all .2s ease-in-out;
+	font-size: 20px;
 }
 
 button.habit-submit:hover {

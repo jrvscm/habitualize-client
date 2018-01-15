@@ -19,6 +19,7 @@ import {
 } from '../local-storage';
 import '../reset.css';
 import '../App.css';
+import './Navbar.css';
 import './Footer.css';
 import './ListedHabit.css';
 import './UserDashboard.css';

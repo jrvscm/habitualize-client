@@ -28,7 +28,7 @@ class HeroArea extends Component {
     scroll.scrollToBottom();
   }
   scrollTo() {
-    scroll.scrollTo(400);
+    scroll.scrollTo(700);
   }
   handleSetActive(to) {
     console.log(to);

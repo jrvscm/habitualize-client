@@ -1,22 +1,25 @@
 section.sign-up-form {
 	background-color: #6A5ACD;
+	height: 700px;
 	width: 100%;
 	margin:0;
 }
 
 .sign-up-form  {
 	color: white;
-	width: 300px;
+	width: 500px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: left;
 	padding: 25px 0px 50px 0px;
+	font-size: 30px;
 }
 
 
 .sign-up-form input {
 	width: 100%;
-	border-bottom: 1px solid white;
+	font-size: 30px;
+	border-bottom: 2px solid white;
 	border-left: none;
 	border-right: none;
 	border-top: none;
@@ -26,17 +29,18 @@ section.sign-up-form {
 
 .sign-up-form input:focus {
 	outline: none;
-	border-bottom: 1px solid #28AFB0;
+	border-bottom: 2px solid #28AFB0;
 }
 
 .sign-up-form button {
 	float: right;
 	background: transparent;
-	border: 1px solid white;
+	border: 2px solid white;
 	color: white;
 	padding: 5px;
 	transition: all .2s ease-in-out;
 	margin-top: 5px;
+	font-size: 30px;
 }
 
 .sign-up-form button:hover {
@@ -52,3 +56,25 @@ section.sign-up-form {
 	color: red;
 }
 
+@media only screen and (max-width: 600px) {
+	section.sign-up-form {
+		height: 100%;
+	}
+
+	.sign-up-form {
+		width: 80%;
+		font-size: 20px;
+	}
+
+	.sign-up-form input {
+		font-size: 
+	}
+
+	.sign-up-form button {
+		font-size: 20px;
+	}
+
+	.sign-up-form input {
+		font-size: 20px;
+	}
+}

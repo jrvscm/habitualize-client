@@ -1,5 +1,4 @@
 .logged-in-nav {
-	height: 35px;
 	background:
 	linear-gradient(
 	to right,
@@ -11,9 +10,11 @@
 }
 
 button.log-out-button {
+	font-size: 20px;
+	font-family: 'Nobile', sans-serif;
 	background-color: transparent;
 	color: white;
-	margin-right: 5px;
+	margin-right: 10px;
 	cursor: pointer;
 	border: none;
 	z-index: 101;
@@ -29,14 +30,10 @@ div.delete-button-container {
 	float: right;
 }
 
-section.listed-habit {
-	padding:0;
-}
-
 .username-header h2 {
 	color: black;
 	text-align: center;
-	font-size: 30px;
+	font-size: 40px;
 	font-weight: bold;
 	font-family: 'Corben', cursive;
 }
@@ -44,10 +41,6 @@ section.listed-habit {
 header.username-header {
 	text-align: center;
 	margin-top: 8vh;
-}
-
-header.username-header h2 {
-	font-size: 40px;
 }
 
 

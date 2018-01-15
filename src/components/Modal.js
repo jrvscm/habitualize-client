@@ -25,7 +25,7 @@ class SimpleModal extends Component {
 
 		return(
 			<div className={'create-habit-button-container'}>
-      			<button id={'create-habit-button'} onClick={this.show.bind(this)}>Habit <FontAwesome.FaPlus /></button>
+      			<button id={'create-habit-button'} onClick={this.show.bind(this)}>Habit +</button>
       				<Modal
       					className="modal"
       					containerStyle={{background: 'transparent'}}

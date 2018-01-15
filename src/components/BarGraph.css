@@ -20,6 +20,10 @@ section.bar-chart-section {
 	margin-bottom: 50px;
 }
 
+div.bar-chart {
+	width: 80%;
+}
+
 svg.recharts-surface {
 	width: 100%;
 	height: 100%;
@@ -44,5 +48,14 @@ svg.recharts-surface {
 		position: absolute;
 		bottom:25px !important;
 		left:50px!important;
+	}
+
+	div.bar-chart {
+		width: 100%;
+		margin:0;
+	}
+
+	section.bar-chart-section {
+		padding:0;
 	}
 }

@@ -12,8 +12,8 @@ class DonutChart extends Component {
 					<PieChart
 						labels
   						data={this.props.donutDataArr}
-						size={150}
-						innerHoleSize={100}
+						size={200}
+						innerHoleSize={140}
 					/>
 				</span>
 			</div>

@@ -11,17 +11,15 @@
 
 div.navlink-container {
 	margin-top: 5px;
-	margin-right: 5px;
-}
-
-.logged-in-nav {
-	background-color: 
+	margin-right: 10px;
+	text-align: center;
 }
 
 div.navlink-container:nth-child(2n) {
 	border-radius: 50px;
 	background-color: #6A5ACD;
 	transition: all .2s ease-in-out;
+	width: 100px;
 }
 
 div.navlink-container:nth-child(2n):hover {
@@ -36,5 +34,9 @@ div.navlink-container:nth-child(2n) a:hover {
 
 div.navbar-container a {
 	color:white;
-	font-size: 12px;
+	font-size: 20px;
+}
+
+div.navbar-container button {
+	font-weight: normal;
 }

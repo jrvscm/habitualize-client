@@ -35,6 +35,8 @@ export class HabitForm extends React.Component {
     		numbers.push(i);
     	}
 
+      const today = moment().format('MM-DD-YYYY');
+
     	const logData = ["Per Day", "Per Week", "Per Month"];
 
     	const renderDropdownList = ({ input, data, valueField, textField }) =>
@@ -50,7 +52,8 @@ export class HabitForm extends React.Component {
     		onChange={onChange}
     		format="DD MMM YYYY"
     		time={showTime}
-    		value={!value ? null : new Date(value)} />
+    		value={!value ? null : new Date(value)}
+        min={today} />
 
         let error;
         if (this.props.error) {

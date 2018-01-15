@@ -13,7 +13,6 @@ class LogHabit extends Component {
 		const currentHabit = this.props.currentHabit;
 		const authToken = this.props.authToken;
 		this.props.dispatch(logSubmission(currentHabit, authToken));
-
 		if(this.props.setNewRecord === true) {
 			this.props.dispatch(setModalShow());
 		}
@@ -22,7 +21,7 @@ class LogHabit extends Component {
 	render() {
 		return(
 			<div className="log-habit-container">
-				<button className="log-habit-button" onClick={this.onClick.bind(this)}>Log++</button>
+				<button className="log-habit-button" onClick={this.onClick.bind(this)}>Log +</button>
 			</div>
 		);
 	}

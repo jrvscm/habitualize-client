@@ -5,7 +5,7 @@ div.hero-area {
 
 .hero-area button {
 	width: 19vw;
-	border: 1px solid white;
+	border: 2px solid white;
 	padding: .5vw;
 	margin: 10px;
 	cursor: pointer;
@@ -21,7 +21,7 @@ div.hero-area {
 .sign-up-button:hover {
 	background-color: white;
 	color: #6A5ACD;
-	border: 1px solid #6A5ACD;
+	border: 2px solid #6A5ACD;
 }
 
 .learn-more-button {
@@ -32,7 +32,7 @@ div.hero-area {
 .learn-more-button:hover {
 	background-color: white; 
 	color: #6A5ACD;
-	border: 1px solid #6A5ACD;
+	border: 2px solid #6A5ACD;
 }
 
 .hero-area h4 {
@@ -41,14 +41,31 @@ div.hero-area {
 
 
 .hero-area svg {
-	height: 50px !important;
-	width: 50px !important;
+	height: 6vw !important;
+	width: 6vw !important;
 	transition: all .2s ease-in-out;
 }
 
 .hero-area svg:hover {
 	color: #28AFB0;
 	cursor: pointer;
+}
+
+@media only screen and (max-width: 500px) {
+	.hero-area button {
+		width: 110px;
+		font-size: 18px;
+	}
+
+	.hero-area h2 {
+		font-size:18px!important;
+	}
+
+	.hero-area h1 {
+		font-size: 50px!important;
+		margin-top: 35%;
+	}
+
 }
 
 

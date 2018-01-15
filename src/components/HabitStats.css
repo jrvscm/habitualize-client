@@ -18,7 +18,10 @@ div.habit-stats-container {
 }
 
 section.circle-charts {
-	padding: 50px;
+	padding-top:100px;
+	padding-right:200px; 
+	padding-left:200px;
+	padding-bottom:100px;
 }
 
 .row {
@@ -28,4 +31,13 @@ section.circle-charts {
 
 div.habit-stats-container footer {
 	color: white;
+}
+
+@media screen and (max-width: 500px) {
+	section.circle-charts {
+	padding-top:50px;
+	padding-right:0px; 
+	padding-left:0px;
+	padding-bottom:50px;
+	}
 }

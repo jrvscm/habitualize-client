@@ -1,11 +1,16 @@
 .login-form button {
 	float: right;
 	background: transparent;
-	border: 1px solid white;
+	border: 2px solid white;
 	color: white;
 	padding: 5px;
 	transition: all .2s ease-in-out;
 	margin-top: 5px;
+	font-size: 20px;
+}
+
+.login-form input {
+	font-size: 30px;
 }
 
 .login-form button:hover {
@@ -23,5 +28,7 @@
 
 .login-form {
 	background-color: #28AFB0;
+	font-size: 30px;
+	margin-top: 65px;
 }
 
