@@ -48,6 +48,7 @@ export class HabitForm extends React.Component {
     	const renderDateTimePicker = ({ input: { onChange, value }, showTime }) =>
   			<DateTimePicker
         min={new Date()}
+        max={new Date()}
     		onChange={onChange}
     		format="DD MMM YYYY"
     		time={showTime}
