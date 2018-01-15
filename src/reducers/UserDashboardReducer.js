@@ -1,7 +1,7 @@
 const initialState = {
 	show: false,
 	loading: true,
-	userHabits: [],	
+	userHabits: []
 }
 
 
