@@ -64,20 +64,11 @@ class UserDashboard extends Component {
 
 		let userHabits;
 		if(this.props.userHabits.length < 1) {
-			userHabits = this.props.sampleHabits.map((habit, index) =>
-			<li key={index} index={index}
-					{...habit}	className="listed-habit">
-			<div className={'delete-button-container'} onClick={(e) => this.deleteClick(e, habit)}>
-				<button >Delete</button>
-			</div>
-				<Link to="/stats">
-					<ListedHabit onClick={(e) => this.liClick(e, habit)}
-					name={habit.name}
-					date={habit.startdate}
-					/>
-				</Link>
-			</li>
-			);
+			userHabits = <div className={'no-user-habits'}>
+							<hr/>
+							<p>You haven't created any habits yet. But when you do, they will appear here. Click the Habit+ button to get started!</p>
+							<hr/>
+						</div>
 		} else {
 			userHabits = this.props.userHabits.map((habit, index) =>
 			<li key={index} index={index}
