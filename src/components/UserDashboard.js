@@ -55,7 +55,7 @@ class UserDashboard extends Component {
 	render() {
 
 		if(this.props.loggedOut) {
-			return <Redirect to="/home" />;
+			return <Redirect to="/" />;
 		}
 
 		if(this.props.loading === true) {
