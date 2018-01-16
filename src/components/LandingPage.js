@@ -7,7 +7,6 @@ import InfoItem from './InfoItem';
 import SignUpForm from './SignUpForm';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import '../reset.css';
 import '../App.css';
 import './LandingPage.css';
 
