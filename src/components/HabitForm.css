@@ -48,3 +48,13 @@ button.habit-submit:hover {
 	background-color: white;
 	color: rgba(106,90,205,.8);
 }
+
+@media screen and (max-width: 500px) {
+	.habit-form {
+		font-size: 20px;
+	}
+
+	#habitTitle {
+		font-size: 20px;
+	}
+}
