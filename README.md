@@ -6,7 +6,26 @@
 
 Habit tracking provides you with an outlet to *teach* yourself good habits. Habitualize makes it easy to keep track of the habits you find useful. Simply log in, create an account, and get tracking.
 
-<img src='./images/habitualize-user-dashboard.png' width="800" height="500">
+## Screenshots 
+
+### Landing Page
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-hero-area.png" width="800" height="500">
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-about-section.png" width="800" height="500">
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-sign-up.png" width="800" height="500">
+
+### User Dashboard
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-user-dashboard.png" width="800" height="500">
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-create-habit-form.png" width="800" height="500">
+
+### User Dashboard
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-user-dashboard.png" width="800" height="500">
+
+### Statistics
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-statistics-page.png" width="800" height="500">
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-statistics-area-chart.png" width="800" height="500">
+
+### User Feedback
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-new-best-streak.png" width="800" height="500">
 
 ## Technology
 
