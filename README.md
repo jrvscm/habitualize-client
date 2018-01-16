@@ -6,30 +6,30 @@
 
 Habit tracking provides you with an outlet to *teach* yourself good habits. Habitualize makes it easy to keep track of the habits you find useful. Simply log in, create an account, and get tracking.
 
-![User Dashboard](../images/habitualize-user-dashboard.png)
+<img src='../images/habitualize-user-dashboard.png' width="800" height="500">
 
 ## Technology
 
 #### Front End
-- [React/Redux]
-- [JavaScript]
-- [HTML5]
-- [CSS3]
-- [Enzyme (testing)]
+- React/Redux
+- JavaScript
+- HTML5
+- CSS3
+- Enzyme (testing)
 
 #### Back End [Habitualize API](https://github.com/jrvscm/habitualize-api)
-- [Node.js (server)]
-- [Express (server)]  
-- [MongoDB/Mongoose/Mlab (database)] 
-- [Mocha Chai (Testing)]
-- [Continuous integration and deployment with Travis CI and Netlify]
+- Node.js (server)
+- Express (server)  
+- MongoDB/Mongoose/Mlab (database) 
+- Mocha Chai (Testing)
+- Continuous integration and deployment with Travis CI and Netlify
 
 #### Responsive
-- [Habitualize is completely reponsive and supports all mobile, tablet, and desktop devices.]
+- Habitualize is completely reponsive and supports all mobile, tablet, and desktop devices.
 
 #### Security
- - [Passwords are encrypted with bcrypt.js.]
- - [Passport.js is used to control protected endpoints.]
+ - Passwords are encrypted with bcrypt.js.
+ - Passport.js is used to control protected endpoints.
 
 ## Personalized Charts and Feedback  
 
