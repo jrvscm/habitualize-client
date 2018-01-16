@@ -14,14 +14,6 @@ main {
   	line-height: 1.5;
 }
 
-#root {
-	min-height: 100%;
-	width: 100%;
-	background:
-	linear-gradient(
-	rgba(40,175,176,.3),
-	rgba(106,90,205,.3));
-}
 
 section {
 	padding: 20px;
