@@ -18,7 +18,7 @@ const store = createStore(
         HabitStatsReducer: HabitStatsReducer,
         UserDashboardReducer: UserDashboardReducer
     }),
-    compose(middleware, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+    compose(middleware)
 );
 
 // Hydrate the authToken from localStorage if it exist
