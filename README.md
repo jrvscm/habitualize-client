@@ -9,23 +9,20 @@ Habit tracking provides you with an outlet to *teach* yourself good habits. Habi
 ## Screenshots 
 
 ### Landing Page
-<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-hero-area.png" width="800" height="500">
-<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-about-section.png" width="800" height="500">
-<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-sign-up.png" width="800" height="500">
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-hero-area.png" width="500" height="200">
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-about-section.png" width="500" height="200">
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-sign-up.png" width="500" height="200">
 
 ### User Dashboard
-<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-user-dashboard.png" width="800" height="500">
-<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-create-habit-form.png" width="800" height="500">
-
-### User Dashboard
-<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-user-dashboard.png" width="800" height="500">
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-user-dashboard.png" width="500" height="200">
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-create-habit-form.png" width="500" height="200">
 
 ### Statistics
-<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-statistics-page.png" width="800" height="500">
-<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-statistics-area-chart.png" width="800" height="500">
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-statistics-page.png" width="500" height="200">
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-statistics-area-chart.png" width="500" height="200">
 
 ### User Feedback
-<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-new-best-streak.png" width="800" height="500">
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/habitualize-new-best-streak.png" width="500" height="200">
 
 ## Technology
 
