@@ -66,9 +66,13 @@ div.hero-area {
 		margin-top: 35%;
 	}
 
+	.hero-area svg {
+		height: 15vw !important;
+		width: 15vw !important;
+
+	}
+
 }
-
-
 
 
 
