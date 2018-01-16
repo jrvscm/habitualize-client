@@ -8,10 +8,10 @@
 	rgba(40,175,176,.7),
 	rgba(106,90,205,.7)), 
 	url('../images/graphs-on-laptop.jpg') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 .pitch-boxes {
