@@ -6,7 +6,7 @@
 
 Habit tracking provides you with an outlet to *teach* yourself good habits. Habitualize makes it easy to keep track of the habits you find useful. Simply log in, create an account, and get tracking.
 
-<img src='../images/habitualize-user-dashboard.png' width="800" height="500">
+<img src='./images/habitualize-user-dashboard.png' width="800" height="500">
 
 ## Technology
 
