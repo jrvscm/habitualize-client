@@ -203,7 +203,7 @@ export const updateHabitStreak = (currentHabit, newArray, authToken) => (dispatc
 export const logSubmission = (currentHabit, authToken) => {
 	return  (dispatch) => {
 		const today = moment().format('MM-DD-YYYY');
-		const yesterday = moment().add(-1, 'days').format('MM-DD-YYYY');
+		const yesterday = moment(today).add(-1, 'days').format('MM-DD-YYYY');
 		let streak = currentHabit.streak;
 		let newLog = {submitted: today, impressions: 1};
 
@@ -214,8 +214,6 @@ export const logSubmission = (currentHabit, authToken) => {
 		}
 
 		let last = newArray.length -1;
-
-		console.log(newArray[last].submitted === today)
 
 		if(moment(newArray[last].submitted).isSame(today) === true || newArray[last].submitted === today) {
 			newArray[last] = {submitted: today, impressions: newArray[last].impressions + 1};
