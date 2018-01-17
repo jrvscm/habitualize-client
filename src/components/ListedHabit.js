@@ -18,7 +18,7 @@ class ListedHabit extends Component {
 					</Col>
 					<Col xs>		
 						<div className={'start-date-container'}>
-							<p>{moment(this.props.startdate).format('MM-DD-YYYY')}</p>
+							<p>{this.props.startdate.startdate}</p>
 						</div>
 					</Col>		
 				</Row>

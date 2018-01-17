@@ -81,7 +81,7 @@ class UserDashboard extends Component {
 				<Link to="/stats" onClick={(e) => this.liClick(e, habit)}>
 					<ListedHabit 
 					name={habit.name}
-					startdate={habit.startdate}
+					startdate={habit}
 					/>
 				</Link>
 			</li>
