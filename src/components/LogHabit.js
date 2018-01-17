@@ -12,7 +12,6 @@ class LogHabit extends Component {
 	onClick() {
 		const currentHabit = this.props.currentHabit;
 		const authToken = this.props.authToken;
-		console.log(currentHabit)
 		this.props.dispatch(logSubmission(currentHabit, authToken));
 		if(this.props.setNewRecord === true) {
 			this.props.dispatch(setModalShow());
