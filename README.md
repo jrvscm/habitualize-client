@@ -2,6 +2,9 @@
 
 *A full-stack web app for tracking and building good habits.*
 
+## Username: demo
+## Password: demopassword
+
 ## Simple Habit Tracking
 
 Habit tracking provides you with an outlet to *teach* yourself good habits. Habitualize makes it easy to keep track of the habits you find useful. Simply log in, create an account, and get tracking.
