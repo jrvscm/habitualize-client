@@ -206,8 +206,7 @@ export const logSubmission = (currentHabit, authToken) => {
 		const yesterday = moment().add(-1, 'days').format('MM-DD-YYYY');
 		let streak = currentHabit.streak;
 		let newLog = {submitted: today, impressions: 1};
-		console.log(today)
-		console.log(yesterday)
+
 		let newArray = [];
 
 		for(let i=0; i<streak.length; i++) {
@@ -216,9 +215,11 @@ export const logSubmission = (currentHabit, authToken) => {
 
 		let last = newArray.length -1;
 
-		if(moment(newArray[last].submitted).isSame(today) === true) {
+		console.log(newArray[last].submitted === today)
+
+		if(moment(newArray[last].submitted).isSame(today) === true || newArray[last].submitted === today) {
 			newArray[last] = {submitted: today, impressions: newArray[last].impressions + 1};
-				} else if(moment(newArray[last].submitted).isSame(yesterday) === true) {
+				} else if(moment(newArray[last].submitted).isSame(yesterday) === true || newArray[last].submitted === yesterday) {
 					newArray.push(newLog);
 					}
 
