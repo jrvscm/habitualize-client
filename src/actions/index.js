@@ -203,10 +203,11 @@ export const updateHabitStreak = (currentHabit, newArray, authToken) => (dispatc
 export const logSubmission = (currentHabit, authToken) => {
 	return  (dispatch) => {
 		const today = moment().format('MM-DD-YYYY');
-		const yesterday = moment(today).add(-1, 'days').format('MM-DD-YYYY');
+		const yesterday = moment().add(-1, 'days').format('MM-DD-YYYY');
 		let streak = currentHabit.streak;
 		let newLog = {submitted: today, impressions: 1};
-
+		console.log(today)
+		console.log(yesterday)
 		let newArray = [];
 
 		for(let i=0; i<streak.length; i++) {
