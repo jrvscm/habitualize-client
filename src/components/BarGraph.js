@@ -11,8 +11,8 @@ class BarGraph extends Component {
 					width={800} 
 					height={300} 
 					data={this.props.barDataArr}
-            		margin={{top: 10, right: 100, left: 50, bottom: 10}}>
-       			<XAxis dataKey="name"/>
+            		margin={{top: 10, right: 100, left: 50, bottom: 50}}>
+       			<XAxis dataKey="name" angle={-45} textAnchor="end" />
        			<YAxis/>
        			<CartesianGrid strokeDasharray="3 3"/>
        			<Tooltip />
