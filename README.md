@@ -2,8 +2,9 @@
 
 *A full-stack web app for tracking and building good habits.*
 
-## Username: demo
-## Password: demopassword
+## DEMO
+- Username: demo
+- Password: demopassword
 
 ## Simple Habit Tracking
 
