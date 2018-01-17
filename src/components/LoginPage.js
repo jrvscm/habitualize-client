@@ -24,6 +24,8 @@ class LoginPage extends Component {
 				<div className="login-form-container">		
 					<section className="login-section">
 						<LoginForm />
+						<p>Username: demo</p>
+						<p>Password: demopassword</p>
 					</section>
 				</div>
 			<Footer title={'Built by JrvscM'} /> 
