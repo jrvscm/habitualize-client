@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Grid, Row, Col } from 'react-flexbox-grid';
 import { connect } from 'react-redux';
 import { setGraphInfo } from '../actions';
+import moment from 'moment';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import CalendarStreak from './CalendarStreak';
@@ -42,7 +43,7 @@ class HabitStats extends Component {
 					habitName={this.props.habitName}
 					currentHabit={this.props.currentHabit}
 					streak={this.props.streak}
-					startdate={this.props.currentHabit.startdate}
+					startdate={moment(this.props.currentHabit.startdate, 'MM-DD-YYYY')}
 					/>
 				</Col>
 			</Row>

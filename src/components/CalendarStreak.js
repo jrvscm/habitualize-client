@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { Tooltip } from 'react-lightweight-tooltip';
 import { connect } from 'react-redux';
-import moment from 'moment';
 import LogHabit from './LogHabit';
 import './CalendarStreak.css';
 
 class CalendarStreak extends Component {
-
 	render() {
+
 		let habitSubmitInfo;
 
 		if(this.props.streak === undefined) {
@@ -65,7 +64,7 @@ class CalendarStreak extends Component {
 				<h3>{this.props.habitName}</h3>
 			</header>		
 			<div className={'calendar-streak'}>
-			<p>Started on {moment(this.props.currentHabit.startdate).format('l')}</p>
+			<p>Started on {this.props.currentHabit.startdate}</p>
 			<p>Goal: {this.props.currentHabit.goal} times {this.props.currentHabit.loginterval}</p>
 			<p>Current Streak: {this.props.currentStreak} Day(s)</p>
 			<hr/>

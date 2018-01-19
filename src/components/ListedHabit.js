@@ -7,6 +7,8 @@ import './ListedHabit.css';
 
 class ListedHabit extends Component {
 	render() {
+		console.log(this.props.startdate.startdate)
+		let date = moment(this.props.startdate.startdate, 'MM-DD-YYYY').format('L');
 		return(	
 		<Grid fluid>
 			<section className={"listed-habit"}>
@@ -18,7 +20,7 @@ class ListedHabit extends Component {
 					</Col>
 					<Col xs>		
 						<div className={'start-date-container'}>
-							<p>{moment(this.props.startdate.startdate).format('l')}</p>
+							<p>{date}</p>
 						</div>
 					</Col>		
 				</Row>
