@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import moment from 'moment';
 import '../reset.css';
 import '../App.css';
 import './ListedHabit.css';
@@ -17,7 +18,7 @@ class ListedHabit extends Component {
 					</Col>
 					<Col xs>		
 						<div className={'start-date-container'}>
-							<p>{this.props.startdate.startdate}</p>
+							<p>{moment(this.props.startdate.startdate).format('l')}</p>
 						</div>
 					</Col>		
 				</Row>
