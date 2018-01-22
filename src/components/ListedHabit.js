@@ -7,7 +7,6 @@ import './ListedHabit.css';
 
 class ListedHabit extends Component {
 	render() {
-		console.log(this.props.startdate.startdate)
 		let date = moment(this.props.startdate.startdate, 'MM-DD-YYYY').format('L');
 		return(	
 		<Grid fluid>

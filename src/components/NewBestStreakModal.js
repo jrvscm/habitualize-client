@@ -30,14 +30,13 @@ class BestStreakModal extends Component {
       						
       					<div className={'modal-content'}>	<a id={'closeLink'} onClick={this.close.bind(this)}><FontAwesome.FaClose /></a>
       						<p>Contratulations!</p> 
-      						<p>You have a {this.props.longestStreak} Day(s) streak going!</p> 
+      						<p>You have a {this.props.currentStreak} Day(s) streak going!</p> 
       						<p>Keep up the good work!</p>
                   <div className={'shared'}>
         						<ShareButton
                 				compact
                 				socialMedia={'facebook'}
                 				url={"https://habitualize.com"}
-                				media={'/*add screenshot of UI*/'}
                 				text="I set a new record on Habitualize!"
             					/>
                   </div>

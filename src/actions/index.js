@@ -242,7 +242,7 @@ export const setGraphInfo = (currentHabit, newArray) => {
 		if(moment(newArray[last].submitted, 'MM-DD-YYYY').isSame(today, 'day') === false && 
 			moment(newArray[last].submitted, 'MM-DD-YYYY').isSame(yesterday, 'day') === false) {
 				let lastSubmit = moment(newArray[last].submitted, 'MM-DD-YYYY').format('L');
-				let difference = lastSubmit.diff(today, 'days');
+				let difference = moment(lastSubmit, 'MM-DD-YYYY').diff(today, 'days');
 				let datesMissedArray = [];
 				let missedDate;
 				for(let i=0; i>difference; i--) {
@@ -322,7 +322,7 @@ export const setUpStreakChecker = (newArray) => {
 		const longestStreak = Math.max(...streaks);
 		const currentStreak = streaks[streaks.length -1];
 
-		if(longestStreak % 5 === 0) {
+		if(currentStreak % 5 === 0) {
 			dispatch(setNewRecord())
 		}
 
