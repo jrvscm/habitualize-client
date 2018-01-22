@@ -170,12 +170,12 @@ export const createNewHabitRequest = (values, authToken, currentUser) => (dispat
         	},
         	body: JSON.stringify({
         		habitTitle: values.habitTitle,
-        		streak: [{submitted: moment(values.habitStartDate, 'MM-DD-YYYY').format('L'), impressions: 1}],
+        		streak: [{submitted: moment(values.habitStartDate, 'MM/DD/YYYY').format('L'), impressions: 1}],
         		userRef: currentUser.userId,
         		goodOrBad: values.goodOrBadRadio,
         		goal: values.habitGoalDropdown,
         		logInterval: values.habitLogDropdown,
-        		startDate: moment(values.habitStartDate, 'MM-DD-YYYY').format('L')
+        		startDate: moment(values.habitStartDate, 'MM/DD/YYYY').format('L')
         	})
 		})
 		.then(response => response.json())
@@ -204,7 +204,7 @@ export const logSubmission = (currentHabit, authToken) => {
 	return  (dispatch) => {
 		
 		let today = moment().format('L');
-		const yesterday = moment(today, 'MM-DD-YYYY').add(-1, 'days');
+		const yesterday = moment(today, 'MM/DD/YYYY').add(-1, 'days');
 		let streak = currentHabit.streak;
 
 		let newArray = [];
@@ -214,10 +214,10 @@ export const logSubmission = (currentHabit, authToken) => {
 		}
 		let last = newArray.length -1;
 
-		if(moment(newArray[last].submitted, 'MM-DD-YYYY').isSame(today, 'day') === true) {
-			newArray[last] = {submitted: moment(today, 'MM-DD-YYYY').format('L'), impressions: newArray[last].impressions + 1};
-				} else if(moment(newArray[last].submitted, 'MM-DD-YYYY').isSame(yesterday, 'day') === true) {
-					newArray.push({submitted: moment(today, 'MM-DD-YYYY').format('L'), impressions: 1});
+		if(moment(newArray[last].submitted, 'MM/DD/YYYY').isSame(today, 'day') === true) {
+			newArray[last] = {submitted: moment(today, 'MM/DD/YYYY').format('L'), impressions: newArray[last].impressions + 1};
+				} else if(moment(newArray[last].submitted, 'MM/DD/YYYY').isSame(yesterday, 'day') === true) {
+					newArray.push({submitted: moment(today, 'MM/DD/YYYY').format('L'), impressions: 1});
 					}
 
 		dispatch(setGraphInfo(currentHabit, newArray));
@@ -235,19 +235,19 @@ export const setGraphInfo = (currentHabit, newArray) => {
 		} 
 
 		let today = moment([]).format('L');
-		const yesterday = moment(today, 'MM-DD-YYYY').add(-1, 'days');
+		const yesterday = moment(today, 'MM/DD/YYYY').add(-1, 'days');
 
 		let last = newArray.length -1;
 
-		if(moment(newArray[last].submitted, 'MM-DD-YYYY').isSame(today, 'day') === false && 
-			moment(newArray[last].submitted, 'MM-DD-YYYY').isSame(yesterday, 'day') === false) {
-				let lastSubmit = moment(newArray[last].submitted, 'MM-DD-YYYY').format('L');
-				let difference = moment(lastSubmit, 'MM-DD-YYYY').diff(today, 'days');
+		if(moment(newArray[last].submitted, 'MM/DD/YYYY').isSame(today, 'day') === false && 
+			moment(newArray[last].submitted, 'MM/DD/YYYY').isSame(yesterday, 'day') === false) {
+				let lastSubmit = moment(newArray[last].submitted, 'MM/DD/YYYY').format('L');
+				let difference = moment(lastSubmit, 'MM/DD/YYYY').diff(today, 'days');
 				let datesMissedArray = [];
 				let missedDate;
 				for(let i=0; i>difference; i--) {
 					if(i < 0) {
-						missedDate = moment(today, 'MM-DD-YYYY').add(i, 'days');
+						missedDate = moment(today, 'MM/DD/YYYY').add(i, 'days');
 						datesMissedArray.push(missedDate);
 					}
 				}
