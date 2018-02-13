@@ -322,7 +322,7 @@ export const setUpStreakChecker = (newArray) => {
 		const longestStreak = Math.max(...streaks);
 		const currentStreak = streaks[streaks.length -1];
 
-		if(currentStreak % 5 === 0) {
+		if(currentStreak % 10 === 0) {
 			dispatch(setNewRecord())
 		}
 
