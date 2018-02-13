@@ -36,13 +36,14 @@ Habit tracking provides you with an outlet to *teach* yourself good habits. Habi
 - HTML5
 - CSS3
 - Enzyme (testing)
+- Continuous integration and deployment with Travis CI and Netlify
 
 #### Back End [Habitualize API](https://github.com/jrvscm/habitualize-api)
 - Node.js (server)
 - Express (server)  
 - MongoDB/Mongoose/Mlab (database) 
 - Mocha Chai (Testing)
-- Continuous integration and deployment with Travis CI and Netlify
+- Continuous integration and deployment with Travis CI and Heroku
 
 #### Responsive
 - Habitualize is completely reponsive and supports all mobile, tablet, and desktop devices.
